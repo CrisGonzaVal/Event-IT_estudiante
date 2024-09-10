@@ -55,7 +55,7 @@ export class AppComponent {
     {
       icon:'exit-outline',
       name:'CERRAR SESIÓN',
-      redirectTo:'/comienzo',
+      redirectTo:'/login',
     },
 
   ]

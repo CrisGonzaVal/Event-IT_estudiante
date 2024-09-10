@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular'; //cuadros de mensajes
 
 @Component({
-  selector: 'app-comienzo',
-  templateUrl: './comienzo.page.html',
-  styleUrls: ['./comienzo.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class ComienzoPage implements OnInit {
+export class loginPage implements OnInit {
 
   constructor(private router:Router,
               private alertcontroller:AlertController) {

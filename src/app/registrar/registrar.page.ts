@@ -25,7 +25,7 @@ export class RegistrarPage implements OnInit {
           text: 'OK',
           role: 'confirm',
           handler: () => {
-            this.router.navigate(['./comienzo']); //Permite navegar a otro page
+            this.router.navigate(['./login']); //Permite navegar a otro page
           },
         },
       ],

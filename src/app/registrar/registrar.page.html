@@ -37,11 +37,15 @@
       </ion-item>
   
       <ion-item>
-        <ion-input label="Contraseña: " label-placement="floating"  type="password" placeholder=" Crea una contraseña" name="correo"></ion-input>
+        <ion-input label="Contraseña: " label-placement="floating"  type="password" placeholder=" Crea una contraseña" name="contraseña">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input label="Confirme Contraseña: " label-placement="floating"  type="password" placeholder=" Confirme contraseña" name="conf-correo"></ion-input>
+        <ion-input label="Confirme Contraseña: " label-placement="floating"  type="password" placeholder=" Confirme contraseña" name="conf-correo">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
       </ion-item>
   
       <ion-button (click)="msjRegistro()" expand="block" color="tertiary" id="open-loading">Registrar</ion-button>
