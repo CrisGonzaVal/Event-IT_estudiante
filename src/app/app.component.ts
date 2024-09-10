@@ -6,6 +6,14 @@ interface Menu{
   icon:string;
   name:string;
   redirectTo:string;
+  cantidad:number;
+}
+
+interface configuraciones{
+
+  icon:string;
+  name:string;
+  redirectTo:string;
 }
 @Component({
   selector: 'app-root',
@@ -19,30 +27,39 @@ export class AppComponent {
     {
       icon:'newspaper-outline',
       name:'ACTIVIDADES',
-      redirectTo:'/actividades'
+      redirectTo:'/actividades',
+      cantidad:10
     },
     {
       icon:'chatbubbles-outline',
       name:'SEMINARIOS',
-      redirectTo:'/seminarios'
+      redirectTo:'/seminarios',
+      cantidad:10
     },
     {
       icon:'calendar-outline',
       name:'EVENTOS',
-      redirectTo:'/eventos'
+      redirectTo:'/eventos',
+      cantidad:10
     },
+
+  ]
+
+  configuraciones:configuraciones[]=[
+
     {
       icon:'settings-outline',
       name:'CONFIGURACIONES',
-      redirectTo:'/tabs/tab5'
+      redirectTo:'/tabs/tab5',
     },
     {
       icon:'exit-outline',
       name:'CERRAR SESIÓN',
-      redirectTo:'/comienzo'
+      redirectTo:'/comienzo',
     },
 
   ]
+
 
   constructor() {}
 }
