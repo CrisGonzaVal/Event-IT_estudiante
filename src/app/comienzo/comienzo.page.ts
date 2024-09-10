@@ -33,7 +33,7 @@ export class ComienzoPage implements OnInit {
   }
   login(){
 
-     this.router.navigate(['./tabs/tab1']); //Permite navegar a otro page   
+     this.router.navigate(['./tabs/home']); //Permite navegar a otro page   
   }
 
   registrar(){
