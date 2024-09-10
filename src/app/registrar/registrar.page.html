@@ -1,0 +1,54 @@
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+      <ion-back-button 
+      defaultHref="/">
+      </ion-back-button>
+    </ion-buttons>
+      <ion-title>Registro de Usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <div>
+      <ion-img class="sinfondo logo" src="assets/Event It.jpeg"></ion-img>
+    </div>
+    <ion-card>
+      <ion-card-content>
+      <ion-item>
+        <ion-input label="Nombre: " label-placement="floating"  type="text" placeholder=" Ingrese su Nombre" name="nombre"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Email: " label-placement="floating"  type="text" placeholder=" Ingrese su Email" name="correo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Rut: " label-placement="floating"  type="text" placeholder=" Ingrese su Rut" name="rut"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-select label="Carrera:" interface="action-sheet" placeholder="Selecciona tu carrera">
+          <ion-select-option >Ing. en Informatica</ion-select-option>
+          <ion-select-option >Ing. en Redes</ion-select-option>
+          
+        </ion-select>
+      </ion-item>
+  
+      <ion-item>
+        <ion-input label="Contraseña: " label-placement="floating"  type="password" placeholder=" Crea una contraseña" name="correo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Confirme Contraseña: " label-placement="floating"  type="password" placeholder=" Confirme contraseña" name="conf-correo"></ion-input>
+      </ion-item>
+  
+      <ion-button (click)="msjRegistro()" expand="block" color="tertiary" id="open-loading">Registrar</ion-button>
+
+      <ion-loading trigger="open-loading" message="Procesando Registro..." duration="3000"></ion-loading>
+
+    </ion-card-content>
+    </ion-card>  
+    
+  </ion-content>

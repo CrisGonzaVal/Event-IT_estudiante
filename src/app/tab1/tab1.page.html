@@ -1,17 +1,105 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="start" name="list-outline" size="large" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
-      Tab 1
+      Mi Perfil
     </ion-title>
+    <ion-icon name="person-circle-outline" color="light" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <!-- Sección de la foto de perfil -->
+  <div class="perfil-container">
+    <ion-avatar class="perfil-avatar">
+      <ion-img src="assets/user-avatar.jpg" alt="User Avatar"></ion-img>
+    </ion-avatar>
+
+    <!-- Información del usuario -->
+    <ion-list class="perfil-info">
+      <ion-item>
+        <ion-label>
+          <ion-text  color="dark">
+            <h2>Nombre del Usuario</h2>
+          </ion-text>
+          <ion-text  color="medium"> 
+            <p> Cristian González Valenzuela </p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <ion-text  color="dark">
+              <h2>Rut</h2>
+            </ion-text>
+            <ion-text  color="medium"> 
+              <p> 19.182.972-7 </p>
+            </ion-text>
+          </ion-label>
+        </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-text  color="dark">
+            <h2>Email</h2>
+          </ion-text>
+          <ion-text  color="medium"> 
+            <p> crise.gonzalez&#64;duocuc.cl </p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-text  color="dark">
+            <h2>Carrera</h2>
+          </ion-text>
+          <ion-text  color="medium"> 
+            <p> Ing. Informatica </p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-text  color="dark">
+            <h2>Tipo Jornada</h2>
+          </ion-text>
+          <ion-text  color="medium"> 
+            <p> Vespertino </p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-text  color="dark">
+            <h2>sección</h2>
+          </ion-text>
+          <ion-text  color="medium"> 
+            <p> 010V </p>
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- Opciones adicionales del perfil -->
+    <ion-list>
+      <ion-item>
+        <ion-icon name="create-outline" slot="start" size="large"></ion-icon>
+        <ion-button fill="clear">Editar Perfil</ion-button>
+      </ion-item>
+      
+    </ion-list>
+  </div>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
+
 </ion-content>

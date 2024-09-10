@@ -1,3 +1,22 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main" menuId="first" side="start" type="overlay">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-icon slot="start" name="grid-outline" size="large" style="padding-left:15px;"></ion-icon>
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+       <ion-menu-toggle *ngFor="let i of menu">
+          <ion-item [routerLink]="i.redirectTo" detail="true">
+            <ion-icon slot="start" [name]="i.icon" color="dark"></ion-icon>
+            <ion-label>{{i.name}}</ion-label>
+          </ion-item>
+       </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
+
+

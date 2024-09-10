@@ -23,14 +23,25 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
-      }
+      },
     ]
   },
   {
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/registrar',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: '/lector-qr',
+    pathMatch: 'full'
   }
+  
 ];
 
 @NgModule({

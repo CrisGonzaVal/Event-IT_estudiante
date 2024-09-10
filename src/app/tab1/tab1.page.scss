@@ -1,0 +1,20 @@
+.perfil-container {
+    text-align: center;
+    padding: 20px 10px;
+  }
+  
+  .perfil-avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  
+  .perfil-info {
+    margin-top: 20px;
+  }
+  
+  
+  ion-item {
+    --inner-padding-start: 0;
+  }
