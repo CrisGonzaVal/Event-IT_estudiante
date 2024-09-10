@@ -10,10 +10,6 @@ export class TabsPage {
 
   constructor(private router:Router) {}
 
-
-  lectorQR(){
-    this.router.navigate(['/lector-qr']);
-  }
 }
 
 

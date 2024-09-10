@@ -12,12 +12,8 @@ const routes: Routes = [
         loadChildren: () => import('../home/home.module').then(m => m.homePageModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-      },
-      {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'lector-qr',
+        loadChildren: () => import('../lector-qr/lector-qr.module').then(m => m.LectorQRPageModule)
       },
       {
         path: '',
@@ -40,7 +36,12 @@ const routes: Routes = [
     path: '',
     redirectTo: '/lector-qr',
     pathMatch: 'full'
-  }
+  },
+  {
+    path: '',
+    redirectTo: '/editar-contacto',
+    pathMatch: 'full'
+  },
   
 ];
 

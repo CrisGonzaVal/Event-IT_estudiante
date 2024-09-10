@@ -40,6 +40,10 @@ const routes: Routes = [
     path: 'seminarios',
     loadChildren: () => import('./seminarios/seminarios.module').then( m => m.SeminariosPageModule)
   },
+  {
+    path: 'editar-usuario',
+    loadChildren: () => import('./editar-usuario/editar-usuario.module').then( m => m.EditarUsuarioPageModule)
+  },
   //eliminar los tabs hijos
 ];
 @NgModule({

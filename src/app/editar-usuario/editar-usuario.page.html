@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button 
+           defaultHref="/tabs/home">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Actualización de perfil</ion-title>
+    <ion-icon name="create-outline" color="light" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Imagen de perfil del usuario -->
+  <div class="profile-pic">
+    <ion-avatar>
+      <ion-img src="assets/user-avatar.jpg" alt="Foto de Perfil"></ion-img>
+    </ion-avatar>
+    <ion-button expand="block" class="upload-btn" color="primary">Cambiar Foto</ion-button>
+  </div>
+
+  <!-- Formulario para editar los datos del usuario -->
+  <ion-list>
+    <!-- Campo Nombre -->
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <!-- Campo RUT -->
+    <ion-item>
+      <ion-label position="floating">RUT</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <!-- Campo Carrera -->
+    <ion-item>
+      <ion-label position="floating">Carrera</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <!-- Campo Email -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <!-- Campo Tipo de Jornada -->
+    <ion-item>
+      <ion-label position="floating">Tipo de Jornada</ion-label>
+      <ion-select>
+        <ion-select-option value="diurna">Diurna</ion-select-option>
+        <ion-select-option value="vespertina">Vespertina</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Campo Sección -->
+    <ion-item>
+      <ion-label position="floating">Sección</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- Botón para Guardar Cambios -->
+  <ion-button expand="block" href="/home" color="success">Guardar Cambios</ion-button>
+
+  
+</ion-content>
