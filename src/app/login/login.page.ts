@@ -22,6 +22,9 @@ export class loginPage implements OnInit {
     username:"",
     email:"",
     password:"",
+    carrera:"",
+    jornada:"",
+    seccion:"",
     isactive:false
   }
 
@@ -65,6 +68,9 @@ export class loginPage implements OnInit {
         username: this.userdata[0].username,
         password: this.userdata[0].password,
         email:this.userdata[0].email,
+        carrera:this.userdata[0].carrera,
+        jornada:this.userdata[0].jornada,
+        seccion:this.userdata[0].seccion,
         isactive: this.userdata[0].isactive
       }
       if (this.usuario.password !== password) {
@@ -88,9 +94,12 @@ export class loginPage implements OnInit {
     sessionStorage.setItem('username', usuario.username);
     sessionStorage.setItem('email', usuario.email);
     sessionStorage.setItem('password', usuario.password);
+    sessionStorage.setItem('carrera', usuario.carrera);
+    sessionStorage.setItem('jornada', usuario.jornada);
+    sessionStorage.setItem('seccion', usuario.seccion);
     sessionStorage.setItem('ingresado', 'true');
     this.showToast('Sesión Iniciada '+ this.usuario.username);
-    this.router.navigate(['/home']);
+    this.enviarDatosUsuario(usuario); //mando datos del usuario al page home
 
   }
 
@@ -134,6 +143,12 @@ async UsuarioNoExiste(){
 
   registrar(){
     this.router.navigate(['./registrar']); //Permite navegar a otro page
+  }
+
+  enviarDatosUsuario(Observable:any){
+    this.router.navigate(['/home'], 
+      {queryParams: {usuarios:JSON.stringify(Observable)}}
+    )
   }
 
 }

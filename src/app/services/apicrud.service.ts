@@ -17,15 +17,15 @@ export class ApicrudService {
 
   }
 
-  postMascotas(newUsuario: Users):Observable<Users>{
+  postUser(newUsuario: Users):Observable<Users>{
     return this.httpClient.post<Users>(`${environment.apiUrl}/usuarios`, newUsuario); //me devuelve un arreglo
   }
 
-  putMascotas(usuarios:any):Observable<Users>{
+  putUser(usuarios:any):Observable<Users>{
     return this.httpClient.put<Users>(`${environment.apiUrl}/usuarios/${usuarios.rut}`, usuarios);
  }
 
- deleteMascotas(usuarios:any):Observable<Users>{
+ deleteUser(usuarios:any):Observable<Users>{
   return this.httpClient.delete<Users>(`${environment.apiUrl}/usuarios/${usuarios.rut}`);
  }
 }

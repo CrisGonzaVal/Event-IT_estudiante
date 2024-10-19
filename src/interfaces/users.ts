@@ -7,6 +7,7 @@ export interface Users{
     password:string;
     carrera:string;
     jornada:string;
+    seccion:string;
     isactive:boolean;
 
 }

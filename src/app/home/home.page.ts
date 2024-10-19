@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Users } from 'src/interfaces/users';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +10,15 @@ import { Router } from '@angular/router';
 })
 export class homePage {
 
-  constructor(private menucontroller:MenuController,
-              private router:Router) {}
+  usuario: any;
+
+  constructor(private activated: ActivatedRoute,
+              private menucontroller:MenuController,
+              private router:Router) { 
+                //recuperar objeto recibido por url
+                this.activated.queryParams.subscribe(param => {
+                  this.usuario = JSON.parse (param['usuarios']);
+                })}
 
   mostrarMenu(){
     this.menucontroller.open('first');
