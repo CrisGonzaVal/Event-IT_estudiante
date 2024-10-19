@@ -2,6 +2,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+  
   <ion-toolbar>
       <ion-img class="logo sinfondo" src="assets/Event It.jpeg"></ion-img>
   </ion-toolbar>
@@ -11,26 +13,47 @@
        <ion-title style="text-align: center;">Iniciar Sesión</ion-title>
     </ion-card-header>
     <ion-card-content>
+     <form [formGroup]="loginForm"> 
       <ion-item>
-       <!--ion-label position="starcked">Email: </ion-label>-->
-        <ion-input label="Email: " label-placement="floating"  type="text" placeholder=" Ingrese su email" name="correo"></ion-input>
+        <ion-input label="Email: " label-placement="floating"  type="text" placeholder=" Ingrese su email" formControlName="email"></ion-input>
       </ion-item>
 
+      <div id="alerta" *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || 
+                  loginForm.get('email')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('email')?.hasError('required')">
+          *email es obligatorio
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('email')?.hasError('minlength')">
+          *email debe tener mínimo 6 caracteres
+        </div>
+      </div>
+
       <ion-item>
-        <ion-input label="Contraseña: " label-placement="floating" type="password" placeholder=" Ingrese su contraseña" name="pass">
+        <ion-input label="Contraseña: " label-placement="floating" type="password" placeholder=" Ingrese su contraseña" formControlName="password">
           <ion-input-password-toggle slot="end" size="small">
 
           </ion-input-password-toggle></ion-input>
       </ion-item>
-      
+
+      <div id="alerta" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || 
+                 loginForm.get('password')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('password')?.hasError('required')">
+          *Password es obligatoria
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('password')?.hasError('minlength')">
+         *Password debe tener mínimo 8 caracteres
+        </div>
+      </div>
+      <!-- finaL Alertas-->
       <ion-item lines="none">
         <ion-button fill="clear" style="font-size: 10px;">¿Olvidaste tu contraseña?</ion-button>
       </ion-item>
 
       <div style="text-align: center;">
-        <ion-button (click)="login()" id="open-loading" fill="solid">
+        <ion-button (click)="login()" [disabled]="!loginForm.valid" id="open-loading" fill="solid">
           LogIn
         </ion-button>
+      
 
         <ion-loading trigger="open-loading" message="Validando Cuenta..." duration="3000"></ion-loading>
       </div>
@@ -44,9 +67,10 @@
           Registrarse
         </ion-button>
       </div>
-
+    </form>
     </ion-card-content>
   </ion-card>
+
 </ion-content>  
 <ion-footer>
   <ion-toolbar color="primary">
