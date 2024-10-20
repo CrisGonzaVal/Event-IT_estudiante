@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApicrudService } from '../services/apicrud.service';
 import { AlertController } from '@ionic/angular'; //cuadros de mensajes
+import { Users } from 'src/interfaces/users';
 
 
 @Component({
@@ -10,15 +12,34 @@ import { AlertController } from '@ionic/angular'; //cuadros de mensajes
 })
 export class RegistrarPage implements OnInit {
 
+  usuario: Users={
+    rut: "",
+    username: "",
+    email: "",
+    password: "",
+    carrera: "",
+    jornada: "",
+    seccion: "",
+    isactive: true,
+
+  }
+
   constructor(private router:Router,
-              private alertcontroller:AlertController) { }
+              private alertcontroller:AlertController,
+              private apiCrud: ApicrudService) { }
 
   ngOnInit() {
   }
 
+  crearUsuario(){
+    this.apiCrud.postUser(this.usuario).subscribe();
+    this.msjRegistro();
+  }
+
   async msjRegistro(){
     const alert = await this.alertcontroller.create({
-      header: 'Ya te has registrado',
+      header: 'registrado de estudiante',
+      message: 'Estudiente ha sido registrado',
       mode:'ios',  //mismo diseño en ios y android
       buttons: [
         {

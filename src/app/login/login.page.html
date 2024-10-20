@@ -23,8 +23,8 @@
         <div id="alerta" *ngIf="loginForm.get('email')?.hasError('required')">
           *email es obligatorio
         </div>
-        <div id="alerta" *ngIf="loginForm.get('email')?.hasError('minlength')">
-          *email debe tener mínimo 6 caracteres
+        <div id="alerta" *ngIf="loginForm.get('email')?.hasError('email')">
+          *El email debe tener un formato válido.
         </div>
       </div>
 

@@ -1,16 +1,37 @@
 {
-  
-  "usuarios":[
+  "usuarios": [
     {
-     "rut":"19182972-7",
-     "username":"Cristian Gonzalez",
-     "email":"crise.gonzalez@duocuc.cl",
-     "password":"123456789",
-     "carrera": "Ing. Informatica",
-     "jornada": "vespertino",
-     "seccion": "010v",
-     "isactive":true
-    }  
+      "id": "3f54",
+      "rut": "19182972-7",
+      "username": "Cristian Gonzalez",
+      "email": "crise.gonzalez@duocuc.cl",
+      "password": "123456789",
+      "carrera": "Ing. Informatica",
+      "jornada": "vespertino",
+      "seccion": "010v",
+      "isactive": true
+    },
+    {
+      "id": "2e06",
+      "rut": "9567345-k",
+      "username": "Mauricio Gonzalez",
+      "email": "m.gonzalez@duocuc.cl",
+      "password": "qwertyuiop",
+      "carrera": " Ing. informatica",
+      "jornada": "session",
+      "seccion": "012v",
+      "isactive": true
+    },
+    {
+      "id": "ce0a",
+      "rut": "11296300-6",
+      "username": "Maria Valenzuela Alvarado",
+      "email": "vero40valenzuela@gmail.com",
+      "password": "zxcvbnm,",
+      "carrera": " Tec. Analista Programador",
+      "jornada": "Vespertino",
+      "seccion": "012d",
+      "isactive": true
+    }
   ]
-    
 }

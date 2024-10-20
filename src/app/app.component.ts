@@ -27,19 +27,19 @@ export class AppComponent {
     {
       icon:'newspaper-outline',
       name:'ACTIVIDADES',
-      redirectTo:'/actividades',
+      redirectTo:'/tabs/actividades',
       cantidad:10
     },
     {
       icon:'chatbubbles-outline',
       name:'SEMINARIOS',
-      redirectTo:'/seminarios',
+      redirectTo:'/tabs/seminarios',
       cantidad:10
     },
     {
       icon:'calendar-outline',
       name:'EVENTOS',
-      redirectTo:'/eventos',
+      redirectTo:'/tabs/eventos',
       cantidad:10
     },
 

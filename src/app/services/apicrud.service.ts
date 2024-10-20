@@ -18,7 +18,7 @@ export class ApicrudService {
   }
 
   postUser(newUsuario: Users):Observable<Users>{
-    return this.httpClient.post<Users>(`${environment.apiUrl}/usuarios`, newUsuario); //me devuelve un arreglo
+    return this.httpClient.post<Users>(`${environment.apiUrl}/usuarios`, newUsuario);
   }
 
   putUser(usuarios:any):Observable<Users>{

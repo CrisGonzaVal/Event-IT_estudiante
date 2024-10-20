@@ -38,7 +38,7 @@ export class loginPage implements OnInit {
               ) { 
 
                 this.loginForm = this.fbuilder.group({
-                  'email' : new FormControl("",[Validators.required, Validators.minLength(6)]), 
+                  'email' : new FormControl("",[Validators.required, Validators.email]), 
                   'password' : new FormControl("",[Validators.required, Validators.minLength(8)]),
                 })
               } /*Llamar las bibliotecas*/
@@ -146,7 +146,7 @@ async UsuarioNoExiste(){
   }
 
   enviarDatosUsuario(Observable:any){
-    this.router.navigate(['/home'], 
+    this.router.navigate(['/tabs/home'], 
       {queryParams: {usuarios:JSON.stringify(Observable)}}
     )
   }
