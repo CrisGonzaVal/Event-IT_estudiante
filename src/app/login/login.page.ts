@@ -91,15 +91,8 @@ export class loginPage implements OnInit {
   }
 
   private IniciarSesion(usuario:any){
-    sessionStorage.setItem('username', usuario.username);
-    sessionStorage.setItem('email', usuario.email);
-    sessionStorage.setItem('password', usuario.password);
-    sessionStorage.setItem('carrera', usuario.carrera);
-    sessionStorage.setItem('jornada', usuario.jornada);
-    sessionStorage.setItem('seccion', usuario.seccion);
-    sessionStorage.setItem('ingresado', 'true');
-    this.showToast('Sesión Iniciada '+ this.usuario.username);
-    this.enviarDatosUsuario(usuario); //mando datos del usuario al page home
+    this.router.navigate(['/tabs/home']);
+    this.showToast( this.authservice.setSesionUser(usuario) );
 
   }
 
@@ -107,7 +100,7 @@ export class loginPage implements OnInit {
   async showToast(msg: any){
     const toast= await this.toast.create({
       message:msg,
-      duration: 3000
+      duration: 2000
     })
     toast.present();
   }
@@ -145,10 +138,6 @@ async UsuarioNoExiste(){
     this.router.navigate(['./registrar']); //Permite navegar a otro page
   }
 
-  enviarDatosUsuario(Observable:any){
-    this.router.navigate(['/tabs/home'], 
-      {queryParams: {usuarios:JSON.stringify(Observable)}}
-    )
-  }
+
 
 }

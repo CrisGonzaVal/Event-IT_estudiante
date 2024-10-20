@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service'; 
+import { ToastController } from '@ionic/angular';
 
 
 interface Menu{
@@ -14,6 +16,7 @@ interface configuraciones{
   icon:string;
   name:string;
   redirectTo:string;
+  action?: () => void;  // Acción para cerrar sesión
 }
 @Component({
   selector: 'app-root',
@@ -55,11 +58,28 @@ export class AppComponent {
     {
       icon:'exit-outline',
       name:'CERRAR SESIÓN',
-      redirectTo:'/login',
-    },
+      action: () => this.cerrarSesion(),
+      redirectTo:'/',
+    }
 
   ]
 
 
-  constructor() {}
+  constructor(private auth: AuthService,
+            private toast: ToastController
+  ) {}
+
+  cerrarSesion() {
+    this.showToast(this.auth.cerrarSesionUser());  // Llama al método de cierre de sesión en AuthService
+
+    console.log("se ejecutó el cerrar sesion");
+  }
+
+  async showToast(msg: any){
+    const toast= await this.toast.create({
+      message:msg,
+      duration: 2000
+    })
+    toast.present();
+  }
 }

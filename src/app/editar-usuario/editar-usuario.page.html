@@ -24,13 +24,15 @@
     <!-- Campo Nombre -->
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" style="color: grey;">
+        <p>{{usuario.username}}</p>
+      </ion-input>
     </ion-item>
 
     <!-- Campo RUT -->
     <ion-item>
-      <ion-label position="floating">RUT</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-label position="floating">Rut</ion-label>
+      <ion-input type="text" disabled></ion-input>
     </ion-item>
 
     <!-- Campo Carrera -->
@@ -47,22 +49,26 @@
 
     <!-- Campo Tipo de Jornada -->
     <ion-item>
-      <ion-label position="floating">Tipo de Jornada</ion-label>
-      <ion-select>
-        <ion-select-option value="diurna">Diurna</ion-select-option>
-        <ion-select-option value="vespertina">Vespertina</ion-select-option>
+      <ion-select label="tipo de jornada: " interface="action-sheet" placeholder="Selecciona tu Jornada">
+        <ion-select-option value="Diurno">Diurno</ion-select-option>
+        <ion-select-option value="Vespertina">Vespertino</ion-select-option>
       </ion-select>
     </ion-item>
 
     <!-- Campo Sección -->
     <ion-item>
-      <ion-label position="floating">Sección</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-select label="seccion: " interface="action-sheet" placeholder="Selecciona tu sección">
+        <ion-select-option value="010d">O10d</ion-select-option>
+        <ion-select-option value="010v">O10v</ion-select-option>
+        <ion-select-option value="011d">O11d</ion-select-option>
+        <ion-select-option value="011v">O11v</ion-select-option>
+        <ion-select-option value="012d">O12d</ion-select-option> 
+        <ion-select-option value="012v">O12v</ion-select-option>
+      </ion-select>
     </ion-item>
   </ion-list>
-
   <!-- Botón para Guardar Cambios -->
-  <ion-button expand="block" href="/home" color="success">Guardar Cambios</ion-button>
+  <ion-button expand="block" href="/tabs/home" color="success">Guardar Cambios</ion-button>
 
   
 </ion-content>

@@ -32,6 +32,17 @@
       "jornada": "Vespertino",
       "seccion": "012d",
       "isactive": true
+    },
+    {
+      "id": "cbdf",
+      "rut": "20592808-1",
+      "username": "Paz Mabel Cifuentes",
+      "email": "paz.mabel.cifuentes@gmail.com",
+      "password": "paz123456",
+      "carrera": " Ing. informatica",
+      "jornada": "Vespertino",
+      "seccion": "012d",
+      "isactive": true
     }
   ]
 }

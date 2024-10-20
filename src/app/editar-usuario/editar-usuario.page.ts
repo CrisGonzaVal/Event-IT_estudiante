@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { Users } from 'src/interfaces/users';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -8,9 +11,17 @@ import { Router } from '@angular/router';
 })
 export class EditarUsuarioPage implements OnInit {
 
-  constructor(private router:Router) { }
+  usuario: any;
+
+  constructor(private activated: ActivatedRoute,
+             private menucontroller:MenuController,
+             private router:Router,
+            private auth: AuthService) { }
+            
 
   ngOnInit() {
+    // recuperar objeto recibido por url
+    this.usuario = this.auth.getSesionUser();
   }
 
 }
