@@ -18,6 +18,7 @@ export class loginPage implements OnInit {
   userdata:any;
 
   usuario={
+    id:"",
     rut:"",
     username:"",
     email:"",
@@ -25,7 +26,7 @@ export class loginPage implements OnInit {
     carrera:"",
     jornada:"",
     seccion:"",
-    isactive:false
+    isactive:true
   }
 
   
@@ -64,6 +65,7 @@ export class loginPage implements OnInit {
       }
 
       this.usuario={
+        id:this.userdata[0].id,
         rut: this.userdata[0].rut,
         username: this.userdata[0].username,
         password: this.userdata[0].password,

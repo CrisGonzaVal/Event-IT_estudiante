@@ -22,7 +22,6 @@ export class homePage {
                 ngOnInit() {
                   // recuperar objeto recibido por url
                   this.usuario = this.auth.getSesionUser();
-                 
                 }
 
   mostrarMenu(){

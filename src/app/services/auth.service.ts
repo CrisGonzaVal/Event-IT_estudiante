@@ -38,6 +38,7 @@ export class AuthService {
   //persistencia del usuario
 
   setSesionUser(usuario: any) {
+    sessionStorage.setItem('id', usuario.id);
     sessionStorage.setItem('rut', usuario.rut);
     sessionStorage.setItem('username', usuario.username);
     sessionStorage.setItem('email', usuario.email);
@@ -54,13 +55,16 @@ export class AuthService {
   
   getSesionUser() {
     const getUsuario = {
+      id: sessionStorage.getItem('id'),
       rut: sessionStorage.getItem('rut'),
       username: sessionStorage.getItem('username'),
       email: sessionStorage.getItem('email'),
       password: sessionStorage.getItem('password'),
       carrera: sessionStorage.getItem('carrera'),
       jornada: sessionStorage.getItem('jornada'),
-      seccion: sessionStorage.getItem('seccion')
+      seccion: sessionStorage.getItem('seccion'),
+      isactive: sessionStorage.getItem('isactive') === 'true' ? true : true
+      
     };
 
     return getUsuario;

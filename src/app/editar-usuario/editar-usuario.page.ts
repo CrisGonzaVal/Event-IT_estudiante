@@ -19,7 +19,7 @@ export class EditarUsuarioPage implements OnInit {
   constructor(private auth: AuthService,
               private router:Router,
               private api: ApicrudService,
-            private toast: ToastController) { }
+              private toast: ToastController) { }
 
             
 
@@ -31,7 +31,7 @@ export class EditarUsuarioPage implements OnInit {
   actualizarUsuario(){
 
     console.log('Datos enviados a la API:', this.usuario);
-    this.api.putUser(this.usuario).subscribe({
+    this.api.putUserById(this.usuario.id, this.usuario).subscribe({
 
 
       next: (response: Users) => {
@@ -45,6 +45,8 @@ export class EditarUsuarioPage implements OnInit {
         // Manejar el error
       },
       complete: () => {
+        
+        this.auth.setSesionUser(this.usuario);
         this.showToast('Actualización del usuario completada.');
       }
     });

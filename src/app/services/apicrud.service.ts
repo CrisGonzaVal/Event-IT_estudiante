@@ -9,10 +9,11 @@ import { Users } from 'src/interfaces/users';
 })
 export class ApicrudService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,) { }
+  
 
 
-  getUser():Observable<Users[]>{
+  getUsers():Observable<Users[]>{
     return this.httpClient.get<Users[]>(`${environment.apiUrl}/usuarios`); //me devuelve un arreglo
 
   }
@@ -28,6 +29,16 @@ export class ApicrudService {
  deleteUser(usuarios:any):Observable<Users>{
   return this.httpClient.delete<Users>(`${environment.apiUrl}/usuarios/${usuarios.rut}`);
  }
+
+ // Método para obtener un usuario específico por su id
+ getUserById(id: string): Observable<Users> {
+  return this.httpClient.get<Users>(`${environment.apiUrl}/usuarios/${id}`);
+}
+
+ // Actualizar usuario por ID
+ putUserById(id: string, usuario: any): Observable<Users> {
+  return this.httpClient.put<Users>(`${environment.apiUrl}/usuarios/${id}`, usuario);
+}
 
  
 }

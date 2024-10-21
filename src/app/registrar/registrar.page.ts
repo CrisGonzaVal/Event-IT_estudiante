@@ -13,6 +13,7 @@ import { Users } from 'src/interfaces/users';
 export class RegistrarPage implements OnInit {
 
   usuario: Users={
+    id:"",
     rut: "",
     username: "",
     email: "",
