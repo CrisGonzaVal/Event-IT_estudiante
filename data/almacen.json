@@ -7,7 +7,7 @@
       "email": "crise.gonzalez@duocuc.cl",
       "password": "123456789",
       "carrera": "Ing. Informatica",
-      "jornada": "vespertino",
+      "jornada": "Vespertino",
       "seccion": "010v",
       "isactive": true
     },
@@ -42,6 +42,17 @@
       "carrera": " Ing. informatica",
       "jornada": "Vespertino",
       "seccion": "012d",
+      "isactive": true
+    },
+    {
+      "id": "9f1d",
+      "rut": "19094384-4",
+      "username": "Felipe Carrillo",
+      "email": "feli.carrillo@duocuc.cl",
+      "password": "duoc2024",
+      "carrera": " Ing. informatica",
+      "jornada": "Vespertino",
+      "seccion": "010v",
       "isactive": true
     }
   ]

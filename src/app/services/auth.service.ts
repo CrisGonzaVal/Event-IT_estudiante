@@ -65,10 +65,6 @@ export class AuthService {
     return getUsuario;
   }
   
-  updateUser(nuevosDatos: any) {
-    this.usuario = { ...this.usuario, ...nuevosDatos };
-    sessionStorage.setItem('usuario', JSON.stringify(this.usuario));  // Actualizar en sessionStorage
-  }
 
   cerrarSesionUser() {
     //  para limpiar todo

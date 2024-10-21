@@ -16,8 +16,9 @@
           </ion-item>
        </ion-menu-toggle>
 
+       <!-- Configuraciones (incluye "Cerrar Sesión") -->
        <ion-menu-toggle *ngFor="let i of configuraciones">
-        <ion-item [routerLink]="i.redirectTo" detail="true">
+        <ion-item [routerLink]="i.redirectTo" detail="true" (click)="i.action ? i.action() : null">
           <ion-icon slot="start" [name]="i.icon" color="dark"></ion-icon>
           <ion-label>{{i.name}}</ion-label>
         </ion-item>

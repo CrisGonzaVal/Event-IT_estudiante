@@ -28,4 +28,6 @@ export class ApicrudService {
  deleteUser(usuarios:any):Observable<Users>{
   return this.httpClient.delete<Users>(`${environment.apiUrl}/usuarios/${usuarios.rut}`);
  }
+
+ 
 }

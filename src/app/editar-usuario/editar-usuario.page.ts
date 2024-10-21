@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { MenuController } from '@ionic/angular';
-import { Users } from 'src/interfaces/users';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { ApicrudService } from '../services/apicrud.service';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -13,10 +12,10 @@ export class EditarUsuarioPage implements OnInit {
 
   usuario: any;
 
-  constructor(private activated: ActivatedRoute,
-             private menucontroller:MenuController,
-             private router:Router,
-            private auth: AuthService) { }
+  constructor(private auth: AuthService,
+              private router:Router,
+              private api: ApicrudService) { }
+
             
 
   ngOnInit() {
@@ -24,4 +23,11 @@ export class EditarUsuarioPage implements OnInit {
     this.usuario = this.auth.getSesionUser();
   }
 
+  actualizarUsuario(){
+
+
+    this.router.navigate(['/tabs/home']);
+    this.api.putUser(this.usuario);
+
+  }
 }
