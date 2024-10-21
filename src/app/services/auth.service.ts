@@ -13,6 +13,7 @@ export class AuthService {
   usuario: any;
 
 
+
   constructor(private httpclient: HttpClient,
              private router: Router,
 

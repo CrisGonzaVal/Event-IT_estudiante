@@ -54,6 +54,28 @@
       "jornada": "Vespertino",
       "seccion": "010v",
       "isactive": true
+    },
+    {
+      "id": "8bc7",
+      "rut": "34567890-1",
+      "username": "cris gonza",
+      "email": "cris.gonza@duocuc.cl",
+      "password": "123456789",
+      "carrera": " Ing. informatica",
+      "jornada": "Vespertino",
+      "seccion": "012d",
+      "isactive": true
+    },
+    {
+      "id": "032f",
+      "rut": "12345678-6",
+      "username": "gonzaval",
+      "email": "hola@duocuc.cl",
+      "password": "123456789",
+      "carrera": " Ing. informatica",
+      "jornada": "Vespertino",
+      "seccion": "012d",
+      "isactive": true
     }
   ]
 }
