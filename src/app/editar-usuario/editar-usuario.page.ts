@@ -24,9 +24,12 @@ export class EditarUsuarioPage implements OnInit {
             
 
   ngOnInit() {
-   // Recuperar datos del usuario del servicio de autenticación
+    //Recuperar datos del usuario del servicio de autenticación
     this.usuario = this.auth.getSesionUser();
   }
+
+
+
 
 
 

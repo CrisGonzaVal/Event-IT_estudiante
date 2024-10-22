@@ -20,14 +20,20 @@ export class homePage {
               private detectaCambio: ChangeDetectorRef) { 
               }
 
+  
   ngOnInit() {
    // recuperar objeto recibido por url
-     console.log(this.usuario = this.auth.getSesionUser());
+     this.usuario = this.auth.getSesionUser();
+     console.log("se inicia vista home con ngOnInit");
   }
 
   ionViewWillEnter(){
     console.log("Se inicia denuevo la vista home");
-  }
+    this.usuario = this.auth.getSesionUser();
+   }
+
+
+
 
 
 
@@ -36,7 +42,7 @@ export class homePage {
   }
 
   modificar(){
-     this.router.navigate(['./editar-usuario']);
+     this.router.navigate(['./tabs/editar-usuario']);
   }
 
 }

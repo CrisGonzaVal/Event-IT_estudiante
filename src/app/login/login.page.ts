@@ -45,6 +45,7 @@ export class loginPage implements OnInit {
               } /*Llamar las bibliotecas*/
 
   ngOnInit() {
+    this.authservice.cerrarSesionUser();
   }
 
   login(){

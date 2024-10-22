@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../eventos/eventos.module').then(m => m.EventosPageModule)
       },
       {
+        path: 'editar-usuario',  // Añadir la ruta para editar-usuario
+        loadChildren: () => import('../editar-usuario/editar-usuario.module').then(m => m.EditarUsuarioPageModule)
+      },
+      {
         path: 'seminarios',
         loadChildren: () => import('../seminarios/seminarios.module').then(m => m.SeminariosPageModule)
       },
