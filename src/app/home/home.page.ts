@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service'; //1
-import { ChangeDetectorRef } from '@angular/core'; 
+import { AlertController } from '@ionic/angular';
 import { ApicrudService } from '../services/apicrud.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,15 @@ export class homePage {
 
   usuario: any;
 
-  constructor(private activated: ActivatedRoute,
+  constructor(
               private menucontroller:MenuController,
               private router:Router,
               private auth : AuthService,
-              private detectaCambio: ChangeDetectorRef,
-              private api:ApicrudService) { 
+              private alert: AlertController,
+              private api:ApicrudService,
+              private toast: ToastController,
+              
+              ) { 
               }
 
   
@@ -42,11 +46,60 @@ export class homePage {
   modificarUsuario(){
      this.router.navigate(['./tabs/editar-usuario']);
   }
+  
 
-  eliminarUsuario(){
-    this.api.deleteUser(this.usuario);
-  }  
+  async eliminarUsuario(){
+    const alert = await this.alert.create({
+      header: 'Eliminar Cuenta!',
+      message: 'Estás seguro de eliminar tu cuenta?',
+      mode:'ios',  //mismo diseño en ios y android
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            this.showToast('Ha cancelado la acción');
+          },
+        },
+        {
+          text: 'Si Seguro',
+          role: 'confirm',
+          handler: () => {
 
+            this.api.deleteUserById(this.usuario.id).subscribe({
+              next: () => {
+                this.showToast('Usuario eliminado con éxito');
+                // Lógica adicional después de eliminar el usuario, como redirigir o actualizar la lista
+              },
+              error: (error) => {
+                this.showToast('Error al eliminar el usuario:'+ error);
+              }
+            });
+            this.router.navigate(['/login']); 
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+
+    
+  }
+
+
+
+
+
+  async showToast(msg: any){
+    const toast= await this.toast.create({
+      message:msg,
+      duration: 4000
+    })
+    toast.present();
+  }
 }
+
+
+
 
 

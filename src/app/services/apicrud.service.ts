@@ -22,13 +22,6 @@ export class ApicrudService {
     return this.httpClient.post<Users>(`${environment.apiUrl}/usuarios`, newUsuario);
   }
 
-  putUser(usuarios:any):Observable<Users>{
-    return this.httpClient.put<Users>(`${environment.apiUrl}/usuarios/${usuarios.rut}`, usuarios);
- }
-
- deleteUser(usuarios:any):Observable<Users>{
-  return this.httpClient.delete<Users>(`${environment.apiUrl}/usuarios/${usuarios.rut}`);
- }
 
  // Método para obtener un usuario específico por su id
  getUserById(id: string): Observable<Users> {
@@ -38,6 +31,10 @@ export class ApicrudService {
  // Actualizar usuario por ID
  putUserById(id: string, usuario: any): Observable<Users> {
   return this.httpClient.put<Users>(`${environment.apiUrl}/usuarios/${id}`, usuario);
+}
+
+deleteUserById(id: string): Observable<void> {
+  return this.httpClient.delete<void>(`${environment.apiUrl}/usuarios/${id}`);
 }
 
  

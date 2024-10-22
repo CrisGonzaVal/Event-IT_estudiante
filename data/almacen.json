@@ -23,17 +23,6 @@
       "isactive": true
     },
     {
-      "id": "ce0a",
-      "rut": "11296300-6",
-      "username": "Maria Valenzuela Alvarado",
-      "email": "vero40valenzuela@gmail.com",
-      "password": "zxcvbnm,",
-      "carrera": " Tec. Analista Programador",
-      "jornada": "Vespertino",
-      "seccion": "012d",
-      "isactive": true
-    },
-    {
       "id": "cbdf",
       "rut": "20592808-1",
       "username": "Paz Mabel Cifuentes",
@@ -53,39 +42,6 @@
       "carrera": " Ing. informatica",
       "jornada": "Vespertino",
       "seccion": "010v",
-      "isactive": true
-    },
-    {
-      "id": "8bc7",
-      "rut": "34567890-1",
-      "username": "cris gonza",
-      "email": "cris.gonza@duocuc.cl",
-      "password": "123456789",
-      "carrera": " Ing. informatica",
-      "jornada": "Diurno",
-      "seccion": "012d",
-      "isactive": true
-    },
-    {
-      "id": "032f",
-      "rut": "12345678-6",
-      "username": "gonzaval",
-      "email": "hola@duocuc.cl",
-      "password": "123456789",
-      "carrera": " Ing. informatica",
-      "jornada": "Vespertino",
-      "seccion": "012d",
-      "isactive": true
-    },
-    {
-      "id": "2332",
-      "rut": "12345678-8",
-      "username": "juan perez",
-      "email": "juanperez@duocuc.cl",
-      "password": "zxcvbnmzxc",
-      "carrera": " Ing. informatica",
-      "jornada": "Vespertino",
-      "seccion": "012d",
       "isactive": true
     },
     {
