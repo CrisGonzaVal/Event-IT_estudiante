@@ -1,17 +1,28 @@
-crear archivo Json
+Para IONIC
 
->npm i -g json-server   //instalar servidor json
+Node 20
+Angular 18...
+ionic 7.2
 
-data>json-server --watch almacen.json //levantar servidor json
+Crear proyecto ionic
+*descargar e instalar Node 20.16
+cmd> ionic start MyApp
+ - ngmodule
+ -framework? Angular
+ -template? blank
 
-istalar postman y subir la url levantado el json
+*levantar servidor
+cmd Myapp>ionic serve
 
-ionic g service services/apicrud
+
+Para JSON
+
+data>npm i -g json-server
+
+data>json-server --watch almacen.jsonn
 
 
->npm install angularx-qrcode --save //para instalar paquetes del generador qr
+>npm install angularx-qrcode --save //para instalar paquetes del generador qr 
 
->ionic g service services/auth  //servicio de autentificacion
 
->ionic g guard guards/autorizado //autorizacion a acceder a los pages
->(*) CanActivate
+

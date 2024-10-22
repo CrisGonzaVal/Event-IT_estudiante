@@ -10,6 +10,7 @@ import { LectorQRPage } from './lector-qr.page';
 
 @NgModule({
   imports: [
+    //NgxQrcodeModule,
     CommonModule,
     FormsModule,
     IonicModule,

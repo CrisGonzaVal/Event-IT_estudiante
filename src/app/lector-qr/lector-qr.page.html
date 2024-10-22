@@ -1,25 +1,15 @@
-<ion-content>
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-back-button 
-             defaultHref="/tabs/home">
-        </ion-back-button>
-      </ion-buttons>
-      <ion-title>Escanear QR</ion-title>
-      <ion-icon name="qr-code-outline" color="light" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content >
-    <div class="qr">
-      <ion-img src="assets/camara.jpeg"></ion-img>
-    </div>
-  
-    <div>
-      <ion-toolbar>
-        <ion-button color="primary">Escanear</ion-button>
-        <ion-button color="tertiary">subir imagen</ion-button>
-      </ion-toolbar>
-    </div>
-  </ion-content>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Código QR del Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!--h2>Información del evento:</h2>
+  <p>Nombre del Evento: {{evento.nombre}}</p>
+  <p>Fecha: {{evento.fecha}}</p>
+  <p>RUT: {{rut}}</p>
+  <p>Email: {{email}}</p>
+
+<ngx-qrcode [qrc-value]="qrData"></ngx-qrcode-->
+</ion-content>

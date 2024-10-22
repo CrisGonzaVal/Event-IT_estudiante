@@ -7,7 +7,7 @@
       "email": "crise.gonzalez@duocuc.cl",
       "password": "123456789",
       "carrera": "Ing. Informatica",
-      "jornada": "Diurno",
+      "jornada": "Vespertino",
       "seccion": "010v",
       "isactive": true
     },
@@ -65,7 +65,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "dd13"
     },
     {
       "nombretaller": "Taller de Python",
@@ -75,7 +76,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "26b7"
     },
     {
       "nombretaller": "Curso Intensivo de IA ",
@@ -85,7 +87,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "199e"
     },
     {
       "nombretaller": "Conferencia sobre Blockchain",
@@ -95,7 +98,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Vespertino",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "39c6"
     },
     {
       "nombretaller": "Workshop de UI",
@@ -105,10 +109,10 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "f602"
     }
   ],
-
   "Eventos": [
     {
       "nombreevento": "Concierto de Música Clásica",
@@ -118,7 +122,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Vespertino",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "6aaa"
     },
     {
       "nombreevento": "Expo Tecnología 2024",
@@ -128,7 +133,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "1708"
     },
     {
       "nombreevento": "Festival de Innovación",
@@ -138,7 +144,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "269b"
     },
     {
       "nombreevento": "Evento de Emprendimiento TI",
@@ -148,7 +155,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "2a40"
     },
     {
       "nombreevento": "Concierto de Música Clásica",
@@ -158,7 +166,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "c341"
     }
   ],
   "Seminarios": [
@@ -170,7 +179,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "a2c0"
     },
     {
       "nombreseminario": "Tecnología y Educación",
@@ -180,7 +190,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "0228"
     },
     {
       "nombreseminario": "Innovaciones en Agricultura",
@@ -190,7 +201,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "697a"
     },
     {
       "nombreseminario": "Blockchain y sus Aplicaciones",
@@ -200,7 +212,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Vespertino",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "7fe6"
     },
     {
       "nombreseminario": "Inteligencia Artificial en Salud",
@@ -210,7 +223,8 @@
       "carrera": "Ing. informatica",
       "jornada": "Diurna",
       "seccion": "012v",
-      "isactive": true
+      "isactive": true,
+      "id": "2382"
     }
   ]
 }
