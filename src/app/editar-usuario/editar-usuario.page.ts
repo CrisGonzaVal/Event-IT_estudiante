@@ -28,13 +28,16 @@ export class EditarUsuarioPage implements OnInit {
     this.usuario = this.auth.getSesionUser();
   }
 
+
+
   actualizarUsuario(){
 
-    console.log('Datos enviados a la API:', this.usuario);
     this.api.putUserById(this.usuario.id, this.usuario).subscribe({
 
-
+      
       next: (response: Users) => {
+
+        this.auth.setSesionUser(this.usuario);
         this.showToast('Usuario actualizado con éxito:');
         // Redirigir al usuario a la página principal si la actualización fue exitosa
         this.router.navigate(['/tabs/home']);
@@ -43,13 +46,9 @@ export class EditarUsuarioPage implements OnInit {
         this.showToast('Error actualizando el usuario: '+ error.message);
         console.log(error.message);
         // Manejar el error
-      },
-      complete: () => {
-        
-        this.auth.setSesionUser(this.usuario);
-        this.showToast('Actualización del usuario completada.');
       }
     });
+
 
   }
 

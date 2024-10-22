@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Users } from 'src/interfaces/users';
 import { AuthService } from '../services/auth.service'; //1
+import { ChangeDetectorRef } from '@angular/core'; 
 
 @Component({
   selector: 'app-home',
@@ -16,13 +16,20 @@ export class homePage {
   constructor(private activated: ActivatedRoute,
               private menucontroller:MenuController,
               private router:Router,
-              private auth : AuthService) { 
+              private auth : AuthService,
+              private detectaCambio: ChangeDetectorRef) { 
               }
 
-                ngOnInit() {
-                  // recuperar objeto recibido por url
-                  this.usuario = this.auth.getSesionUser();
-                }
+  ngOnInit() {
+   // recuperar objeto recibido por url
+     console.log(this.usuario = this.auth.getSesionUser());
+  }
+
+  ionViewWillEnter(){
+    console.log("Se inicia denuevo la vista home");
+  }
+
+
 
   mostrarMenu(){
     this.menucontroller.open('first');
