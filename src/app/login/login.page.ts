@@ -94,7 +94,7 @@ export class loginPage implements OnInit {
   }
 
   private IniciarSesion(usuario:any){
-    this.router.navigate(['/tabs/home']);
+    this.router.navigateByUrl('/tabs/home', { replaceUrl: true }); // para forzar la recarga completa de la página home si es necesario.
     this.showToast( this.authservice.setSesionUser(usuario) );
 
   }

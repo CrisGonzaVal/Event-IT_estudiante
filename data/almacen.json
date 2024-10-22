@@ -62,7 +62,7 @@
       "email": "cris.gonza@duocuc.cl",
       "password": "123456789",
       "carrera": " Ing. informatica",
-      "jornada": "Vespertino",
+      "jornada": "Diurno",
       "seccion": "012d",
       "isactive": true
     },
@@ -74,6 +74,28 @@
       "password": "123456789",
       "carrera": " Ing. informatica",
       "jornada": "Vespertino",
+      "seccion": "012d",
+      "isactive": true
+    },
+    {
+      "id": "2332",
+      "rut": "12345678-8",
+      "username": "juan perez",
+      "email": "juanperez@duocuc.cl",
+      "password": "zxcvbnmzxc",
+      "carrera": " Ing. informatica",
+      "jornada": "Vespertino",
+      "seccion": "012d",
+      "isactive": true
+    },
+    {
+      "id": "cadd",
+      "rut": "21345876-6",
+      "username": "Jessenia Gonzalez",
+      "email": "jess@duocuc.cl",
+      "password": "asdfghjklzxc",
+      "carrera": " Ing. informatica",
+      "jornada": "Diurno",
       "seccion": "012d",
       "isactive": true
     }
