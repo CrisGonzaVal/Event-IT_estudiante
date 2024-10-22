@@ -74,6 +74,7 @@ export class AuthService {
   cerrarSesionUser() {
     //  para limpiar todo
      sessionStorage.clear();
+     this.router.navigateByUrl('/login', { replaceUrl: true });
      
      return 'Sesión Cerrada';
   }

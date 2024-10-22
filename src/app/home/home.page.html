@@ -98,12 +98,21 @@
     <ion-list>
       <ion-item>
         <ion-icon name="create-outline" slot="start" size="large"></ion-icon>
-        <ion-button (click)="modificar()" fill="clear">Editar Perfil</ion-button>
+        <ion-button (click)="modificarUsuario()" fill="clear">Editar Perfil</ion-button>
+      </ion-item>
+      
+    </ion-list>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon name="create-outline" slot="start" size="large"></ion-icon>
+        <ion-button (click)="eliminarUsuario()" fill="clear">Eliminar Cuenta</ion-button>
       </ion-item>
       
     </ion-list>
    
   </ion-card>
+  
   </div>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>

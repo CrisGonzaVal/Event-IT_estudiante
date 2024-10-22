@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service'; //1
 import { ChangeDetectorRef } from '@angular/core'; 
+import { ApicrudService } from '../services/apicrud.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class homePage {
               private menucontroller:MenuController,
               private router:Router,
               private auth : AuthService,
-              private detectaCambio: ChangeDetectorRef) { 
+              private detectaCambio: ChangeDetectorRef,
+              private api:ApicrudService) { 
               }
 
   
@@ -33,17 +35,17 @@ export class homePage {
    }
 
 
-
-
-
-
   mostrarMenu(){
     this.menucontroller.open('first');
   }
 
-  modificar(){
+  modificarUsuario(){
      this.router.navigate(['./tabs/editar-usuario']);
   }
+
+  eliminarUsuario(){
+    this.api.deleteUser(this.usuario);
+  }  
 
 }
 

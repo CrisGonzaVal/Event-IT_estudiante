@@ -7,7 +7,7 @@
       "email": "crise.gonzalez@duocuc.cl",
       "password": "123456789",
       "carrera": "Ing. Informatica",
-      "jornada": "Diurno",
+      "jornada": "Vespertino",
       "seccion": "010v",
       "isactive": true
     },
@@ -40,7 +40,7 @@
       "email": "paz.mabel.cifuentes@gmail.com",
       "password": "paz123456",
       "carrera": " Ing. informatica",
-      "jornada": "Vespertino",
+      "jornada": "Diurno",
       "seccion": "012d",
       "isactive": true
     },
