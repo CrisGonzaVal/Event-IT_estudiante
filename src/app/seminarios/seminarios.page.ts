@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { seminarios } from 'src/interfaces/seminarios';
+import { ApicrudSesionService } from '../services/apicrud-sesion.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seminarios',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeminariosPage implements OnInit {
 
-  constructor() { }
+  seminario: seminarios[]=[];
+
+  constructor(private apicrudSesion: ApicrudSesionService, private router: Router) {}
 
   ngOnInit() {
+    this.apicrudSesion.getSeminarios().subscribe(data=>{
+      this.seminario=data;
+    })
+  }
+
+  buscarSeminario(Observable:any){
+    this.router.navigate(['/lectorqr'],
+      {queryParams:{mascota: JSON.stringify(Observable)}}
+    )
   }
 
 }

@@ -16,35 +16,74 @@
     </div>
     <ion-card>
       <ion-card-content>
+     <!--form [formGroup]="loginForm"-->   
       <ion-item>
         <ion-input label="Nombre: " label-placement="floating"  type="text" placeholder=" Ingrese su Nombre" name="nombre" [(ngModel)]="usuario.username"></ion-input>
       </ion-item>
+
+      <div id="alerta" *ngIf="loginForm.get('nombre')?.invalid && (loginForm.get('nombre')?.dirty || 
+                 loginForm.get('nombre')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('nombre')?.hasError('required')">
+          *Nombre es obligatorio
+        </div>
+      </div>
+
   
       <ion-item>
         <ion-input label="Email: " label-placement="floating"  type="text" placeholder=" Ingrese su Email" name="email" [(ngModel)]="usuario.email"></ion-input>
       </ion-item>
+      <div id="alerta" *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || 
+                  loginForm.get('email')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('email')?.hasError('required')">
+          *email es obligatorio
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('email')?.hasError('email')">
+          *El email debe tener un formato válido.
+        </div>
+      </div>
 
       <ion-item>
         <ion-input label="Rut: " label-placement="floating"  type="text" placeholder=" Ingrese su Rut" name="rut" [(ngModel)]="usuario.rut"></ion-input>
       </ion-item>
 
+      <div id="alerta" *ngIf="loginForm.get('rut')?.invalid && (loginForm.get('rut')?.dirty || 
+                 loginForm.get('rut')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('rut')?.hasError('required')">
+          *Rut es obligatorio
+        </div>
+      </div>
+
       <ion-item>
-        <ion-select label="Carrera: " interface="action-sheet" placeholder="Selecciona tu carrera" [(ngModel)]="usuario.carrera">
+        <ion-select label="Carrera: " interface="action-sheet" placeholder="Selecciona tu carrera" [(ngModel)]="usuario.carrera" name="carrera">
           <ion-select-option value=" Ing. informatica">Ing. en Informática</ion-select-option>
           <ion-select-option value=" Tec. Analista Programador">Tecnico Analista Programador</ion-select-option>
           <ion-select-option value="Ing. redes">Ing. en Redes</ion-select-option>
         </ion-select>
       </ion-item>
 
+      <div id="alerta" *ngIf="loginForm.get('carrera')?.invalid && (loginForm.get('carrera')?.dirty || 
+                 loginForm.get('carrera')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('carrera')?.hasError('required')">
+          *Carrera es obligatorio
+        </div>
+      </div>
+
       <ion-item>
-        <ion-select label="jornada: " interface="action-sheet" placeholder="Selecciona tu jornada" [(ngModel)]="usuario.jornada">
+        <ion-select label="jornada: " interface="action-sheet" placeholder="Selecciona tu jornada" [(ngModel)]="usuario.jornada" name="jornada">
           <ion-select-option value="Diurno">Diurno</ion-select-option>
           <ion-select-option value="Vespertino">Vespertino</ion-select-option> 
         </ion-select>
       </ion-item>
 
+      <div id="alerta" *ngIf="loginForm.get('jornada')?.invalid && (loginForm.get('jornada')?.dirty || 
+                 loginForm.get('jornada')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('jornada')?.hasError('required')">
+          *Jornada es obligatorio
+        </div>
+      </div>
+
       <ion-item>
-        <ion-select label="seccion: " interface="action-sheet" placeholder="Selecciona tu sección" [(ngModel)]="usuario.seccion">
+        <ion-select label="seccion: " interface="action-sheet" placeholder="Selecciona tu sección" [(ngModel)]="usuario.seccion" name="seccion">
           <ion-select-option value="010d">O10d</ion-select-option>
           <ion-select-option value="010v">O10v</ion-select-option>
           <ion-select-option value="011d">O11d</ion-select-option>
@@ -53,6 +92,13 @@
           <ion-select-option value="012v">O12v</ion-select-option>
         </ion-select>
       </ion-item>
+
+      <div id="alerta" *ngIf="loginForm.get('seccion')?.invalid && (loginForm.get('seccion')?.dirty || 
+                 loginForm.get('seccion')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('seccion')?.hasError('required')">
+          *Seccion es obligatorio
+        </div>
+      </div>
   
       <ion-item>
         <ion-input label="Contraseña: " label-placement="floating"  type="password" placeholder=" Crea una contraseña" name="contraseña">
@@ -60,16 +106,33 @@
         </ion-input>
       </ion-item>
 
+      <div id="alerta" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || 
+                 loginForm.get('password')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('password')?.hasError('required')">
+          *Password es obligatoria
+        </div>
+        <div id="alerta" *ngIf="loginForm.get('password')?.hasError('minlength')">
+         *Password debe tener mínimo 8 caracteres
+        </div>
+      </div>
+
       <ion-item>
-        <ion-input label="Confirme Contraseña: " label-placement="floating"  type="password" placeholder=" Confirme contraseña" name="conf-correo" [(ngModel)]="usuario.password">
+        <ion-input label="Confirme Contraseña: " label-placement="floating"  type="confpassword" placeholder=" Confirme contraseña" name="conf-correo" [(ngModel)]="usuario.password">
           <ion-input-password-toggle slot="end"></ion-input-password-toggle>
         </ion-input>
       </ion-item>
   
+      <div id="alerta" *ngIf="loginForm.get('confpassword')?.invalid && (loginForm.get('confpassword')?.dirty || 
+                 loginForm.get('password')?.touched)">
+        <div id="alerta" *ngIf="loginForm.get('confpassword')?.hasError('required')">
+          *Confirmacion Password es obligatoria
+        </div>
+      </div>
+
       <ion-button (click)="crearUsuario()" expand="block" color="tertiary" id="open-loading">Registrar</ion-button>
-
-      <ion-loading trigger="open-loading" message="Procesando Registro..." duration="3000"></ion-loading>
-
+    <!--/form-->
+     <ion-loading trigger="open-loading" message="Procesando Registro..." duration="3000"></ion-loading>
+    
     </ion-card-content>
     </ion-card>  
     
