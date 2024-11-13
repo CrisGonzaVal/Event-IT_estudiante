@@ -1,0 +1,74 @@
+Node 20
+Angular 18...
+ionic 7.2
+
+cmd> node -v  :   version node
+cmd> ng version  :  version angular
+cmd> ionic  :  verion ionic
+
+Crear proyecto ionic
+*descargar e instalar Node 20.16
+cmd> ionic start MyApp
+ - ngmodule
+ -framework? Angular
+ -template? blank
+
+*levantar servidor
+cmd Myapp>ionic serve
+
+ionic serve --browser "C:\\Users\\Cristian\\AppData\\Local\\Lambdatest\\LT Browser\\Application\\LTBrowser.exe"
+
+crear pagina (page) inicio
+cmd MyApp>ionic g (generate) page pages/inicio 
+
+crear pagina (page) alert
+cmd MyApp>ionic g (generate) page pages/alert
+        ionic g page pages/contact
+
+---------------------------------------------------------
+
+<ul>   ion-list
+<li>    ion-item
+
+aion-menu
+
+------------------------------------------------------------------------------------------
+myApp>ionic g service services/apidatos
+myApp>ionic g service services/apiusers
+
+el servicio actuan de medio de transportes entre un json y la app
+debe tener metodos (peticiones) de un api rest (get(select), post(insert), put(update), delete(delete))
+
+importar biblioteca app.module.ts   provideHttpClient
+
+-----------------------------------------------------------------------------------------------
+crear archivo Json
+
+>npm i -g json-server   //instalar servidor json
+
+>json-server --watch almacen.json //levantar servidor json
+
+istalar postman y subir la url levantado el json
+
+ionic g service services/apicrud
+
+
+>npm install angularx-qrcode --save //para instalar paquetes del generador qr
+
+>ionic g service services/auth  //servicio de autentificacion
+
+>ionic g guard guards/autorizado //autorizacion a acceder a los pages
+>(*) CanActivate
+
+
+
+--------------------------------------------------------------------
+instalar android studio
+sdk
+
+>npm install @capacitor/android
+>npx cap add android
+
+>ionic capacitor sync android
+>ionic capacitor copy android
+>ionic capacitor open android
