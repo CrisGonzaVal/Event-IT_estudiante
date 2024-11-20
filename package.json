@@ -27,6 +27,7 @@
     "@capacitor/keyboard": "6.0.2",
     "@capacitor/status-bar": "6.0.1",
     "@ionic/angular": "^8.0.0",
+    "@typescript-eslint/utils": "^8.15.0",
     "angularx-qrcode": "^18.0.2",
     "ionicons": "^7.0.0",
     "rxjs": "~7.8.0",
@@ -36,7 +37,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.0",
     "@angular-eslint/builder": "^18.0.0",
-    "@angular-eslint/eslint-plugin": "^18.0.0",
+    "@angular-eslint/eslint-plugin": "^18.4.1",
     "@angular-eslint/eslint-plugin-template": "^18.0.0",
     "@angular-eslint/schematics": "^18.0.0",
     "@angular-eslint/template-parser": "^18.0.0",
