@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service'; 
 import { ToastController } from '@ionic/angular';
-import { MenuController } from '@ionic/angular';
 
 
 
@@ -68,11 +67,8 @@ export class AppComponent {
 
 
   constructor(private auth: AuthService,
-            private toast: ToastController,
-            private menuController: MenuController
-  ) {
-    this.menuController.swipeGesture(true, 'first'); // Habilita los gestos de deslizamiento
-  }
+            private toast: ToastController
+  ) {}
 
   cerrarSesion() {
     this.showToast(this.auth.cerrarSesionUser());  // Llama al método de cierre de sesión en AuthService
