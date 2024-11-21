@@ -12,10 +12,6 @@ const routes: Routes = [
         loadChildren: () => import('../home/home.module').then(m => m.homePageModule)
       },
       {
-        path: 'lector-qr',
-        loadChildren: () => import('../lector-qr/lector-qr.module').then(m => m.LectorQRPageModule)
-      },
-      {
         path: 'actividades',
         loadChildren: () => import('../actividades/actividades.module').then(m => m.ActividadesPageModule)
       },

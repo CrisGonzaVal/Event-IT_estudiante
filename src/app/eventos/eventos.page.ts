@@ -33,18 +33,19 @@ export class EventosPage implements OnInit {
     });
   }
 
-  registrarseEnEvento(evento: any) {
+  inscribirEvento(evento: any) {
     // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
    // Supongamos que tienes los datos del usuario
     const qrData = {
       nombreEvento: evento.nombre,
       fechaEvento: evento.fecha,
-      rut: this.usuario.rut.slice(0, 8),  // Primeros 8 caracteres del RUT
-      email: this.usuario.email
+      rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
+      email: this.usuario.email,
     };
 
+    console.log(qrData);
     // Navega a la página de generación de QR, pasando los datos
-    this.router.navigate(['/lector-qr'], { queryParams: { data: JSON.stringify(qrData) } });
+    this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(qrData) } });
   }
 
 }

@@ -1,15 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>Código QR del Evento</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button 
+      defaultHref="/tabs/home">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Incripción de Actividades</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!--h2>Información del evento:</h2>
-  <p>Nombre del Evento: {{evento.nombre}}</p>
-  <p>Fecha: {{evento.fecha}}</p>
-  <p>RUT: {{rut}}</p>
-  <p>Email: {{email}}</p>
+  <ion-list>
+    <ion-item *ngFor="let a of act" button detail="true">
 
-<ngx-qrcode [qrc-value]="qrData"></ngx-qrcode-->
+      <ion-label>
+        <h2>Información del evento:</h2>
+        <p>id evento: {{act.id}}</p>
+        <p>Nombre del Evento: {{act.nombre}}</p>
+        <p>Fecha: {{act.fecha}}</p>
+        <p>RUT: {{rut}}</p>
+        <p>Email: {{email}}</p>
+
+        <!--ngx-qrcode [qrc-value]="qrData"></ngx-qrcode-->
+        </ion-label>
+  
+    </ion-item>
+</ion-list>
 </ion-content>

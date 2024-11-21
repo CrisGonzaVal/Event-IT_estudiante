@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'editar-usuario',
     loadChildren: () => import('./editar-usuario/editar-usuario.module').then(m => m.EditarUsuarioPageModule)
   },
+  {
+    path: 'lector-qr',
+    loadChildren: () => import('./lector-qr/lector-qr.module').then(m => m.LectorQRPageModule)
+  },
 ];
 
 @NgModule({
