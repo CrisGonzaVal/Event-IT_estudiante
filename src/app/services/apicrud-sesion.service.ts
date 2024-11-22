@@ -25,9 +25,9 @@ getSeminarios():Observable<seminarios[]>{
 getEventos():Observable<eventos[]>{
   return this.httpClient.get<eventos[]>(`${environment.apiUrl}/Eventos`);
 }
-getEventos2(): Observable<any> {
-  return this.httpClient.get(`${environment.apiUrl}/eventos`);
-}
+//getEventos2(): Observable<any> {
+//  return this.httpClient.get(`${environment.apiUrl}/eventos`);
+//}
 
 
 }
