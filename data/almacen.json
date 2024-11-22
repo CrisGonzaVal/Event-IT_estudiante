@@ -62,55 +62,50 @@
       "fecha": "2023-10-05",
       "hora": "10:00 AM",
       "ubicacion": "Aula 302",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "dd13"
+      "id": "dd13",
+      "cupos": "30",
+      "descripcion": "Aprende a construir sitios web interactivos utilizando HTML, CSS y JavaScript."
     },
     {
       "nombretaller": "Taller de Python",
       "fecha": "2023-10-06",
       "hora": "11:00 AM",
       "ubicacion": "Aula 204",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "26b7"
+      "id": "26b7",
+      "cupos": "30",
+      "descripcion": "Introducción a Python, ideal para principiantes que desean aprender a programar."
     },
     {
-      "nombretaller": "Curso Intensivo de IA ",
+      "nombretaller": "Curso Intensivo de IA",
       "fecha": "2023-10-07",
       "hora": "09:00 AM",
       "ubicacion": "Laboratorio de Ingeniería",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "199e"
+      "id": "199e",
+      "cupos": "30",
+      "descripcion": "Descubre los fundamentos de la inteligencia artificial y cómo aplicarla en proyectos reales."
     },
     {
       "nombretaller": "Conferencia sobre Blockchain",
       "fecha": "2023-10-08",
       "hora": "20:00 PM",
       "ubicacion": "Auditorio Central",
-      "carrera": "Ing. informatica",
-      "jornada": "Vespertino",
-      "seccion": "012v",
       "isactive": true,
-      "id": "39c6"
+      "id": "39c6",
+      "cupos": "30",
+      "descripcion": "Explora el impacto de la tecnología blockchain en la economía y la seguridad digital."
     },
     {
       "nombretaller": "Workshop de UI",
       "fecha": "2023-10-09",
       "hora": "04:00 PM",
       "ubicacion": "Aula 512",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "f602"
+      "id": "f602",
+      "cupos": "30",
+      "descripcion": "Aprende a diseñar interfaces de usuario atractivas y funcionales para aplicaciones."
     }
   ],
   "Eventos": [
@@ -119,55 +114,50 @@
       "fecha": "2023-10-15",
       "hora": "08:00 PM",
       "ubicacion": "DUOC UC sede Maipú",
-      "carrera": "Ing. informatica",
-      "jornada": "Vespertino",
-      "seccion": "012v",
       "isactive": true,
-      "id": "6aaa"
+      "id": "6aaa",
+      "cupos": "30",
+      "descripcion": "Un recital imperdible de música clásica con obras de reconocidos compositores."
     },
     {
       "nombreevento": "Expo Tecnología 2024",
       "fecha": "2023-11-20",
       "hora": "11:00 AM",
       "ubicacion": "Sede San Carlos de Apoquindo",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "1708"
+      "id": "1708",
+      "cupos": "30",
+      "descripcion": "Explora las últimas innovaciones en tecnología y conectividad."
     },
     {
       "nombreevento": "Festival de Innovación",
       "fecha": "2023-11-22",
       "hora": "11:00 AM",
       "ubicacion": "Sede Antonio Varas",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "269b"
+      "id": "269b",
+      "cupos": "30",
+      "descripcion": "Un encuentro para creativos y emprendedores en tecnología e innovación."
     },
     {
       "nombreevento": "Evento de Emprendimiento TI",
       "fecha": "2023-11-28",
       "hora": "02:00 PM",
       "ubicacion": "Sede Alameda",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "2a40"
+      "id": "2a40",
+      "cupos": "30",
+      "descripcion": "Participa en sesiones de networking y conferencias sobre emprendimiento tecnológico."
     },
     {
       "nombreevento": "Concierto de Música Clásica",
       "fecha": "2023-11-28",
       "hora": "06:00 PM",
       "ubicacion": "Sede Viña del Mar",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "c341"
+      "id": "c341",
+      "cupos": "30",
+      "descripcion": "Disfruta de un repertorio único de música clásica en un entorno espectacular."
     }
   ],
   "Seminarios": [
@@ -176,55 +166,50 @@
       "fecha": "2023-10-10",
       "hora": "03:00 PM",
       "ubicacion": "Auditorio Principal",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "a2c0"
+      "id": "a2c0",
+      "cupos": "30",
+      "descripcion": "Descubre los últimos avances en inteligencia artificial y su impacto en la sociedad."
     },
     {
       "nombreseminario": "Tecnología y Educación",
       "fecha": "2023-11-06",
       "hora": "12:00 PM",
       "ubicacion": "Auditorio B",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "0228"
+      "id": "0228",
+      "cupos": "30",
+      "descripcion": "Explora cómo las tecnologías emergentes están transformando la educación."
     },
     {
       "nombreseminario": "Innovaciones en Agricultura",
       "fecha": "2023-11-07",
       "hora": "09:00 AM",
       "ubicacion": "Sala C",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "697a"
+      "id": "697a",
+      "cupos": "30",
+      "descripcion": "Aprende sobre las herramientas tecnológicas que están revolucionando la agricultura."
     },
     {
       "nombreseminario": "Blockchain y sus Aplicaciones",
       "fecha": "2023-11-08",
       "hora": "19:00 PM",
       "ubicacion": "Sala D",
-      "carrera": "Ing. informatica",
-      "jornada": "Vespertino",
-      "seccion": "012v",
       "isactive": true,
-      "id": "7fe6"
+      "id": "7fe6",
+      "cupos": "30",
+      "descripcion": "Conoce cómo la tecnología blockchain está transformando industrias globales."
     },
     {
       "nombreseminario": "Inteligencia Artificial en Salud",
       "fecha": "2023-11-09",
       "hora": "04:00 PM",
       "ubicacion": "Sala Morajhayco 512",
-      "carrera": "Ing. informatica",
-      "jornada": "Diurna",
-      "seccion": "012v",
       "isactive": true,
-      "id": "2382"
+      "id": "2382",
+      "cupos": "30",
+      "descripcion": "Explora el impacto de la inteligencia artificial en diagnósticos médicos y tratamientos."
     }
   ]
 }
