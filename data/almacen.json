@@ -64,7 +64,7 @@
       "ubicacion": "Aula 302",
       "isactive": true,
       "id": "dd13",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Aprende a construir sitios web interactivos utilizando HTML, CSS y JavaScript."
     },
     {
@@ -74,7 +74,7 @@
       "ubicacion": "Aula 204",
       "isactive": true,
       "id": "26b7",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Introducción a Python, ideal para principiantes que desean aprender a programar."
     },
     {
@@ -84,7 +84,7 @@
       "ubicacion": "Laboratorio de Ingeniería",
       "isactive": true,
       "id": "199e",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Descubre los fundamentos de la inteligencia artificial y cómo aplicarla en proyectos reales."
     },
     {
@@ -94,7 +94,7 @@
       "ubicacion": "Auditorio Central",
       "isactive": true,
       "id": "39c6",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Explora el impacto de la tecnología blockchain en la economía y la seguridad digital."
     },
     {
@@ -104,7 +104,7 @@
       "ubicacion": "Aula 512",
       "isactive": true,
       "id": "f602",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Aprende a diseñar interfaces de usuario atractivas y funcionales para aplicaciones."
     }
   ],
@@ -116,7 +116,7 @@
       "ubicacion": "DUOC UC sede Maipú",
       "isactive": true,
       "id": "6aaa",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Un recital imperdible de música clásica con obras de reconocidos compositores."
     },
     {
@@ -126,7 +126,7 @@
       "ubicacion": "Sede San Carlos de Apoquindo",
       "isactive": true,
       "id": "1708",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Explora las últimas innovaciones en tecnología y conectividad."
     },
     {
@@ -136,7 +136,7 @@
       "ubicacion": "Sede Antonio Varas",
       "isactive": true,
       "id": "269b",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Un encuentro para creativos y emprendedores en tecnología e innovación."
     },
     {
@@ -146,7 +146,7 @@
       "ubicacion": "Sede Alameda",
       "isactive": true,
       "id": "2a40",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Participa en sesiones de networking y conferencias sobre emprendimiento tecnológico."
     },
     {
@@ -156,7 +156,7 @@
       "ubicacion": "Sede Viña del Mar",
       "isactive": true,
       "id": "c341",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Disfruta de un repertorio único de música clásica en un entorno espectacular."
     }
   ],
@@ -168,7 +168,7 @@
       "ubicacion": "Auditorio Principal",
       "isactive": true,
       "id": "a2c0",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Descubre los últimos avances en inteligencia artificial y su impacto en la sociedad."
     },
     {
@@ -178,7 +178,7 @@
       "ubicacion": "Auditorio B",
       "isactive": true,
       "id": "0228",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Explora cómo las tecnologías emergentes están transformando la educación."
     },
     {
@@ -188,7 +188,7 @@
       "ubicacion": "Sala C",
       "isactive": true,
       "id": "697a",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Aprende sobre las herramientas tecnológicas que están revolucionando la agricultura."
     },
     {
@@ -198,7 +198,7 @@
       "ubicacion": "Sala D",
       "isactive": true,
       "id": "7fe6",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Conoce cómo la tecnología blockchain está transformando industrias globales."
     },
     {
@@ -208,7 +208,7 @@
       "ubicacion": "Sala Morajhayco 512",
       "isactive": true,
       "id": "2382",
-      "cupos": "30",
+      "cupos": 30,
       "descripcion": "Explora el impacto de la inteligencia artificial en diagnósticos médicos y tratamientos."
     }
   ]

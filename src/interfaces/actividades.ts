@@ -4,9 +4,9 @@ export interface actividades
     fecha:string;
     hora:string;
     ubicacion:string;
-    carrera:string;
-    jornada:string;
-    seccion:string;
     isactive:boolean;
+    id?:string;
+    cupos:number;
+    descripcion:string;
 }
 
