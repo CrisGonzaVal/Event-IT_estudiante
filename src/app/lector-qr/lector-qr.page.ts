@@ -12,6 +12,7 @@ export class LectorQRPage implements OnInit {
   act: any = {};
   rut: string="";
   email: string="";
+  qrData: string ="";
 
   constructor(private route: ActivatedRoute) { }
 
@@ -19,7 +20,7 @@ export class LectorQRPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (params['data']) {
         const data = JSON.parse(params['data']);
-        //this.qrData = JSON.stringify(data);
+        this.qrData = JSON.stringify(data); //generar data para el qr
         this.act = {
           nombre: data.nombreEvento,
           fecha: data.fechaEvento
@@ -29,5 +30,4 @@ export class LectorQRPage implements OnInit {
       }
     }) 
   }
-
 }

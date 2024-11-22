@@ -19,7 +19,12 @@
       <p>RUT: {{ rut }}</p>
       <p>Email: {{ email }}</p>
     </ion-card-content>
+    <ion-card-content>
+      <div class="ionic-text-center">
+        <qrcode [qrdata]="qrData" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+      </div>
+    </ion-card-content>
+
   </ion-card>
 </ion-content>
 
-<!--ngx-qrcode [qrc-value]="qrData"></ngx-qrcode-->
