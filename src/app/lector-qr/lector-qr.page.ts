@@ -22,8 +22,8 @@ export class LectorQRPage implements OnInit {
         const data = JSON.parse(params['data']);
         this.qrData = JSON.stringify(data); //generar data para el qr
         this.act = {
-          nombre: data.nombreEvento,
-          fecha: data.fechaEvento
+          nombre: data.nombre,
+          fecha: data.fecha
         };
         this.rut = data.rut;
         this.email = data.email;

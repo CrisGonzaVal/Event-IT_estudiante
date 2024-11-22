@@ -12,7 +12,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let a of seminario" button detail="true">
+    <ion-item *ngFor="let a of seminario" button detail="true" (click)="inscribir(a)">
 
       <ion-label>
         <h2>Nombre seminario: {{a.nombreseminario}}</h2>

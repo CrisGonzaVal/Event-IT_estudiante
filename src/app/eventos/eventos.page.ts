@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { eventos } from 'src/interfaces/eventos';
 import { ApicrudSesionService } from '../services/apicrud-sesion.service';
-import { ApicrudService } from '../services/apicrud.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -16,7 +15,6 @@ export class EventosPage implements OnInit {
   usuario:any;
 
   constructor(private apicrudSesion: ApicrudSesionService, private router: Router,
-    private apicrud: ApicrudService,
     private auth: AuthService
   ) {}
 
@@ -27,19 +25,12 @@ export class EventosPage implements OnInit {
     })
   }
   
-  obtenerEventos() {
-    this.apicrudSesion.getEventos().subscribe(data => {
-      console.log('Datos obtenidos de eventos:', data);
-      this.evento = data;
-    });
-  }
 
-  inscribirEvento(evento: any) {
+  inscribir(evento: any) {
     // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
-   // Supongamos que tienes los datos del usuario
     const qrData = {
-      nombreEvento: evento.nombreevento,
-      fechaEvento: evento.fecha,
+      nombre: evento.nombreevento,
+      fecha: evento.fecha,
       rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
       email: this.usuario.email,
     };
