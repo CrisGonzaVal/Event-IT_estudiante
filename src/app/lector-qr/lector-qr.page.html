@@ -5,19 +5,19 @@
       defaultHref="/tabs/home">
       </ion-back-button>
     </ion-buttons>
-    <ion-title>Incripción de Actividades</ion-title>
+    <ion-title>Incripción de Talleres</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card class="ionic-text-center">
     <ion-card-header>
-      <ion-card-title>{{ act.nombre }}</ion-card-title>
+      <ion-card-title><h2>{{ act.nombre }}</h2></ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>Fecha del evento: {{ act.fecha }}</p>
-      <p>RUT: {{ rut }}</p>
-      <p>Email: {{ email }}</p>
+      <h3>Fecha del evento: {{ act.fecha }}</h3>
+      <h3>RUT: {{ rut }}</h3>
+      <h3>Email: {{ email }}</h3>
     </ion-card-content>
     <ion-card-content>
       <div class="ionic-text-center">

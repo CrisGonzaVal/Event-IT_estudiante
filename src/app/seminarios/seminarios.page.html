@@ -15,12 +15,12 @@
     <ion-item *ngFor="let a of seminario" button detail="true" (click)="inscribir(a)">
 
       <ion-label>
-        <h2>Nombre seminario: {{a.nombreseminario}}</h2>
+        <h2>{{a.nombreseminario}}</h2><br>
+        <h4>{{a.descripcion}}</h4><br>
         <p>Fecha seminario: {{a.fecha}}</p>
         <p>Hora seminario: {{a.hora}}</p>
         <p>Ubicación: {{a.ubicacion}}</p>
         <p>Cupos: {{a.cupos}}</p>
-        <p>Descripcion: {{a.descripcion}}</p>
       </ion-label>
 
     </ion-item>
