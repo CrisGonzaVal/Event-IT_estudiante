@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://localhost:3000'
-  //apiUrl:'https://repodata010v-0rqz.onrender.com'
+  //apiUrl:'http://localhost:3000'
+  apiUrl:'https://repodata-s2y1.onrender.com'
 };
 
 /*
