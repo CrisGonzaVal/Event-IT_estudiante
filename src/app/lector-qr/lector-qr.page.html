@@ -9,21 +9,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let a of act" button detail="true">
-
-      <ion-label>
-        <h2>Información del evento:</h2>
-        <p>id evento: {{act.id}}</p>
-        <p>Nombre del Evento: {{act.nombre}}</p>
-        <p>Fecha: {{act.fecha}}</p>
-        <p>RUT: {{rut}}</p>
-        <p>Email: {{email}}</p>
-
-        <!--ngx-qrcode [qrc-value]="qrData"></ngx-qrcode-->
-        </ion-label>
-  
-    </ion-item>
-</ion-list>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ act.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Fecha del evento: {{ act.fecha }}</p>
+      <p>RUT: {{ rut }}</p>
+      <p>Email: {{ email }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+<!--ngx-qrcode [qrc-value]="qrData"></ngx-qrcode-->

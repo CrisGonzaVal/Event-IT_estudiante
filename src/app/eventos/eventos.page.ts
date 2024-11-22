@@ -21,7 +21,7 @@ export class EventosPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.usuario=this.auth.getSesionUser
+    this.usuario=this.auth.getSesionUser();
     this.apicrudSesion.getEventos().subscribe(data=>{
       this.evento=data;
     })
@@ -29,6 +29,7 @@ export class EventosPage implements OnInit {
   
   obtenerEventos() {
     this.apicrudSesion.getEventos().subscribe(data => {
+      console.log('Datos obtenidos de eventos:', data);
       this.evento = data;
     });
   }
@@ -37,7 +38,7 @@ export class EventosPage implements OnInit {
     // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
    // Supongamos que tienes los datos del usuario
     const qrData = {
-      nombreEvento: evento.nombre,
+      nombreEvento: evento.nombreevento,
       fechaEvento: evento.fecha,
       rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
       email: this.usuario.email,
