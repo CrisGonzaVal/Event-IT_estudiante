@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -36,6 +37,7 @@ export class loginPage implements OnInit {
               private authservice: AuthService,
               private toast: ToastController,
               private fbuilder: FormBuilder,
+              private loadingController: LoadingController, // Importación del controlador de carga
               ) { 
 
                 this.loginForm = this.fbuilder.group({
@@ -48,19 +50,36 @@ export class loginPage implements OnInit {
     this.authservice.cerrarSesionUser();
   }
 
-  login(){
+  async login(){
     if (!this.loginForm.valid){
       return;
     }
 
+
+
+    // Mostrar el indicador de carga
+    const loading = await this.loadingController.create({
+      message: 'Validando Cuenta...',
+      spinner: 'circles', // Cambiar el estilo del spinner si lo deseas
+    });
+    await loading.present();
+
+
+
+
+
+
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
-    this.authservice.getByEmail(email).subscribe(resp => {
+    this.authservice.getByEmail(email).subscribe({next: async (resp) => {
       this.userdata = resp;
       console.log(this.userdata);
+
+
       if (this.userdata.length === 0) {
         this.loginForm.reset();
+        await loading.dismiss(); // Ocultar el loading
         this.UsuarioNoExiste();
         return;
       }
@@ -75,21 +94,34 @@ export class loginPage implements OnInit {
         jornada:this.userdata[0].jornada,
         seccion:this.userdata[0].seccion,
         isactive: this.userdata[0].isactive
-      }
+      };
+
       if (this.usuario.password !== password) {
         this.loginForm.reset();
+        await loading.dismiss(); // Ocultar el loading
         this.ErrorUsuario(); 
         return;
       }
+
       if (!this.usuario.isactive) {
         this.loginForm.reset();
+        await loading.dismiss(); // Ocultar el loading
         this.UsuarioInactivo();
         return;
       }
+
+      // Sesión iniciada correctamente
       this.IniciarSesion(this.usuario);
+      await loading.dismiss(); // Ocultar el loading al finalizar
+    },
 
-
-    })
+    
+      error: async (err) => {
+        console.error(err);
+        await loading.dismiss(); // Ocultar el loading en caso de error
+        this.ErrorUsuario();
+      }
+    });
 
   }
 
