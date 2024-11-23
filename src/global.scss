@@ -109,7 +109,14 @@ ion-content {
   overflow-y:hidden;  /* Deshabilita el scroll vertical */
 }
 
-  
+@media (prefers-color-scheme: dark) {
+  /* Desactiva los cambios basados en el esquema de color */
+  :root {
+    --ion-background-color: #ffffff;
+    --ion-text-color: #000000;
+  }
+
+} 
 
   
 
