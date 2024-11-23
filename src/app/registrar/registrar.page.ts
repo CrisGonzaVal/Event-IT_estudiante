@@ -34,14 +34,14 @@ export class RegistrarPage implements OnInit {
               private apiCrud: ApicrudService,
               private fbuilder: FormBuilder,) { 
                 this.loginForm = this.fbuilder.group({
-                  'nombre' : new FormControl("",[Validators.required]),
-                  'rut' : new FormControl("",[Validators.required, Validators.minLength(8)]),
-                  'carrera' : new FormControl("",[Validators.required]),
-                  'jornada' : new FormControl("",[Validators.required]),
-                  'email' : new FormControl("",[Validators.required, Validators.email]), 
-                  'seccion' : new FormControl("",[Validators.required]),
-                  'password' : new FormControl("",[Validators.required, Validators.minLength(8)]),
-                  'confpassword' : new FormControl("",[Validators.required, Validators.minLength(8)]),
+                  nombre : ['',[Validators.required]],
+                  rut : ['',[Validators.required, Validators.minLength(8)]],
+                  carrera : ['',[Validators.required]],
+                  jornada : ['',[Validators.required]],
+                  email : ["",[Validators.required, Validators.email]], 
+                  seccion :['',[Validators.required]],
+                  password : ['',[Validators.required, Validators.minLength(8)]],
+                  confpassword :['',[Validators.required, Validators.minLength(8)]],
                 })
               }
 
@@ -49,6 +49,11 @@ export class RegistrarPage implements OnInit {
   }
 
   crearUsuario(){
+
+    if (!this.loginForm.valid){
+      return;
+    }
+    const usuario = this.loginForm.value; // Obtiene los datos del formulario
     this.apiCrud.postUser(this.usuario).subscribe();
     this.msjRegistro();
   }
