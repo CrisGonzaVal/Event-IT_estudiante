@@ -21,18 +21,18 @@
       <form [formGroup]="loginForm"> 
       <!-- Nombre -->
       <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input type="text" placeholder="Ingresa tu nombre" formControlName="nombre"></ion-input>
+        <ion-input label="Nombre: " label-placement="floating" type="text" placeholder="Ingresa tu nombre" formControlName="nombre"></ion-input>
       </ion-item>
+
       <ion-text color="danger" *ngIf="loginForm.get('nombre')?.invalid && loginForm.get('nombre')?.touched">
         <p>* Nombre es obligatorio</p>
       </ion-text>
 
       <!-- Email -->
       <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" placeholder="Ingresa tu email" formControlName="email"></ion-input>
+        <ion-input label="Email: " label-placement="floating" type="email" placeholder="Ingresa tu email" formControlName="email"></ion-input>
       </ion-item>
+
       <ion-text color="danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
         <p *ngIf="loginForm.get('email')?.hasError('required')">* Email es obligatorio</p>
         <p *ngIf="loginForm.get('email')?.hasError('email')">* Ingresa un email válido</p>
@@ -40,36 +40,41 @@
 
       <!-- RUT -->
       <ion-item>
-        <ion-label position="floating">RUT</ion-label>
-        <ion-input type="text" placeholder="Ingresa tu RUT" formControlName="rut"></ion-input>
+        <ion-input label="Rut: " label-placement="floating"type="text" placeholder="Ingresa tu RUT" formControlName="rut"></ion-input>
       </ion-item>
+
       <ion-text color="danger" *ngIf="loginForm.get('rut')?.invalid && loginForm.get('rut')?.touched">
         <p>* RUT es obligatorio</p>
       </ion-text>
 
       <!-- Carrera -->
       <ion-item>
-        <ion-label>Carrera</ion-label>
-        <ion-select interface="action-sheet" placeholder="Selecciona tu carrera" formControlName="carrera">
+        <ion-select label="Carrera: " interface="action-sheet" placeholder="Selecciona tu carrera" formControlName="carrera">
           <ion-select-option value="Ing. informatica">Ing. en Informática</ion-select-option>
           <ion-select-option value="Tec. Analista Programador">Tecnico Analista Programador</ion-select-option>
           <ion-select-option value="Ing. redes">Ing. en Redes</ion-select-option>
         </ion-select>
       </ion-item>
 
+      <ion-text color="danger" *ngIf="loginForm.get('carrera')?.invalid && loginForm.get('carrera')?.touched">
+        <p>* Seleccione Carrera </p>
+      </ion-text>
+
       <!-- Jornada -->
       <ion-item>
-        <ion-label>Jornada</ion-label>
-        <ion-select interface="action-sheet" placeholder="Selecciona tu jornada" formControlName="jornada">
+        <ion-select label="Jornada: " interface="action-sheet" placeholder="Selecciona tu jornada" formControlName="jornada">
           <ion-select-option value="Diurno">Diurno</ion-select-option>
           <ion-select-option value="Vespertino">Vespertino</ion-select-option>
         </ion-select>
       </ion-item>
 
+      <ion-text color="danger" *ngIf="loginForm.get('jornada')?.invalid && loginForm.get('jornada')?.touched">
+        <p>* Seleccione Jornada </p>
+      </ion-text>
+
       <!-- Sección -->
       <ion-item>
-        <ion-label>Sección</ion-label>
-        <ion-select interface="action-sheet" placeholder="Selecciona tu sección" formControlName="seccion">
+        <ion-select label="Seccion: " interface="action-sheet" placeholder="Selecciona tu sección" formControlName="seccion">
           <ion-select-option value="010d">010d</ion-select-option>
           <ion-select-option value="010v">010v</ion-select-option>
           <ion-select-option value="011d">011d</ion-select-option>
@@ -79,10 +84,13 @@
         </ion-select>
       </ion-item>
 
+      <ion-text color="danger" *ngIf="loginForm.get('seccion')?.invalid && loginForm.get('seccion')?.touched">
+        <p>* Seleccione Sección </p>
+      </ion-text>
+
       <!-- Contraseña -->
       <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" placeholder="Crea una contraseña" formControlName="password">
+        <ion-input label="Contraseña: " label-placement="floating" type="password" placeholder="Crea una contraseña" formControlName="password">
 
           <ion-input-password-toggle slot="end">
           </ion-input-password-toggle>
@@ -96,8 +104,7 @@
 
       <!-- Confirmar Contraseña -->
       <ion-item>
-        <ion-label position="floating">Confirmar Contraseña</ion-label>
-        <ion-input type="password" placeholder="Reingresa tu contraseña" formControlName="confpassword">
+        <ion-input label="Confirmar Contraseña: " label-placement="floating" type="password" placeholder="Reingresa tu contraseña" formControlName="confpassword">
 
           <ion-input-password-toggle slot="end">
           </ion-input-password-toggle></ion-input>

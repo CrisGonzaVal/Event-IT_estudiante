@@ -65,10 +65,20 @@ export class RegistrarPage implements OnInit {
     if (!this.loginForm.valid){
       return;
     }
-    const usuario = this.loginForm.value; // Obtiene los datos del formulario
+    this.usuario = {
+      username: this.loginForm.get('nombre')?.value,
+      rut: this.loginForm.get('rut')?.value,
+      email: this.loginForm.get('email')?.value,
+      password: this.loginForm.get('password')?.value,
+      carrera: this.loginForm.get('carrera')?.value,
+      jornada: this.loginForm.get('jornada')?.value,
+      seccion: this.loginForm.get('seccion')?.value,
+      isactive: true, // Por defecto
+    };
+  
     this.apiCrud.postUser(this.usuario).subscribe();
     this.msjRegistro();
-    console.log("informacion enviada al json:"+ this.usuario );
+    
   }
 
   async msjRegistro(){
