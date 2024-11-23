@@ -17,7 +17,7 @@
       "username": "Mauricio Gonzalez",
       "email": "m.gonzalez@duocuc.cl",
       "password": "qwertyuiop",
-      "carrera": " Ing. informatica",
+      "carrera": "Ing. informatica",
       "jornada": "Vespertino",
       "seccion": "012v",
       "isactive": true
@@ -28,7 +28,7 @@
       "username": "Paz Mabel Cifuentes",
       "email": "paz.mabel.cifuentes@gmail.com",
       "password": "paz123456",
-      "carrera": " Ing. informatica",
+      "carrera": "Ing. informatica",
       "jornada": "Diurno",
       "seccion": "012d",
       "isactive": true
@@ -39,7 +39,7 @@
       "username": "Felipe Carrillo",
       "email": "feli.carrillo@duocuc.cl",
       "password": "duoc2024",
-      "carrera": " Ing. informatica",
+      "carrera": "Ing. informatica",
       "jornada": "Vespertino",
       "seccion": "010v",
       "isactive": true
@@ -50,7 +50,7 @@
       "username": "Jessenia Gonzalez",
       "email": "jess@duocuc.cl",
       "password": "asdfghjklzxc",
-      "carrera": " Ing. informatica",
+      "carrera": "Ing. informatica",
       "jornada": "Diurno",
       "seccion": "012d",
       "isactive": true

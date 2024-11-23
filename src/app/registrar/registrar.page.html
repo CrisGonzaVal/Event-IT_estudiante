@@ -83,7 +83,10 @@
       <ion-item>
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input type="password" placeholder="Crea una contraseña" formControlName="password">
-          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+
+          <ion-input-password-toggle slot="end">
+          </ion-input-password-toggle>
+
         </ion-input>
       </ion-item>
       <ion-text color="danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
@@ -95,9 +98,17 @@
       <ion-item>
         <ion-label position="floating">Confirmar Contraseña</ion-label>
         <ion-input type="password" placeholder="Reingresa tu contraseña" formControlName="confpassword">
+
           <ion-input-password-toggle slot="end">
           </ion-input-password-toggle></ion-input>
+
       </ion-item>
+      <ion-text color="danger" *ngIf="loginForm.get('confpassword')?.invalid && loginForm.get('confpassword')?.touched">
+        <p *ngIf="loginForm.get('confpassword')?.hasError('required')">* Contraseña es obligatoria</p>
+      </ion-text>
+      <ion-text color="danger" *ngIf="loginForm.hasError('passwordMismatch') && loginForm.touched">
+        <p>* Las contraseñas no coinciden</p>
+      </ion-text>
 
       <!-- Botón de Registro -->
       <ion-button expand="block" color="primary" (click)="crearUsuario()" [disabled]="!loginForm.valid" id="open-loading">

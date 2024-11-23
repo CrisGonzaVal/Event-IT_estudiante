@@ -3,9 +3,17 @@ import { Router } from '@angular/router';
 import { ApicrudService } from '../services/apicrud.service';
 import { AlertController } from '@ionic/angular'; //cuadros de mensajes
 import { Users } from 'src/interfaces/users';
-import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
+//validacion password
+export function passwordMatchValidator(): ValidatorFn {
+  return (formGroup: AbstractControl): ValidationErrors | null => {
+    const password = formGroup.get('password')?.value;
+    const confpassword = formGroup.get('confpassword')?.value;
 
+    return password === confpassword ? null : { passwordMismatch: true };
+  };
+}
 
 @Component({
   selector: 'app-registrar',
@@ -44,7 +52,9 @@ export class RegistrarPage implements OnInit {
                   seccion :['',[Validators.required]],
                   password : ['',[Validators.required, Validators.minLength(8)]],
                   confpassword :['',[Validators.required, Validators.minLength(8)]],
-                });
+                },
+                { validators: passwordMatchValidator() } // Agregar el validador aquí
+              );
               }
 
   ngOnInit() {
@@ -58,6 +68,7 @@ export class RegistrarPage implements OnInit {
     const usuario = this.loginForm.value; // Obtiene los datos del formulario
     this.apiCrud.postUser(this.usuario).subscribe();
     this.msjRegistro();
+    console.log("informacion enviada al json:"+ this.usuario );
   }
 
   async msjRegistro(){
