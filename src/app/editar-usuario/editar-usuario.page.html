@@ -1,78 +1,95 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button 
-           defaultHref="/tabs/home">
-      </ion-back-button>
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Actualización de perfil</ion-title>
+    <ion-title>Actualización de Perfil</ion-title>
     <ion-icon name="create-outline" color="light" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <!-- Imagen de perfil del usuario -->
-  <div class="profile-pic">
-    <ion-avatar>
-      <ion-img src="assets/user-avatar.jpg" alt="Foto de Perfil"></ion-img>
-    </ion-avatar>
-    <ion-button expand="block" class="upload-btn" color="primary">Cambiar Foto</ion-button>
-  </div>
+  <ion-grid>
+    <ion-row class="align-center">
+      <ion-col size="auto">
+        <ion-avatar>
+          <ion-img src="assets/user-avatar.jpg" alt="Foto de Perfil"></ion-img>
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="auto" class="align-center">
+        <ion-button expand="block" class="upload-btn" color="primary">
+          <ion-icon slot="start" name="camera-outline"></ion-icon> Cambiar Foto
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <!-- Formulario para editar los datos del usuario -->
-  <ion-list>
-    <!-- Campo Nombre -->
-    <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
-      <ion-input type="text" [(ngModel)]="usuario.username"></ion-input>
-    </ion-item>
+  <ion-card class="profile-card">
+    <ion-card-content>
+      <ion-list>
+        <!-- Campo Nombre -->
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="usuario.username"></ion-input>
+        </ion-item>
 
-    <!-- Campo RUT -->
-    <ion-item>
-      <ion-label position="floating">Rut</ion-label>
-      <ion-input type="text" disabled [(ngModel)]="usuario.rut"></ion-input>
-    </ion-item>
+        <!-- Campo RUT -->
+        <ion-item>
+          <ion-label position="floating">Rut</ion-label>
+          <ion-input type="text" disabled [(ngModel)]="usuario.rut"></ion-input>
+        </ion-item>
 
-    <!-- Campo Carrera -->
-    <ion-item>
-      <ion-label position="floating">Carrera</ion-label>
-      <ion-input type="text" [(ngModel)]="usuario.carrera"></ion-input>
-    </ion-item>
+        <!-- Campo Carrera -->
+        <ion-item>
+          <ion-label position="floating">Carrera</ion-label>
+          <ion-select [(ngModel)]="usuario.carrera" interface="action-sheet">
+            <ion-select-option value="Ing. informatica">Ing. en Informática</ion-select-option>
+            <ion-select-option value="Tec. Analista Programador">Tec. Analista Programador</ion-select-option>
+            <ion-select-option value="Ing. redes">Ing. en redes</ion-select-option>
+          </ion-select>  
+        </ion-item>
 
-    <!-- Campo Email -->
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" [(ngModel)]="usuario.email"></ion-input>
-    </ion-item>
+        <!-- Campo Email -->
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="usuario.email"></ion-input>
+        </ion-item>
 
-    <!-- Campo Tipo de Jornada -->
-    <ion-item>
-      <ion-select label="tipo de jornada: " interface="action-sheet"  [(ngModel)]="usuario.jornada">
-        <ion-select-option value="Diurno">Diurno</ion-select-option>
-        <ion-select-option value="Vespertino">Vespertino</ion-select-option>
-      </ion-select>
-    </ion-item>
+        <!-- Campo Tipo de Jornada -->
+        <ion-item>
+          <ion-label position="floating">Tipo de Jornada</ion-label>
+          <ion-select [(ngModel)]="usuario.jornada" interface="action-sheet">
+            <ion-select-option value="Diurno">Diurno</ion-select-option>
+            <ion-select-option value="Vespertino">Vespertino</ion-select-option>
+          </ion-select>
+        </ion-item>
 
-    <!-- Campo Sección -->
-    <ion-item>
-      <ion-select label="seccion: " interface="action-sheet" placeholder="Selecciona tu sección" [(ngModel)]="usuario.seccion">
-        <ion-select-option value="010d">O10d</ion-select-option>
-        <ion-select-option value="010v">O10v</ion-select-option>
-        <ion-select-option value="011d">O11d</ion-select-option>
-        <ion-select-option value="011v">O11v</ion-select-option>
-        <ion-select-option value="012d">O12d</ion-select-option> 
-        <ion-select-option value="012v">O12v</ion-select-option>
-      </ion-select>
-    </ion-item>
-  
-  <ion-item>
-    <ion-label position="floating" >Cuenta Activa</ion-label>
-    <ion-toggle [(ngModel)]="usuario.isactive" [disabled]="true"></ion-toggle>
-  </ion-item>
-</ion-list>
+        <!-- Campo Sección -->
+        <ion-item>
+          <ion-label position="floating">Sección</ion-label>
+          <ion-select [(ngModel)]="usuario.seccion" interface="action-sheet">
+            <ion-select-option value="010d">010d</ion-select-option>
+            <ion-select-option value="010v">010v</ion-select-option>
+            <ion-select-option value="011d">011d</ion-select-option>
+            <ion-select-option value="011v">011v</ion-select-option>
+            <ion-select-option value="012d">012d</ion-select-option>
+            <ion-select-option value="012v">012v</ion-select-option>
+          </ion-select>
+        </ion-item>
 
+        <!-- Campo Cuenta Activa -->
+        <ion-item>
+          <ion-label>Cuenta Activa</ion-label>
+          <ion-toggle [(ngModel)]="usuario.isactive" [disabled]="true"></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <div class="guardar-btn">
   <!-- Botón para Guardar Cambios -->
-  <ion-button expand="block" color="success" (click)="actualizarUsuario()">Guardar Cambios</ion-button>
-
-  
+  <ion-button expand="block" color="primary" (click)="actualizarUsuario()">
+    <ion-icon slot="start" name="save-outline"></ion-icon> Guardar Cambios
+  </ion-button>
+</div>
 </ion-content>

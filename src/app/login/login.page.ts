@@ -59,7 +59,7 @@ export class loginPage implements OnInit {
 
     // Mostrar el indicador de carga
     const loading = await this.loadingController.create({
-      message: 'Validando Cuenta...',
+      message: 'Validando Usuario...',
       spinner: 'circles', // Cambiar el estilo del spinner si lo deseas
     });
     await loading.present();
