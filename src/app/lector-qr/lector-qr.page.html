@@ -1,30 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button 
-      defaultHref="/tabs/home">
-      </ion-back-button>
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Incripción de Talleres</ion-title>
+    <ion-title>Detalle de inscripción</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card class="ionic-text-center">
+  <ion-card>
     <ion-card-header>
-      <ion-card-title><h2>{{ act.nombre }}</h2></ion-card-title>
+      <ion-card-title class="card-title">
+        <h2>{{ act.nombre }}</h2>
+      </ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
-      <h3>Fecha del evento: {{ act.fecha }}</h3>
-      <h3>RUT: {{ rut }}</h3>
-      <h3>Email: {{ email }}</h3>
+      <ion-item-divider color="light">
+        <ion-label>
+          <h3>Detalles del Taller</h3>
+        </ion-label>
+      </ion-item-divider>
+      <p><strong>Fecha del evento:</strong> {{ act.fecha }}</p>
+      <p><strong>RUT: </strong> {{ rut }}</p>
+      <p><strong>Email: </strong> {{ email }}</p>
     </ion-card-content>
+
     <ion-card-content>
-      <div class="ionic-text-center">
+      <ion-item-divider color="light">
+        <ion-label>
+          <h3>Código QR Generado</h3>
+        </ion-label>
+      </ion-item-divider>
+      <div class="qr-container">
         <qrcode [qrdata]="qrData" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
       </div>
     </ion-card-content>
-
   </ion-card>
 </ion-content>
 

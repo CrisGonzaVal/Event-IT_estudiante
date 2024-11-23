@@ -14,12 +14,12 @@
   <ion-list>
     <ion-item *ngFor="let a of evento " button detail="true" (click)="inscribir(a)">
       <ion-label>
-        <h2>{{a.nombreevento}}</h2><br>
+        <h2><strong>{{a.nombreevento}}</strong></h2>
         <h4>{{a.descripcion}}</h4><br>
-        <p>Fecha Evento: {{a.fecha}}</p>
-        <p>Hora Evento: {{a.hora}}</p>
-        <p>Ubicación: {{a.ubicacion}}</p>
-        <p>Cupos: {{a.cupos}}</p>
+        <p><strong>seminario:</strong> {{a.fecha}}</p>
+        <p><strong>Hora seminario:</strong> {{a.hora}}</p>
+        <p><strong>Ubicación:</strong> {{a.ubicacion}}</p>
+        <p><strong>Cupos:</strong> {{a.cupos}}</p>
       </ion-label>
     </ion-item>
   </ion-list>
