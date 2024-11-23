@@ -1,12 +1,22 @@
+.imagen-logo {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el logo */
+    align-items: center; /* Centra verticalmente el logo */
+    height: 150px; /* Ajusta la altura del toolbar para que el logo se vea grande */
+    background: transparent; /* Si deseas un fondo transparente */
+}
+
 ion-card {
-    margin-top: 5%;
-    margin-left: 5%;
+    margin: 0 5%; 
+    margin-top: 2%; 
     margin-right: 5%;
 }
 
 ion-img{
-    margin: auto;
-    margin-top: 4%;
+    margin: 0 auto;
+    width: 200px; 
+    height: auto; 
+    
 }
 
 ion-footer{

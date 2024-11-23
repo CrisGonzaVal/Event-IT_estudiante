@@ -57,7 +57,7 @@
     --ion-color-secondary: #ABD1C6;
     --ion-color-tertiary: #F9BC60;
     --ion-color-danger: #E16162;
-    --ion-color-light: #EFF0F3;
+    --ion-color-light: #edf7fa;
     --ion-color-dark: #004643;
   
   
@@ -112,7 +112,7 @@ ion-content {
 @media (prefers-color-scheme: dark) {
   /* Desactiva los cambios basados en el esquema de color */
   :root {
-    --ion-background-color: #ffffff;
+    --ion-background-color: #edf7fa;
     --ion-text-color: #000000;
   }
 
