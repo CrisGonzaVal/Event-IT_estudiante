@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 //import { HttpClientModule } from '@angular/common/http'; //angular <18
 import { provideHttpClient } from '@angular/common/http'; //servicios api
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { QRCodeModule } from 'angularx-qrcode'; // Importa el módulo
 
 
 @NgModule({

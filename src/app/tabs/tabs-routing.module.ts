@@ -9,23 +9,23 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../home/home.module').then(m => m.homePageModule)
+        loadChildren: () => import('../home/home.module').then(m => m.homePageModule),
       },
       {
         path: 'actividades',
-        loadChildren: () => import('../actividades/actividades.module').then(m => m.ActividadesPageModule)
+        loadChildren: () => import('../actividades/actividades.module').then(m => m.ActividadesPageModule),
       },
       {
         path: 'eventos',
-        loadChildren: () => import('../eventos/eventos.module').then(m => m.EventosPageModule)
+        loadChildren: () => import('../eventos/eventos.module').then(m => m.EventosPageModule),
       },
       {
         path: 'editar-usuario',  // Añadir la ruta para editar-usuario
-        loadChildren: () => import('../editar-usuario/editar-usuario.module').then(m => m.EditarUsuarioPageModule)
+        loadChildren: () => import('../editar-usuario/editar-usuario.module').then(m => m.EditarUsuarioPageModule),
       },
       {
         path: 'seminarios',
-        loadChildren: () => import('../seminarios/seminarios.module').then(m => m.SeminariosPageModule)
+        loadChildren: () => import('../seminarios/seminarios.module').then(m => m.SeminariosPageModule),
       },
       {
         path: '',

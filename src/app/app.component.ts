@@ -70,9 +70,9 @@ export class AppComponent {
   constructor(private auth: AuthService,
             private toast: ToastController,
             private menuController: MenuController
-  ) {
-    this.menuController.swipeGesture(true, 'first'); // Habilita los gestos de deslizamiento
-  }
+  ) {}
+   // this.menuController.swipeGesture(true, 'first'); // Habilita los gestos de deslizamiento
+  
 
   cerrarSesion() {
     this.showToast(this.auth.cerrarSesionUser());  // Llama al método de cierre de sesión en AuthService

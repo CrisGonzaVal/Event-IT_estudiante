@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AutorizadoGuard } from './guards/autorizado.guard';
+import { disableMenuGuard } from './guards/menu.guard';
+import { enableMenuGuard } from './guards/menu.guard';
 
 const routes: Routes = [
   {
@@ -9,24 +12,29 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.loginPageModule)
+    loadChildren: () => import('./login/login.module').then(m => m.loginPageModule),
+    canActivate: [disableMenuGuard] // Desactiva el menú aquí
   },
   {
     path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule) // Cargar el módulo de tabs
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule), // Cargar el módulo de tabs
+    canActivate: [AutorizadoGuard,enableMenuGuard]
   },
   // Otras rutas que no están relacionadas con las tabs
   {
     path: 'registrar',
-    loadChildren: () => import('./registrar/registrar.module').then(m => m.RegistrarPageModule)
+    loadChildren: () => import('./registrar/registrar.module').then(m => m.RegistrarPageModule),
+    canActivate: [disableMenuGuard] // Desactiva el menú aquí
   },
   {
     path: 'editar-usuario',
-    loadChildren: () => import('./editar-usuario/editar-usuario.module').then(m => m.EditarUsuarioPageModule)
+    loadChildren: () => import('./editar-usuario/editar-usuario.module').then(m => m.EditarUsuarioPageModule),
+    canActivate: [AutorizadoGuard]
   },
   {
     path: 'lector-qr',
-    loadChildren: () => import('./lector-qr/lector-qr.module').then(m => m.LectorQRPageModule)
+    loadChildren: () => import('./lector-qr/lector-qr.module').then(m => m.LectorQRPageModule),
+    canActivate: [AutorizadoGuard]
   },
 ];
 
