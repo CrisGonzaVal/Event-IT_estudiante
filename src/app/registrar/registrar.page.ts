@@ -33,16 +33,18 @@ export class RegistrarPage implements OnInit {
               private alertcontroller:AlertController,
               private apiCrud: ApicrudService,
               private fbuilder: FormBuilder,) { 
+
+                //validaciones
                 this.loginForm = this.fbuilder.group({
-                  nombre : ['',[Validators.required]],
+                  nombre : ['',Validators.required],
                   rut : ['',[Validators.required, Validators.minLength(8)]],
                   carrera : ['',[Validators.required]],
                   jornada : ['',[Validators.required]],
-                  email : ["",[Validators.required, Validators.email]], 
+                  email : ['',[Validators.required, Validators.email]], 
                   seccion :['',[Validators.required]],
                   password : ['',[Validators.required, Validators.minLength(8)]],
                   confpassword :['',[Validators.required, Validators.minLength(8)]],
-                })
+                });
               }
 
   ngOnInit() {

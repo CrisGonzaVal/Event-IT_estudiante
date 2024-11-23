@@ -18,6 +18,7 @@
     </ion-card-header>
 
     <ion-card-content>
+      <form [formGroup]="loginForm"> 
       <!-- Nombre -->
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
@@ -103,6 +104,7 @@
         Registrarme
       </ion-button>
       <ion-loading trigger="open-loading" message="Procesando Registro..." duration="3000"></ion-loading>
+    </form>
     </ion-card-content>
   </ion-card>
 </ion-content>
