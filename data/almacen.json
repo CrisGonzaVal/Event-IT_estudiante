@@ -212,4 +212,59 @@
       "descripcion": "Explora el impacto de la inteligencia artificial en diagnósticos médicos y tratamientos."
     }
   ]
+  "Eventos": [
+    {
+      "nombreevento": "Concierto de Música Clásica",
+      "fecha": "2023-10-15",
+      "hora": "08:00 PM",
+      "ubicacion": "DUOC UC sede Maipú",
+      "isactive": true,
+      "id": "6aaa",
+      "cupos": 30,
+      "descripcion": "Un recital imperdible de música clásica con obras de reconocidos compositores."
+    },
+    {
+      "nombreevento": "Expo Tecnología 2024",
+      "fecha": "2023-11-20",
+      "hora": "11:00 AM",
+      "ubicacion": "Sede San Carlos de Apoquindo",
+      "isactive": true,
+      "id": "1708",
+      "cupos": 30,
+      "descripcion": "Explora las últimas innovaciones en tecnología y conectividad."
+    },
+    {
+      "nombreevento": "Festival de Innovación",
+      "fecha": "2023-11-22",
+      "hora": "11:00 AM",
+      "ubicacion": "Sede Antonio Varas",
+      "isactive": true,
+      "id": "269b",
+      "cupos": 30,
+      "descripcion": "Un encuentro para creativos y emprendedores en tecnología e innovación."
+    },
+    {
+      "nombreevento": "Evento de Emprendimiento TI",
+      "fecha": "2023-11-28",
+      "hora": "02:00 PM",
+      "ubicacion": "Sede Alameda",
+      "isactive": true,
+      "id": "2a40",
+      "cupos": 30,
+      "descripcion": "Participa en sesiones de networking y conferencias sobre emprendimiento tecnológico."
+    },
+    {
+      "nombreevento": "Concierto de Música Clásica",
+      "fecha": "2023-11-28",
+      "hora": "06:00 PM",
+      "ubicacion": "Sede Viña del Mar",
+      "isactive": true,
+      "id": "c341",
+      "cupos": 30,
+      "descripcion": "Disfruta de un repertorio único de música clásica en un entorno espectacular."
+    }
+  ],
+  "incripcion": [
+    
+  ]
 }

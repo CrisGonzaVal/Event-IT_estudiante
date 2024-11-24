@@ -3,6 +3,7 @@ import { actividades } from 'src/interfaces/actividades';
 import { ApicrudSesionService } from '../services/apicrud-sesion.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-actividades',
@@ -15,7 +16,7 @@ export class ActividadesPage implements OnInit {
   usuario:any;
 
   constructor(private apicrudSesion: ApicrudSesionService, private router: Router,
-    private auth: AuthService
+    private auth: AuthService, private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -25,17 +26,45 @@ export class ActividadesPage implements OnInit {
     })
   }
 
-  inscribir(actividad: any) {
-    // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
-    const qrData = {
-      nombre: actividad.nombretaller,
-      fecha: actividad.fecha,
-      rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
-      email: this.usuario.email,
-    };
 
-    console.log(qrData);
-    // Navega a la página de generación de QR, pasando los datos
-    this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(qrData) } });
-  }
+
+async confirmarRegistro(actividad: any) {
+  const alert = await this.alertController.create({
+    header: 'Confirmación',
+    message: `¿Deseas registrarte a la actividad?`,
+    buttons: [
+      {
+        text: 'Cancelar',
+        role: 'cancel',
+      },
+      {
+        text: 'Aceptar',
+        handler: () => {
+          this.inscribirActividad(actividad);
+        },
+      },
+    ],
+  });
+
+  await alert.present();
+}
+
+
+
+inscribirActividad(actividad: any) {
+  const qrdata = {
+    // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
+    nombre: actividad.nombretaller,
+    fecha: actividad.fecha,
+    rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
+    email: this.usuario.email,
+  };
+
+  this.apicrudSesion.postInscripcion(qrdata).subscribe(() => {
+    this.router.navigate(['./lector-qr'], {
+      queryParams: { data: JSON.stringify(qrdata) },
+    });
+  });
+}
+
 }
