@@ -37,16 +37,19 @@
 @import "@ionic/angular/css/palettes/dark.system.css";
 
 
-.sinfondo {
-  background-color: transparent;
-
- }
-
  .logo{
   
     width: 130px; /* Define el ancho deseado */
     height: 100px; /* Define la altura deseada */
 
+ }
+
+ *{
+  font-family: Verdana, sans-serif;
+ }
+
+ ion-title{
+  font-size: 19px;
  }
 
 
@@ -89,16 +92,16 @@
   }
 
   ion-label {
-    font-size: 12px;  /* Ajusta el tamaño de las etiquetas de los formularios */
+    font-size: 14px;  /* Ajusta el tamaño de las etiquetas de los formularios */
   }
 
   ion-item{
-    font-size: 12px;  /* Ajusta el tamaño de las etiquetas de los formularios */
+    font-size: 14px;  /* Ajusta el tamaño de las etiquetas de los formularios */
   }
 
 /* Ajustar el estilo del ion-input */
 ion-input {
-  font-size: 14px; /* Ajusta el tamaño de la fuente */
+  font-size: 15px; /* Ajusta el tamaño de la fuente */
   --padding-start: 0px; /* Elimina el padding adicional */
   --padding-end: 0px;
 }
