@@ -26,7 +26,7 @@
         <!-- Campo Contraseña -->
         <ion-item>
           <ion-input label="Contraseña:" label-placement="floating" type="password" placeholder=" Ingrese su contraseña" formControlName="password">
-            <ion-input-password-toggle slot="end" size="small"></ion-input-password-toggle>
+            
           </ion-input>
         </ion-item>
         <ion-text color="danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
@@ -62,7 +62,7 @@
 <!-- Footer -->
 <ion-footer>
   <ion-toolbar color="primary">
-    <ion-title style="font-size: 16px; text-align: center;">IT Event Asistente 2024</ion-title>
+    <ion-title style="font-size: 14px; text-align: center;">IT Event Asistente 2024</ion-title>
     <ion-buttons slot="end" class="social-icons">
       <ion-button fill="clear">
         <ion-icon name="logo-instagram"></ion-icon>
