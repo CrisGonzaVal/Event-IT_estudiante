@@ -1,94 +1,78 @@
-<ion-header [translucent]="true">
-</ion-header>
+<ion-header [translucent]="true"></ion-header>
 
 <ion-content [fullscreen]="true">
 
-  
-  <ion-toolbar class="imagen-logo sinfondo">
-      <ion-img src="assets/Event It.png"></ion-img>
+  <!-- Logotipo centrado -->
+  <ion-toolbar class="imagen-logo">
+    <ion-img src="assets/Event It trans.png"></ion-img>
   </ion-toolbar>
-  <ion-card>
-    <ion-card-header>
 
-       <ion-title style="text-align: center;">Iniciar Sesión</ion-title>
+  <!-- Tarjeta del formulario -->
+  <ion-card class="login-card">
+    <ion-card-header>
+      <ion-title style="text-align: center;" color="primary">Inicia Sesión</ion-title>
     </ion-card-header>
     <ion-card-content>
-     <form [formGroup]="loginForm"> 
-      <ion-item>
-        <ion-input label="Email: " label-placement="floating"  type="text" placeholder=" Ingrese su email" formControlName="email"></ion-input>
-      </ion-item>
+      <form [formGroup]="loginForm">
+        <!-- Campo Email -->
+        <ion-item>
+          <ion-input label="Email: " label-placement="floating" type="text" placeholder=" Ingrese su email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <p *ngIf="loginForm.get('email')?.hasError('required')">*Email es obligatorio</p>
+          <p *ngIf="loginForm.get('email')?.hasError('email')">*El email debe tener un formato válido</p>
+        </ion-text>
 
-      <div id="alerta" *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || 
-                  loginForm.get('email')?.touched)">
-        <div id="alerta" *ngIf="loginForm.get('email')?.hasError('required')">
-          *email es obligatorio
+        <!-- Campo Contraseña -->
+        <ion-item>
+          <ion-input label="Contraseña:" label-placement="floating" type="password" placeholder=" Ingrese su contraseña" formControlName="password">
+            <ion-input-password-toggle slot="end" size="small"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <p *ngIf="loginForm.get('password')?.hasError('required')">*Contraseña es obligatoria</p>
+          <p *ngIf="loginForm.get('password')?.hasError('minlength')">*Debe tener mínimo 8 caracteres</p>
+        </ion-text>
+
+        <!-- Enlaces y Botones -->
+        <ion-item lines="none" class="forgot-password">
+          <ion-button fill="clear">¿Olvidaste tu contraseña?</ion-button>
+        </ion-item>
+
+        <div class="btn-group">
+          <ion-button (click)="login()" [disabled]="!loginForm.valid" expand="block" color="primary" id="open-loading">
+            Entrar
+          </ion-button>
         </div>
-        <div id="alerta" *ngIf="loginForm.get('email')?.hasError('email')">
-          *El email debe tener un formato válido.
+        <ion-item lines="none" class="forgot-password">
+          <ion-button fill="clear">¿No tienes cuenta?</ion-button>
+        </ion-item>
+        
+        <div class="btn-group">
+          <ion-button (click)="registrar()" expand="block" color="danger">
+            Registrarme
+          </ion-button>
         </div>
-      </div>
-
-      <ion-item>
-        <ion-input label="Contraseña: " label-placement="floating" type="password" placeholder=" Ingrese su contraseña" formControlName="password">
-          <ion-input-password-toggle slot="end" size="small">
-
-          </ion-input-password-toggle></ion-input>
-      </ion-item>
-
-      <div id="alerta" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || 
-                 loginForm.get('password')?.touched)">
-        <div id="alerta" *ngIf="loginForm.get('password')?.hasError('required')">
-          *Password es obligatoria
-        </div>
-        <div id="alerta" *ngIf="loginForm.get('password')?.hasError('minlength')">
-         *Password debe tener mínimo 8 caracteres
-        </div>
-      </div>
-      <!-- finaL Alertas-->
-      <ion-item lines="none">
-        <ion-button fill="clear" style="font-size: 10px;">¿Olvidaste tu contraseña?</ion-button>
-      </ion-item>
-
-      <div style="text-align: center;">
-        <ion-button (click)="login()" [disabled]="!loginForm.valid" id="open-loading" fill="solid">
-          LogIn
-        </ion-button>
-      
-
-      </div>
-
-      <ion-item lines="none">
-        <ion-label style="text-align: center;">¿No tienes cuenta?</ion-label>
-      </ion-item>
-
-      <div style="text-align: center;">
-        <ion-button (click)="registrar()"  fill="solid" color="danger">
-          Registrarse
-        </ion-button>
-      </div>
-    </form>
+      </form>
     </ion-card-content>
   </ion-card>
 
-</ion-content>  
+</ion-content>
+
+<!-- Footer -->
 <ion-footer>
   <ion-toolbar color="primary">
-    <ion-title style="font-size: 16px;">IT Event Asistente 2024</ion-title>
-    <ion-buttons slot="end">
-
+    <ion-title style="font-size: 16px; text-align: center;">IT Event Asistente 2024</ion-title>
+    <ion-buttons slot="end" class="social-icons">
       <ion-button fill="clear">
         <ion-icon name="logo-instagram"></ion-icon>
       </ion-button>
-
       <ion-button fill="clear">
         <ion-icon name="logo-github"></ion-icon>
       </ion-button>
-
       <ion-button fill="clear">
         <ion-icon name="logo-linkedin"></ion-icon>
       </ion-button>
-      
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
-

@@ -1,28 +1,41 @@
-.imagen-logo {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente el logo */
-    align-items: center; /* Centra verticalmente el logo */
-    height: 150px; /* Ajusta la altura del toolbar para que el logo se vea grande */
-    background: transparent; /* Si deseas un fondo transparente */
-}
-
-ion-card {
-    margin: 0 5%; 
-    margin-top: 2%; 
-    margin-right: 5%;
-}
-
-ion-img{
-    margin: 0 auto;
-    width: 200px; 
+/* Logotipo centrado */
+.imagen-logo ion-img {
+    display: block; 
+    margin: 0 auto; 
+    margin-top: 40px;
+    width: 240px; /* Tamaño del logo */
     height: auto; 
-    
-}
+  }
+  
 
-ion-footer{
-    height: 9%;
-}
-
-
+  
+  /* Tarjeta del login */
+  .login-card {
+    margin: 0 5%;
+    margin-top: 3%;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  /* Botones */
+  .btn-group ion-button {
+    border-radius: 12px;
+    margin: 10px 0;
+  }
+  
+  /* Enlace para contraseña */
+  .forgot-password {
+    text-align: right;
+    font-size: 12px;
+  }
+  
+  /* Footer social icons */
+  .social-icons ion-button {
+    font-size: 18px;
+    color: #ffffff;
+  }
+  
+  
 
 
