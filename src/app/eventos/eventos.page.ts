@@ -3,6 +3,7 @@ import { eventos } from 'src/interfaces/eventos';
 import { ApicrudSesionService } from '../services/apicrud-sesion.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-eventos',
@@ -15,7 +16,7 @@ export class EventosPage implements OnInit {
   usuario:any;
 
   constructor(private apicrudSesion: ApicrudSesionService, private router: Router,
-    private auth: AuthService
+    private auth: AuthService,  private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -26,18 +27,45 @@ export class EventosPage implements OnInit {
   }
   
 
-  inscribir(evento: any) {
-    // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
-    const qrData = {
+  async confirmarRegistro(evento: any) {
+    const alert = await this.alertController.create({
+      header: 'Confirmación de Incripción',
+      message: `¿Deseas registrarte al evento "${evento.nombreevento} "?`,
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+        {
+          text: 'Inscribir',
+          handler: () => {
+            this.inscribirEvento(evento);
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+  }
+  
+  
+  
+  inscribirEvento(evento: any) {
+    const qrdata = {
+      // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
       nombre: evento.nombreevento,
       fecha: evento.fecha,
       rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
       email: this.usuario.email,
+      asistido:false,
+      comentario:""
     };
-
-    console.log(qrData);
-    // Navega a la página de generación de QR, pasando los datos
-    this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(qrData) } });
+  
+    this.apicrudSesion.postInscripcion(qrdata).subscribe(() => {
+      this.router.navigate(['./lector-qr'], {
+        queryParams: { data: JSON.stringify(qrdata) },
+      });
+    });
   }
 
 }

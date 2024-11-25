@@ -34,7 +34,8 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+  //@import "@ionic/angular/css/palettes/dark.system.css";
+
 
 
  .logo{
@@ -88,7 +89,7 @@
   ion-button {
     border-radius: 24px;  /* Redondear los bordes */
     display: block;     /* Asegura que el botón ocupe todo el ancho */
-    width: 100%; 
+   // width: 100%; 
   }
 
   ion-label {
