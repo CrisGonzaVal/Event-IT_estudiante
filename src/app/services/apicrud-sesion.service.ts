@@ -49,5 +49,9 @@ updateSeminario(id: string, data: any): Observable<any> {
   postInscripcion(newqrdata: inscripciones):Observable<inscripciones>{
   return this.httpClient.post<inscripciones>(`${environment.apiUrl}/inscripciones`, newqrdata);}
 
+  deleteInscripcion(id: string) {
+    return this.httpClient.delete(`ruta/del/json/inscripciones/${id}`);
+  }
+
 
 }

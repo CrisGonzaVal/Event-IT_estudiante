@@ -17,8 +17,10 @@ export class ActividadesPage implements OnInit {
   inscripciones: any[] = [];
   
 
-  constructor(private apicrudSesion: ApicrudSesionService, private router: Router,
-    private auth: AuthService, private alertController: AlertController
+  constructor(private apicrudSesion: ApicrudSesionService,
+              private router: Router,
+              private auth: AuthService, 
+              private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -67,9 +69,11 @@ async confirmarRegistro(actividad: any) {
 
 GenerarQrData(actividad:any){
   const qrdata = {
-    id: actividad.id,
+    id: actividad.id+this.usuario.rut,
+    idTaller: actividad.id,
     nombre: actividad.nombretaller,
     fecha: actividad.fecha,
+    tipo: "actividad",
     rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
     email: this.usuario.email,
     asistido:false,
@@ -98,13 +102,15 @@ guardarIncripcion( actividad:any){
 
 
 verDetalle(actividad:any) {
-
-  //preparar datos del qr
+//preparar datos del qr
   const datoQr = this.GenerarQrData(actividad);
 
   //mostrar Qr en el page lector-qr
   this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
 }
+
+
+
 
 descontarCupo(actividad:any){
   actividad.cupos -= 1;

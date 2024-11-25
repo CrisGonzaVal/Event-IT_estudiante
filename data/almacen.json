@@ -213,59 +213,6 @@
     }
   ],
   "inscripciones": [
-    {
-      "id": "199e",
-      "nombre": "Curso Intensivo de IA",
-      "fecha": "2023-10-07",
-      "rut": "19182972-7",
-      "email": "crise.gonzalez@duocuc.cl",
-      "asistido": false,
-      "comentario": ""
-    },
-    {
-      "id": "26b7",
-      "nombre": "Taller de Python",
-      "fecha": "2023-10-06",
-      "rut": "19182972-7",
-      "email": "crise.gonzalez@duocuc.cl",
-      "asistido": false,
-      "comentario": ""
-    },
-    {
-      "id": "199e",
-      "nombre": "Curso Intensivo de IA",
-      "fecha": "2023-10-07",
-      "rut": "19182972-7",
-      "email": "crise.gonzalez@duocuc.cl",
-      "asistido": false,
-      "comentario": ""
-    },
-    {
-      "id": "39c6",
-      "nombre": "Conferencia sobre Blockchain",
-      "fecha": "2023-10-08",
-      "rut": "19182972-7",
-      "email": "crise.gonzalez@duocuc.cl",
-      "asistido": false,
-      "comentario": ""
-    },
-    {
-      "id": "6aaa",
-      "nombre": "Concierto de Música Clásica",
-      "fecha": "2023-10-15",
-      "rut": "19182972-7",
-      "email": "crise.gonzalez@duocuc.cl",
-      "asistido": false,
-      "comentario": ""
-    },
-    {
-      "id": "1708",
-      "nombre": "Expo Tecnología 2024",
-      "fecha": "2023-11-20",
-      "rut": "19182972-7",
-      "email": "crise.gonzalez@duocuc.cl",
-      "asistido": false,
-      "comentario": ""
-    }
+    
   ]
 }

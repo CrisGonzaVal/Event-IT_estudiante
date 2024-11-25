@@ -37,6 +37,12 @@
         <qrcode [qrdata]="qrData" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
       </div>
     </ion-card-content>
+
+    <ion-card-content>
+      <ion-button color="danger" expand="block" (click)="cancelarInscripcion()">
+        Cancelar Inscripción
+      </ion-button>
+    </ion-card-content>
   </ion-card>
 </ion-content>
 
