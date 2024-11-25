@@ -31,6 +31,19 @@ postInscripcion(newqrdata: incripcion):Observable<incripcion>{
   return this.httpClient.post<incripcion>(`${environment.apiUrl}/incripcion`, newqrdata);}
 
 
+updateActividad(id: string, data: any): Observable<any> {
+    return this.httpClient.patch(`${environment.apiUrl}/Actividades/${id}`, data);
+  }
+
+updateEvento(id: string, data: any): Observable<any> {
+    return this.httpClient.patch(`${environment.apiUrl}/Eventos/${id}`, data);
+  }
+
+updateSeminario(id: string, data: any): Observable<any> {
+    return this.httpClient.patch(`${environment.apiUrl}/Seminarios/${id}`, data);
+  }
+
+
 
 
 

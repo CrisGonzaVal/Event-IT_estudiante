@@ -50,8 +50,21 @@ export class SeminariosPage implements OnInit {
   
   
   inscribirSeminario(seminario: any) {
+
+
+    if (seminario.cupos > 0) {
+      // Actualiza los cupos del taller
+      seminario.cupos -= 1;
+  
+      // Guardar la actualización en el JSON 
+      this.apicrudSesion.updateSeminario(seminario.id, { cupos: seminario.cupos }).subscribe(() => {
+        console.log("Cupos actualizados correctamente.");
+      });
+  
+  
+  
+    // Registrar al usuario y navegar al lector-QR
     const qrdata = {
-      // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
       nombre: seminario.nombreseminario,
       fecha: seminario.fecha,
       rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
@@ -65,6 +78,18 @@ export class SeminariosPage implements OnInit {
         queryParams: { data: JSON.stringify(qrdata) },
       });
     });
+  }else{
+    console.log("No hay cupos disponibles");
+      this.noHayCupoAlert();
   }
-
+  }
+  
+  
+  noHayCupoAlert() {
+    this.alertController.create({
+      header: 'Cupos agotados',
+      message: 'Este evento ya no tiene cupos disponibles.',
+      buttons: ['OK'],
+    }).then(alert => alert.present());
+  }
 }

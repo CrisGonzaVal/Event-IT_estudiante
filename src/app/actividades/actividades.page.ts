@@ -52,8 +52,20 @@ async confirmarRegistro(actividad: any) {
 
 
 inscribirActividad(actividad: any) {
+
+  if (actividad.cupos > 0) {
+    // Actualiza los cupos del taller
+    actividad.cupos -= 1;
+
+    // Guardar la actualización en el JSON 
+    this.apicrudSesion.updateActividad(actividad.id, { cupos: actividad.cupos }).subscribe(() => {
+      console.log("Cupos actualizados correctamente.");
+    });
+
+
+
+  // Registrar al usuario y navegar al lector-QR
   const qrdata = {
-    // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
     nombre: actividad.nombretaller,
     fecha: actividad.fecha,
     rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
@@ -67,6 +79,19 @@ inscribirActividad(actividad: any) {
       queryParams: { data: JSON.stringify(qrdata) },
     });
   });
+}else{
+  console.log("No hay cupos disponibles");
+    this.noHayCupoAlert();
+}
+}
+
+
+noHayCupoAlert() {
+  this.alertController.create({
+    header: 'Cupos agotados',
+    message: 'Esta actividad ya no tiene cupos disponibles.',
+    buttons: ['OK'],
+  }).then(alert => alert.present());
 }
 
 }

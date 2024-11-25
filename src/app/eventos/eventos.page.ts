@@ -51,8 +51,21 @@ export class EventosPage implements OnInit {
   
   
   inscribirEvento(evento: any) {
+
+    if (evento.cupos > 0) {
+      // Actualiza los cupos del taller
+      evento.cupos -= 1;
+  
+      // Guardar la actualización en el JSON 
+      this.apicrudSesion.updateEvento(evento.id, { cupos: evento.cupos }).subscribe(() => {
+        console.log("Cupos actualizados correctamente.");
+      });
+
+
+
+
+   // Registrar al usuario y navegar al lector-QR
     const qrdata = {
-      // Genera los datos para el QR (RUT y correo del usuario, junto con datos del evento)
       nombre: evento.nombreevento,
       fecha: evento.fecha,
       rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
@@ -66,6 +79,18 @@ export class EventosPage implements OnInit {
         queryParams: { data: JSON.stringify(qrdata) },
       });
     });
+  }else{
+    console.log("No hay cupos disponibles");
+      this.noHayCupoAlert();
+  }
+  }
+
+  noHayCupoAlert() {
+    this.alertController.create({
+      header: 'Cupos agotados',
+      message: 'Este Evento ya no tiene cupos disponibles.',
+      buttons: ['OK'],
+    }).then(alert => alert.present());
   }
 
 }
