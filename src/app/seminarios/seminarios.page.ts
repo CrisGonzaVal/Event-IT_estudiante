@@ -14,6 +14,7 @@ export class SeminariosPage implements OnInit {
 
   seminario: seminarios[]=[];
   usuario:any;
+  inscripciones: any[] = [];
 
   constructor(private apicrudSesion: ApicrudSesionService, private router: Router, 
     private auth: AuthService, private alertController: AlertController ) {}
@@ -22,7 +23,12 @@ export class SeminariosPage implements OnInit {
     this.usuario=this.auth.getSesionUser();
     this.apicrudSesion.getSeminarios().subscribe(data=>{
       this.seminario=data;
-    })
+    });
+
+     // Obtener inscripciones del usuario
+     this.apicrudSesion.getInscripciones().subscribe(data => {
+      this.inscripciones = data.filter(inscripcion => inscripcion.rut === this.usuario.rut);
+    });
   }
 
 
@@ -38,7 +44,8 @@ export class SeminariosPage implements OnInit {
         {
           text: 'Inscribir',
           handler: () => {
-            this.inscribirSeminario(seminario);
+            this.guardarIncripcion(seminario);
+            this.verDetalle(seminario);
           },
         },
       ],
@@ -48,48 +55,54 @@ export class SeminariosPage implements OnInit {
   }
   
   
-  
-  inscribirSeminario(seminario: any) {
 
 
-    if (seminario.cupos > 0) {
-      // Actualiza los cupos del taller
-      seminario.cupos -= 1;
-  
-      // Guardar la actualización en el JSON 
-      this.apicrudSesion.updateSeminario(seminario.id, { cupos: seminario.cupos }).subscribe(() => {
-        console.log("Cupos actualizados correctamente.");
-      });
-  
-  
-  
-    // Registrar al usuario y navegar al lector-QR
-    const qrdata = {
-      nombre: seminario.nombreseminario,
-      fecha: seminario.fecha,
-      rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
-      email: this.usuario.email,
-      asistido:false,
-      comentario:""
-    };
-  
-    this.apicrudSesion.postInscripcion(qrdata).subscribe(() => {
-      this.router.navigate(['./lector-qr'], {
-        queryParams: { data: JSON.stringify(qrdata) },
-      });
-    });
-  }else{
-    console.log("No hay cupos disponibles");
-      this.noHayCupoAlert();
+GenerarQrData(seminario:any){
+  const qrdata = {
+    id: seminario.id,
+    nombre: seminario.nombreseminario,
+    fecha: seminario.fecha,
+    rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
+    email: this.usuario.email,
+    asistido:false,
+    comentario:""
   }
-  }
+  return qrdata;
+}
+
+
+
+guardarIncripcion( seminario:any){
+ //preparar datos del qr
+  const datoQr = this.GenerarQrData(seminario);
+
+  // guardar incripcion en Json
+  this.apicrudSesion.postInscripcion(datoQr).subscribe(() => {
+    this.inscripciones.push(datoQr); // Actualizar lista local de inscripciones
+  });
   
-  
-  noHayCupoAlert() {
-    this.alertController.create({
-      header: 'Cupos agotados',
-      message: 'Este evento ya no tiene cupos disponibles.',
-      buttons: ['OK'],
-    }).then(alert => alert.present());
-  }
+  //y descontar 1 cupo despues de guardarlo
+  this.descontarCupo(seminario);
+}
+
+
+verDetalle(seminario:any) {
+
+  //preparar datos del qr
+  const datoQr = this.GenerarQrData(seminario);
+
+  //mostrar Qr en el page lector-qr
+  this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
+}
+
+descontarCupo(seminario:any){
+  seminario.cupos -= 1;
+  this.apicrudSesion.updateSeminario(seminario.id, { cupos: seminario.cupos }).subscribe();
+}
+
+// Habilitar botón "Ver QR" si ya está inscrito
+habilitarVerQr(seminario: any): boolean {
+  return this.inscripciones.some(inscripcion => inscripcion.nombre === seminario.nombreseminario);
+}
+
 }

@@ -14,6 +14,8 @@ export class ActividadesPage implements OnInit {
 
   actividad: actividades[]=[];
   usuario:any;
+  inscripciones: any[] = [];
+  
 
   constructor(private apicrudSesion: ApicrudSesionService, private router: Router,
     private auth: AuthService, private alertController: AlertController
@@ -23,7 +25,15 @@ export class ActividadesPage implements OnInit {
     this.usuario=this.auth.getSesionUser();
     this.apicrudSesion.getActividades().subscribe(data=>{
       this.actividad=data;
-    })
+    });
+
+    // Cargar inscripciones del usuario
+  this.apicrudSesion.getInscripciones().subscribe(data => {
+    this.inscripciones = data.filter(inscripciones => inscripciones.rut === this.usuario.rut);
+  });
+
+
+
   }
 
 
@@ -40,7 +50,8 @@ async confirmarRegistro(actividad: any) {
       {
         text: 'Inscribir',
         handler: () => {
-          this.inscribirActividad(actividad);
+          this.guardarIncripcion(actividad);
+          this.verDetalle(actividad);
         },
       },
     ],
@@ -51,47 +62,61 @@ async confirmarRegistro(actividad: any) {
 
 
 
-inscribirActividad(actividad: any) {
-
-  if (actividad.cupos > 0) {
-    // Actualiza los cupos del taller
-    actividad.cupos -= 1;
-
-    // Guardar la actualización en el JSON 
-    this.apicrudSesion.updateActividad(actividad.id, { cupos: actividad.cupos }).subscribe(() => {
-      console.log("Cupos actualizados correctamente.");
-    });
 
 
 
-  // Registrar al usuario y navegar al lector-QR
+GenerarQrData(actividad:any){
   const qrdata = {
+    id: actividad.id,
     nombre: actividad.nombretaller,
     fecha: actividad.fecha,
     rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
     email: this.usuario.email,
     asistido:false,
     comentario:""
-  };
+  }
+  return qrdata;
+}
 
-  this.apicrudSesion.postInscripcion(qrdata).subscribe(() => {
-    this.router.navigate(['./lector-qr'], {
-      queryParams: { data: JSON.stringify(qrdata) },
+
+
+guardarIncripcion( actividad:any){
+ //preparar datos del qr
+  const datoQr = this.GenerarQrData(actividad);
+
+  // guardar incripcion en Json
+  this.apicrudSesion.postInscripcion(datoQr).subscribe(
+    () => {
+      // Añadir inscripción a la lista local
+      this.inscripciones.push(datoQr);
     });
-  });
-}else{
-  console.log("No hay cupos disponibles");
-    this.noHayCupoAlert();
-}
+  
+  //y descontar 1 cupo despues de guardarlo
+  this.descontarCupo(actividad);
 }
 
 
-noHayCupoAlert() {
-  this.alertController.create({
-    header: 'Cupos agotados',
-    message: 'Esta actividad ya no tiene cupos disponibles.',
-    buttons: ['OK'],
-  }).then(alert => alert.present());
+
+verDetalle(actividad:any) {
+
+  //preparar datos del qr
+  const datoQr = this.GenerarQrData(actividad);
+
+  //mostrar Qr en el page lector-qr
+  this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
+}
+
+descontarCupo(actividad:any){
+  actividad.cupos -= 1;
+  this.apicrudSesion.updateActividad(actividad.id, { cupos: actividad.cupos }).subscribe();
+}
+
+
+
+
+
+habilitarVerQr(actividad: any): boolean {
+  return this.inscripciones.some(inscripcion => inscripcion.nombre === actividad.nombretaller);
 }
 
 }

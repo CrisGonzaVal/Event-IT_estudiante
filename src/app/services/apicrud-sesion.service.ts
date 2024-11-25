@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { actividades } from 'src/interfaces/actividades';
 import { seminarios } from 'src/interfaces/seminarios';
 import { eventos } from 'src/interfaces/eventos';
-import { incripcion } from 'src/interfaces/incripcion';
+import { inscripciones } from 'src/interfaces/inscripciones';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,6 @@ getEventos():Observable<eventos[]>{
   return this.httpClient.get<eventos[]>(`${environment.apiUrl}/Eventos`);
 }
 
-postInscripcion(newqrdata: incripcion):Observable<incripcion>{
-  return this.httpClient.post<incripcion>(`${environment.apiUrl}/incripcion`, newqrdata);}
 
 
 updateActividad(id: string, data: any): Observable<any> {
@@ -44,7 +42,12 @@ updateSeminario(id: string, data: any): Observable<any> {
   }
 
 
+  getInscripciones():Observable<inscripciones[]> {
+    return this.httpClient.get<inscripciones[]>(`${environment.apiUrl}/inscripciones`);
+  }
 
+  postInscripcion(newqrdata: inscripciones):Observable<inscripciones>{
+  return this.httpClient.post<inscripciones>(`${environment.apiUrl}/inscripciones`, newqrdata);}
 
 
 }

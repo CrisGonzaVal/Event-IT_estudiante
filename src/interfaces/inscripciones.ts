@@ -1,4 +1,4 @@
-export interface incripcion
+export interface inscripciones
 {
     nombre: string;
     fecha:string;

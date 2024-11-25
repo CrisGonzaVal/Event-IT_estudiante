@@ -24,10 +24,21 @@
         <p><strong>Ubicación:</strong> {{a.ubicacion}}</p>
         <p><strong>Cupos:</strong> {{a.cupos}}</p><br>
 
-        <ion-button size="default"  (click)="confirmarRegistro(a)">
+        <ion-button size="default"  
+        (click)="confirmarRegistro(a)"
+        [disabled]="a.cupos <= 0 || habilitarVerQr(a)" 
+        *ngIf="!habilitarVerQr(a); else verQrTemplate">
           <ion-icon name="clipboard-outline" slot="end"></ion-icon>
           Quiero Asistir
         </ion-button>
+        
+      <ng-template #verQrTemplate> 
+        <ion-button  color="success" 
+        (click)="verDetalle(a)">
+        <ion-icon name="qr-code-outline" slot="end"></ion-icon>
+        Ver QR
+        </ion-button>
+        </ng-template>
 
       </ion-label>
 

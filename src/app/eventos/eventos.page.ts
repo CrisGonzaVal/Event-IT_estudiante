@@ -12,24 +12,34 @@ import { AlertController } from '@ionic/angular';
 })
 export class EventosPage implements OnInit {
 
-  evento: eventos[]=[];
-  usuario:any;
+  evento: eventos[] = [];
+  usuario: any;
+  inscripciones: any[] = [];
 
-  constructor(private apicrudSesion: ApicrudSesionService, private router: Router,
-    private auth: AuthService,  private alertController: AlertController
+  constructor(
+    private apicrudSesion: ApicrudSesionService,
+    private router: Router,
+    private auth: AuthService,
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
-    this.usuario=this.auth.getSesionUser();
-    this.apicrudSesion.getEventos().subscribe(data=>{
-      this.evento=data;
-    })
-  }
-  
+    // Obtener datos del usuario y eventos disponibles
+    this.usuario = this.auth.getSesionUser();
+    this.apicrudSesion.getEventos().subscribe(data => {
+      this.evento = data;
+    });
 
+    // Obtener inscripciones del usuario
+    this.apicrudSesion.getInscripciones().subscribe(data => {
+      this.inscripciones = data.filter(inscripcion => inscripcion.rut === this.usuario.rut);
+    });
+  }
+
+  // Confirmación de registro
   async confirmarRegistro(evento: any) {
     const alert = await this.alertController.create({
-      header: 'Confirmación de Incripción',
+      header: 'Confirmación de Inscripción',
       message: `¿Deseas registrarte al evento "${evento.nombreevento} "?`,
       buttons: [
         {
@@ -39,59 +49,58 @@ export class EventosPage implements OnInit {
         {
           text: 'Inscribir',
           handler: () => {
-            this.inscribirEvento(evento);
+            this.guardarIncripcion(evento);
+            this.verDetalle(evento);
           },
         },
       ],
     });
-  
+
     await alert.present();
   }
-  
-  
-  
-  inscribirEvento(evento: any) {
 
-    if (evento.cupos > 0) {
-      // Actualiza los cupos del taller
-      evento.cupos -= 1;
-  
-      // Guardar la actualización en el JSON 
-      this.apicrudSesion.updateEvento(evento.id, { cupos: evento.cupos }).subscribe(() => {
-        console.log("Cupos actualizados correctamente.");
-      });
-
-
-
-
-   // Registrar al usuario y navegar al lector-QR
-    const qrdata = {
+  // Generar datos del QR
+  GenerarQrData(evento: any) {
+    return {
+      id: evento.id,
       nombre: evento.nombreevento,
       fecha: evento.fecha,
-      rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
+      rut: this.usuario.rut,
       email: this.usuario.email,
-      asistido:false,
-      comentario:""
+      asistido: false,
+      comentario: "",
     };
-  
-    this.apicrudSesion.postInscripcion(qrdata).subscribe(() => {
-      this.router.navigate(['./lector-qr'], {
-        queryParams: { data: JSON.stringify(qrdata) },
-      });
+  }
+
+  // Guardar inscripción y descontar cupo
+  guardarIncripcion(evento: any) {
+    const datoQr = this.GenerarQrData(evento);
+
+    // Guardar inscripción
+    this.apicrudSesion.postInscripcion(datoQr).subscribe(() => {
+      this.inscripciones.push(datoQr); // Actualizar lista local de inscripciones
     });
-  }else{
-    console.log("No hay cupos disponibles");
-      this.noHayCupoAlert();
-  }
+
+    // Descontar cupo
+    this.descontarCupo(evento);
   }
 
-  noHayCupoAlert() {
-    this.alertController.create({
-      header: 'Cupos agotados',
-      message: 'Este Evento ya no tiene cupos disponibles.',
-      buttons: ['OK'],
-    }).then(alert => alert.present());
+  // Mostrar QR en lector-qr
+  verDetalle(evento: any) {
+    const datoQr = this.GenerarQrData(evento);
+
+    
+    this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
   }
 
+  // Actualizar cupos
+  descontarCupo(evento: any) {
+    evento.cupos -= 1;
+    this.apicrudSesion.updateEvento(evento.id, { cupos: evento.cupos }).subscribe();
+  }
+
+  // Habilitar botón "Ver QR" si ya está inscrito
+  habilitarVerQr(evento: any): boolean {
+    return this.inscripciones.some(inscripcion => inscripcion.nombre === evento.nombreevento);
+  }
 }
-
