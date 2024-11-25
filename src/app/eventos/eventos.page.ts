@@ -24,15 +24,23 @@ export class EventosPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Obtener datos del usuario y eventos disponibles
+    this.cargarDatos();
+  }
+
+  ionViewWillEnter() {
+    this.cargarDatos();
+  }
+
+  cargarDatos() {
+    console.log("cargando datos en actividades");
     this.usuario = this.auth.getSesionUser();
-    this.apicrudSesion.getEventos().subscribe(data => {
+    
+    this.apicrudSesion.getEventos().subscribe((data) => {
       this.evento = data;
     });
-
-    // Obtener inscripciones del usuario
-    this.apicrudSesion.getInscripciones().subscribe(data => {
-      this.inscripciones = data.filter(inscripcion => inscripcion.rut === this.usuario.rut);
+  
+    this.apicrudSesion.getInscripciones().subscribe((data) => {
+      this.inscripciones = data.filter((inscripcion) => inscripcion.rut === this.usuario.rut);
     });
   }
 
@@ -62,9 +70,11 @@ export class EventosPage implements OnInit {
   // Generar datos del QR
   GenerarQrData(evento: any) {
     return {
-      id: evento.id,
+      id: evento.id+this.usuario.rut,
+      idTaller: evento.id,
       nombre: evento.nombreevento,
       fecha: evento.fecha,
+      tipo:"evento",
       rut: this.usuario.rut,
       email: this.usuario.email,
       asistido: false,
@@ -78,6 +88,7 @@ export class EventosPage implements OnInit {
 
     // Guardar inscripción
     this.apicrudSesion.postInscripcion(datoQr).subscribe(() => {
+      
       this.inscripciones.push(datoQr); // Actualizar lista local de inscripciones
     });
 

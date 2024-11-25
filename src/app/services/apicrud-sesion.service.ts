@@ -19,14 +19,27 @@ export class ApicrudSesionService {
   return this.httpClient.get<actividades[]>(`${environment.apiUrl}/Actividades`);
 }
 
+getActividad(id: string): Observable<any> {
+  return this.httpClient.get<any>(`${environment.apiUrl}/Actividades/${id}`);
+}
+
+
 getSeminarios():Observable<seminarios[]>{
   return this.httpClient.get<seminarios[]>(`${environment.apiUrl}/Seminarios`);
 }
+
+getSeminario(id: string): Observable<any> {
+  return this.httpClient.get<any>(`${environment.apiUrl}/Seminarios/${id}`);
+}
+
 
 getEventos():Observable<eventos[]>{
   return this.httpClient.get<eventos[]>(`${environment.apiUrl}/Eventos`);
 }
 
+getEvento(id: string): Observable<any> {
+  return this.httpClient.get<any>(`${environment.apiUrl}/Eventos/${id}`);
+}
 
 
 updateActividad(id: string, data: any): Observable<any> {
@@ -50,7 +63,7 @@ updateSeminario(id: string, data: any): Observable<any> {
   return this.httpClient.post<inscripciones>(`${environment.apiUrl}/inscripciones`, newqrdata);}
 
   deleteInscripcion(id: string) {
-    return this.httpClient.delete(`ruta/del/json/inscripciones/${id}`);
+    return this.httpClient.delete(`${environment.apiUrl}/inscripciones/${id}`);
   }
 
 

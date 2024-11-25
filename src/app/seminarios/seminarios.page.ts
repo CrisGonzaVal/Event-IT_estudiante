@@ -19,17 +19,26 @@ export class SeminariosPage implements OnInit {
   constructor(private apicrudSesion: ApicrudSesionService, private router: Router, 
     private auth: AuthService, private alertController: AlertController ) {}
 
-  ngOnInit() {
-    this.usuario=this.auth.getSesionUser();
-    this.apicrudSesion.getSeminarios().subscribe(data=>{
-      this.seminario=data;
-    });
-
-     // Obtener inscripciones del usuario
-     this.apicrudSesion.getInscripciones().subscribe(data => {
-      this.inscripciones = data.filter(inscripcion => inscripcion.rut === this.usuario.rut);
-    });
-  }
+    ngOnInit() {
+      this.cargarDatos();
+    }
+  
+    ionViewWillEnter() {
+      this.cargarDatos();
+    }
+  
+    cargarDatos() {
+      console.log("cargando datos en actividades");
+      this.usuario = this.auth.getSesionUser();
+      
+      this.apicrudSesion.getSeminarios().subscribe((data) => {
+        this.seminario = data;
+      });
+    
+      this.apicrudSesion.getInscripciones().subscribe((data) => {
+        this.inscripciones = data.filter((inscripcion) => inscripcion.rut === this.usuario.rut);
+      });
+    }
 
 
   async confirmarRegistro(seminario: any) {
@@ -58,16 +67,18 @@ export class SeminariosPage implements OnInit {
 
 
 GenerarQrData(seminario:any){
-  const qrdata = {
-    id: seminario.id,
+  return {
+    id: seminario.id+this.usuario.rut,
+    idTaller: seminario.id,
     nombre: seminario.nombreseminario,
     fecha: seminario.fecha,
+    tipo:"seminario",
     rut: this.usuario.rut, //.slice(0, 8), Primeros 8 caracteres del RUT
     email: this.usuario.email,
     asistido:false,
     comentario:""
   }
-  return qrdata;
+  
 }
 
 

@@ -74,7 +74,7 @@
       "ubicacion": "Aula 204",
       "isactive": true,
       "id": "26b7",
-      "cupos": 29,
+      "cupos": 1,
       "descripcion": "Introducción a Python, ideal para principiantes que desean aprender a programar."
     },
     {
@@ -84,7 +84,7 @@
       "ubicacion": "Laboratorio de Ingeniería",
       "isactive": true,
       "id": "199e",
-      "cupos": 29,
+      "cupos": 1,
       "descripcion": "Descubre los fundamentos de la inteligencia artificial y cómo aplicarla en proyectos reales."
     },
     {
@@ -94,7 +94,7 @@
       "ubicacion": "Auditorio Central",
       "isactive": true,
       "id": "39c6",
-      "cupos": 29,
+      "cupos": 26,
       "descripcion": "Explora el impacto de la tecnología blockchain en la economía y la seguridad digital."
     },
     {
@@ -212,7 +212,5 @@
       "descripcion": "Explora el impacto de la inteligencia artificial en diagnósticos médicos y tratamientos."
     }
   ],
-  "inscripciones": [
-    
-  ]
+  "inscripciones": []
 }

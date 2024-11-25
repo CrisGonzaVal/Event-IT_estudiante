@@ -31,11 +31,7 @@ const routes: Routes = [
     loadChildren: () => import('./editar-usuario/editar-usuario.module').then(m => m.EditarUsuarioPageModule),
     canActivate: [AutorizadoGuard]
   },
-  {
-    path: 'lector-qr',
-    loadChildren: () => import('./lector-qr/lector-qr.module').then(m => m.LectorQRPageModule),
-    canActivate: [AutorizadoGuard]
-  },
+  
 ];
 
 @NgModule({

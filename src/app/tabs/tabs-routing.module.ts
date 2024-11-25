@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('../seminarios/seminarios.module').then(m => m.SeminariosPageModule),
       },
       {
+        path: 'lector-qr',
+        loadChildren: () => import('../lector-qr/lector-qr.module').then(m => m.LectorQRPageModule),
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

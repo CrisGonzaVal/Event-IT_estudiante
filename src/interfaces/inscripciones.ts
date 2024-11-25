@@ -1,6 +1,7 @@
 export interface inscripciones
 {
     id:string;
+    idTaller:string;
     nombre: string;
     fecha:string;
     tipo:string;

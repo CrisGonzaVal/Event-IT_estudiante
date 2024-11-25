@@ -24,18 +24,24 @@ export class ActividadesPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.usuario=this.auth.getSesionUser();
-    this.apicrudSesion.getActividades().subscribe(data=>{
-      this.actividad=data;
+    this.cargarDatos();
+  }
+
+  ionViewWillEnter() {
+    this.cargarDatos();
+  }
+
+  cargarDatos() {
+    console.log("cargando datos en actividades");
+    this.usuario = this.auth.getSesionUser();
+    
+    this.apicrudSesion.getActividades().subscribe((data) => {
+      this.actividad = data;
     });
-
-    // Cargar inscripciones del usuario
-  this.apicrudSesion.getInscripciones().subscribe(data => {
-    this.inscripciones = data.filter(inscripciones => inscripciones.rut === this.usuario.rut);
-  });
-
-
-
+  
+    this.apicrudSesion.getInscripciones().subscribe((data) => {
+      this.inscripciones = data.filter((inscripcion) => inscripcion.rut === this.usuario.rut);
+    });
   }
 
 
@@ -68,7 +74,7 @@ async confirmarRegistro(actividad: any) {
 
 
 GenerarQrData(actividad:any){
-  const qrdata = {
+  return {
     id: actividad.id+this.usuario.rut,
     idTaller: actividad.id,
     nombre: actividad.nombretaller,
@@ -79,7 +85,6 @@ GenerarQrData(actividad:any){
     asistido:false,
     comentario:""
   }
-  return qrdata;
 }
 
 
@@ -106,7 +111,7 @@ verDetalle(actividad:any) {
   const datoQr = this.GenerarQrData(actividad);
 
   //mostrar Qr en el page lector-qr
-  this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
+  this.router.navigate(['./tabs/lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
 }
 
 
