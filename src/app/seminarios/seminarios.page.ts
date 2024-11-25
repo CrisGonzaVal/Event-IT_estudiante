@@ -103,7 +103,7 @@ verDetalle(seminario:any) {
   const datoQr = this.GenerarQrData(seminario);
 
   //mostrar Qr en el page lector-qr
-  this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
+  this.router.navigate(['./tabs/lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
 }
 
 descontarCupo(seminario:any){

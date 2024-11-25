@@ -101,7 +101,7 @@ export class EventosPage implements OnInit {
     const datoQr = this.GenerarQrData(evento);
 
     
-    this.router.navigate(['./lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
+    this.router.navigate(['./tabs/lector-qr'], { queryParams: { data: JSON.stringify(datoQr) } });
   }
 
   // Actualizar cupos
