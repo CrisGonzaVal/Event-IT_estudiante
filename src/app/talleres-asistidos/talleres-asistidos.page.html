@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Talleres Asistidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let taller of talleresAsistidos">
+    <ion-card-header>
+      <ion-card-title>{{ taller.nombre }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Fecha:</strong> {{ taller.fecha }}</p>
+      <p><strong>Comentario:</strong> {{ taller.comentario || 'Sin comentario' }}</p>
+      <ion-button expand="block" color="primary" (click)="agregarComentario(taller)">Agregar Comentario</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

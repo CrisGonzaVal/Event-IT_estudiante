@@ -6,6 +6,7 @@ import { actividades } from 'src/interfaces/actividades';
 import { seminarios } from 'src/interfaces/seminarios';
 import { eventos } from 'src/interfaces/eventos';
 import { inscripciones } from 'src/interfaces/inscripciones';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -64,6 +65,19 @@ updateSeminario(id: string, data: any): Observable<any> {
 
   deleteInscripcion(id: string) {
     return this.httpClient.delete(`${environment.apiUrl}/inscripciones/${id}`);
+  }
+
+
+  getTalleresAsistidos(rut: string) {
+    return this.httpClient.get<inscripciones[]>(`${environment.apiUrl}/inscripciones`).pipe(
+      map((inscripciones: inscripciones[]) =>
+        inscripciones.filter(inscripcion => inscripcion.rut === rut && inscripcion.asistido)
+      )
+    );
+  }
+
+  updateInscripcion(id: string, data: Partial<inscripciones>): Observable<any> {
+    return this.httpClient.patch(`${environment.apiUrl}/inscripciones/${id}`, data);
   }
 
 

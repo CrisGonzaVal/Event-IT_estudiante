@@ -32,6 +32,10 @@ const routes: Routes = [
         loadChildren: () => import('../lector-qr/lector-qr.module').then(m => m.LectorQRPageModule),
       },
       {
+        path: 'talleres-asistidos',
+        loadChildren: () => import('../talleres-asistidos/talleres-asistidos.module').then( m => m.TalleresAsistidosPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
