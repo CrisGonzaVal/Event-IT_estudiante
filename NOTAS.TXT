@@ -72,3 +72,6 @@ sdk
 >ionic capacitor sync android
 >ionic capacitor copy android
 >ionic capacitor open android
+
+
+Puedes reinstalar dependencias con npm install desde el archivo package.json

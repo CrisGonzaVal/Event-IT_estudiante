@@ -56,160 +56,187 @@
       "isactive": true
     }
   ],
-  "Actividades": [
+  "administrador": [
     {
-      "nombretaller": "Taller de Desarrollo Web",
+      "id": "3f54",
+      "rut": "19182972-7",
+      "username": "Cristian Gonzalez Valenzuela",
+      "email": "crise.gonzalez@duocuc.cl",
+      "password": "123456789"
+    },
+    {
+      "id": "3zf4",
+      "rut": "12345678-7",
+      "username": "Felipe Carrillo",
+      "email": "admin",
+      "password": "admin123456"
+    }
+  ],
+  "talleres": [
+    {
+      "nombre": "Taller de Desarrollo Web",
       "fecha": "2023-10-05",
       "hora": "10:00 AM",
       "ubicacion": "Aula 302",
       "isactive": true,
       "id": "dd13",
       "cupos": 0,
-      "descripcion": "Aprende a construir sitios web interactivos utilizando HTML, CSS y JavaScript."
+      "descripcion": "Aprende a construir sitios web interactivos utilizando HTML, CSS y JavaScript.",
+      "tipo": "actividad"
     },
     {
-      "nombretaller": "Taller de Python",
+      "nombre": "Taller de Python",
       "fecha": "2023-10-06",
       "hora": "11:00 AM",
       "ubicacion": "Aula 204",
       "isactive": true,
       "id": "26b7",
       "cupos": 1,
-      "descripcion": "Introducción a Python, ideal para principiantes que desean aprender a programar."
+      "descripcion": "Introducción a Python, ideal para principiantes que desean aprender a programar.",
+      "tipo": "actividad"
     },
     {
-      "nombretaller": "Curso Intensivo de IA",
+      "nombre": "Curso Intensivo de IA",
       "fecha": "2023-10-07",
       "hora": "09:00 AM",
       "ubicacion": "Laboratorio de Ingeniería",
       "isactive": true,
       "id": "199e",
       "cupos": 0,
-      "descripcion": "Descubre los fundamentos de la inteligencia artificial y cómo aplicarla en proyectos reales."
+      "descripcion": "Descubre los fundamentos de la inteligencia artificial y cómo aplicarla en proyectos reales.",
+      "tipo": "actividad"
     },
     {
-      "nombretaller": "Conferencia sobre Blockchain",
+      "nombre": "Conferencia sobre Blockchain",
       "fecha": "2023-10-08",
       "hora": "20:00 PM",
       "ubicacion": "Auditorio Central",
       "isactive": true,
       "id": "39c6",
       "cupos": 25,
-      "descripcion": "Explora el impacto de la tecnología blockchain en la economía y la seguridad digital."
+      "descripcion": "Explora el impacto de la tecnología blockchain en la economía y la seguridad digital.",
+      "tipo": "actividad"
     },
     {
-      "nombretaller": "Workshop de UI",
+      "nombre": "Workshop de UI",
       "fecha": "2023-10-09",
       "hora": "04:00 PM",
       "ubicacion": "Aula 512",
       "isactive": true,
       "id": "f602",
       "cupos": 30,
-      "descripcion": "Aprende a diseñar interfaces de usuario atractivas y funcionales para aplicaciones."
-    }
-  ],
-  "Eventos": [
+      "descripcion": "Aprende a diseñar interfaces de usuario atractivas y funcionales para aplicaciones.",
+      "tipo": "actividad"
+    },
     {
-      "nombreevento": "Concierto de Música Clásica",
+      "nombre": "Concierto de Música Clásica",
       "fecha": "2023-10-15",
       "hora": "08:00 PM",
       "ubicacion": "DUOC UC sede Maipú",
       "isactive": true,
       "id": "6aaa",
       "cupos": 29,
-      "descripcion": "Un recital imperdible de música clásica con obras de reconocidos compositores."
+      "descripcion": "Un recital imperdible de música clásica con obras de reconocidos compositores.",
+      "tipo": "evento"
     },
     {
-      "nombreevento": "Expo Tecnología 2024",
+      "nombre": "Expo Tecnología 2024",
       "fecha": "2023-11-20",
       "hora": "11:00 AM",
       "ubicacion": "Sede San Carlos de Apoquindo",
       "isactive": true,
       "id": "1708",
       "cupos": 29,
-      "descripcion": "Explora las últimas innovaciones en tecnología y conectividad."
+      "descripcion": "Explora las últimas innovaciones en tecnología y conectividad.",
+      "tipo": "evento"
     },
     {
-      "nombreevento": "Festival de Innovación",
+      "nombre": "Festival de Innovación",
       "fecha": "2023-11-22",
       "hora": "11:00 AM",
       "ubicacion": "Sede Antonio Varas",
       "isactive": true,
       "id": "269b",
       "cupos": 30,
-      "descripcion": "Un encuentro para creativos y emprendedores en tecnología e innovación."
+      "descripcion": "Un encuentro para creativos y emprendedores en tecnología e innovación.",
+      "tipo": "evento"
     },
     {
-      "nombreevento": "Evento de Emprendimiento TI",
+      "nombre": "Evento de Emprendimiento TI",
       "fecha": "2023-11-28",
       "hora": "02:00 PM",
       "ubicacion": "Sede Alameda",
       "isactive": true,
       "id": "2a40",
       "cupos": 29,
-      "descripcion": "Participa en sesiones de networking y conferencias sobre emprendimiento tecnológico."
+      "descripcion": "Participa en sesiones de networking y conferencias sobre emprendimiento tecnológico.",
+      "tipo": "evento"
     },
     {
-      "nombreevento": "Concierto de Música Clásica",
+      "nombre": "Concierto de Música Clásica",
       "fecha": "2023-11-28",
       "hora": "06:00 PM",
       "ubicacion": "Sede Viña del Mar",
       "isactive": true,
       "id": "c341",
       "cupos": 30,
-      "descripcion": "Disfruta de un repertorio único de música clásica en un entorno espectacular."
-    }
-  ],
-  "Seminarios": [
+      "descripcion": "Disfruta de un repertorio único de música clásica en un entorno espectacular.",
+      "tipo": "evento"
+    },
     {
-      "nombreseminario": "Seminario de Inteligencia Artificial",
+      "nombre": "Seminario de Inteligencia Artificial",
       "fecha": "2023-10-10",
       "hora": "03:00 PM",
       "ubicacion": "Auditorio Principal",
       "isactive": true,
       "id": "a2c0",
       "cupos": 29,
-      "descripcion": "Descubre los últimos avances en inteligencia artificial y su impacto en la sociedad."
+      "descripcion": "Descubre los últimos avances en inteligencia artificial y su impacto en la sociedad.",
+      "tipo": "seminario"
     },
     {
-      "nombreseminario": "Tecnología y Educación",
+      "nombre": "Tecnología y Educación",
       "fecha": "2023-11-06",
       "hora": "12:00 PM",
       "ubicacion": "Auditorio B",
       "isactive": true,
       "id": "0228",
       "cupos": 30,
-      "descripcion": "Explora cómo las tecnologías emergentes están transformando la educación."
+      "descripcion": "Explora cómo las tecnologías emergentes están transformando la educación.",
+      "tipo":"seminario"
     },
     {
-      "nombreseminario": "Innovaciones en Agricultura",
+      "nombre": "Innovaciones en Agricultura",
       "fecha": "2023-11-07",
       "hora": "09:00 AM",
       "ubicacion": "Sala C",
       "isactive": true,
       "id": "697a",
       "cupos": 30,
-      "descripcion": "Aprende sobre las herramientas tecnológicas que están revolucionando la agricultura."
+      "descripcion": "Aprende sobre las herramientas tecnológicas que están revolucionando la agricultura.",
+      "tipo":"seminario"
     },
     {
-      "nombreseminario": "Blockchain y sus Aplicaciones",
+      "nombre": "Blockchain y sus Aplicaciones",
       "fecha": "2023-11-08",
       "hora": "19:00 PM",
       "ubicacion": "Sala D",
       "isactive": true,
       "id": "7fe6",
       "cupos": 30,
-      "descripcion": "Conoce cómo la tecnología blockchain está transformando industrias globales."
+      "descripcion": "Conoce cómo la tecnología blockchain está transformando industrias globales.",
+      "tipo":"seminario"
     },
     {
-      "nombreseminario": "Inteligencia Artificial en Salud",
+      "nombre": "Inteligencia Artificial en Salud",
       "fecha": "2023-11-09",
       "hora": "04:00 PM",
       "ubicacion": "Sala Morajhayco 512",
       "isactive": true,
       "id": "2382",
       "cupos": 30,
-      "descripcion": "Explora el impacto de la inteligencia artificial en diagnósticos médicos y tratamientos."
+      "descripcion": "Explora el impacto de la inteligencia artificial en diagnósticos médicos y tratamientos.",
+      "tipo":"seminario"
     }
   ],
   "inscripciones": [
