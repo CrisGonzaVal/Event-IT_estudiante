@@ -113,7 +113,7 @@
       "ubicacion": "Auditorio Central",
       "isactive": true,
       "id": "39c6",
-      "cupos": 25,
+      "cupos": 24,
       "descripcion": "Explora el impacto de la tecnología blockchain en la economía y la seguridad digital.",
       "tipo": "actividad"
     },
@@ -278,6 +278,17 @@
       "idTaller": "26b7",
       "nombre": "Taller de Python",
       "fecha": "2023-10-06",
+      "tipo": "actividad",
+      "rut": "19182972-7",
+      "email": "crise.gonzalez@duocuc.cl",
+      "asistido": false,
+      "comentario": ""
+    },
+    {
+      "id": "39c619182972-7",
+      "idTaller": "39c6",
+      "nombre": "Conferencia sobre Blockchain",
+      "fecha": "2023-10-08",
       "tipo": "actividad",
       "rut": "19182972-7",
       "email": "crise.gonzalez@duocuc.cl",

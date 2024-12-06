@@ -4,6 +4,7 @@ import { ApicrudSesionService } from '../services/apicrud-sesion.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-talleres',
@@ -21,7 +22,9 @@ export class TalleresPage implements OnInit {
   constructor(private apicrudSesion: ApicrudSesionService,
     private router: Router,
     private auth: AuthService, 
-    private alertController: AlertController) { }
+    private alertController: AlertController,
+    private loadingController: LoadingController,// Importación del controlador de carga
+    ) { }
 
     ngOnInit() {
       this.cargarDatos();
@@ -43,8 +46,10 @@ export class TalleresPage implements OnInit {
         this.inscripciones = data.filter((inscripcion) => inscripcion.rut === this.usuario.rut);
       });
     }
-  
-  
+
+
+
+
   
   async confirmarRegistro(taller: any) {
     const alert = await this.alertController.create({
@@ -89,19 +94,50 @@ export class TalleresPage implements OnInit {
   
   
   
-  guardarIncripcion( taller:any){
-   //preparar datos del qr
+  async guardarIncripcion(taller: any) {
+    // Mostrar indicador de carga
+    const loading = await this.loadingController.create({
+      message: 'Procesando inscripción...',
+      spinner: 'circles', // Cambiar el estilo si lo deseas
+    });
+    await loading.present();
+  
+    // Preparar datos del QR
     const datoQr = this.GenerarQrData(taller);
   
-    // guardar incripcion en Json
+    // Guardar inscripción en el JSON
     this.apicrudSesion.postInscripcion(datoQr).subscribe(
-      () => {
+      async () => {
         // Añadir inscripción a la lista local
         this.inscripciones.push(datoQr);
-      });
-    
-    //y descontar 1 cupo despues de guardarlo
-    this.descontarCupo(taller);
+  
+        // Descontar cupo después de guardarlo
+        this.descontarCupo(taller);
+  
+        // Ocultar indicador de carga
+        await loading.dismiss();
+  
+        // Mensaje de éxito
+        const alert = await this.alertController.create({
+          header: '¡Éxito!',
+          message: `Te has inscrito correctamente al taller "${taller.nombre}".`,
+          buttons: ['OK'],
+        });
+        await alert.present();
+      },
+      async (error) => {
+        // Ocultar indicador de carga en caso de error
+        await loading.dismiss();
+  
+        // Mostrar mensaje de error
+        const alert = await this.alertController.create({
+          header: 'Error',
+          message: 'Hubo un problema al inscribirte. Inténtalo de nuevo.',
+          buttons: ['OK'],
+        });
+        await alert.present();
+      }
+    );
   }
   
   

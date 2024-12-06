@@ -66,9 +66,6 @@ export class loginPage implements OnInit {
 
 
 
-
-
-
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
@@ -125,6 +122,7 @@ export class loginPage implements OnInit {
 
   }
 
+  
   private IniciarSesion(usuario:any){
     this.router.navigateByUrl('/tabs/home', { replaceUrl: true }); // para forzar la recarga completa de la página home si es necesario.
     this.showToast( this.authservice.setSesionUser(usuario) );
