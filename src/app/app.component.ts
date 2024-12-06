@@ -28,26 +28,7 @@ interface configuraciones{
 export class AppComponent {
 
   menu:Menu[]=[
-
-    {
-      icon:'newspaper-outline',
-      name:'ACTIVIDADES',
-      redirectTo:'/tabs/actividades',
-      cantidad:10
-    },
-    {
-      icon:'chatbubbles-outline',
-      name:'SEMINARIOS',
-      redirectTo:'/tabs/seminarios',
-      cantidad:10
-    },
-    {
-      icon:'calendar-outline',
-      name:'EVENTOS',
-      redirectTo:'/tabs/eventos',
-      cantidad:10
-    },
-
+   
   ]
 
   configuraciones:configuraciones[]=[

@@ -4,7 +4,6 @@ import { ApicrudSesionService } from '../services/apicrud-sesion.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
-import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -23,8 +22,7 @@ export class LectorQRPage implements OnInit {
   constructor(private route: ActivatedRoute,
     private apicrudSesion: ApicrudSesionService,
     private alertController: AlertController,
-    private router: Router,
-    private navCtrl: NavController) { }
+    private router: Router) { }
 
   ngOnInit() {
     //capturar los datos de generarQrData
@@ -46,7 +44,6 @@ export class LectorQRPage implements OnInit {
         this.email = data.email;
       }
     }) 
-    console.log(this.qrData.id+" "+this.qrData.tipo+" "+this.qrData.nombre);
   }
 
 
@@ -67,39 +64,20 @@ export class LectorQRPage implements OnInit {
           handler: () => {
             // Lógica para eliminar la inscripción
             this.apicrudSesion.deleteInscripcion(this.qrData.id).subscribe(() => {
-              // Obtener datos del taller, evento o seminario antes de actualizar
+              // Obtener datos del taller antes de actualizar
               let updateCupoObservable;
-              if (this.qrData.tipo === 'actividad') {
-                updateCupoObservable = this.apicrudSesion.getActividad(this.qrData.idTaller).pipe(
+
+                updateCupoObservable = this.apicrudSesion.getTaller(this.qrData.idTaller).pipe(
                   // Actualizar el cupo sumando 1
-                  tap((actividad: any) => {
-                    this.apicrudSesion.updateActividad(this.qrData.idTaller, { cupos: actividad.cupos + 1 }).subscribe();
+                  tap((taller: any) => {
+                    this.apicrudSesion.updateTaller(this.qrData.idTaller, { cupos: taller.cupos + 1 }).subscribe();
                   })
                 );
-              }
-              
-              else if (this.qrData.tipo === 'evento') {
-                updateCupoObservable = this.apicrudSesion.getEvento(this.qrData.idTaller).pipe(
-                  // Actualizar el cupo sumando 1
-                  tap((evento: any) => {
-                    this.apicrudSesion.updateEvento(this.qrData.idTaller, { cupos: evento.cupos + 1 }).subscribe();
-                  })
-                );
-              } 
-              
-              else if (this.qrData.tipo === 'seminario') {
-                updateCupoObservable = this.apicrudSesion.getSeminario(this.qrData.idTaller).pipe(
-                  // Actualizar el cupo sumando 1
-                  tap((seminario: any) => {
-                    this.apicrudSesion.updateSeminario(this.qrData.idTaller, { cupos: seminario.cupos + 1 }).subscribe();
-                  })
-                );
-              }
   
               
               if (updateCupoObservable) {
                 updateCupoObservable.subscribe(() => {
-                  this.volverAtras();
+                  this.router.navigate(['/tabs/talleres']);
                 });
               }
             });
@@ -111,15 +89,5 @@ export class LectorQRPage implements OnInit {
     await alert.present();
   }
 
-
-  volverAtras(){
-    if (this.qrData.tipo === 'actividad') {
-      this.router.navigate(['/tabs/actividades']);
-    } else if (this.qrData.tipo === 'evento') {
-      this.router.navigate(['/tabs/eventos']);
-    } else if (this.qrData.tipo === 'seminario') {
-      this.router.navigate(['/tabs/seminarios']);
-    }
-  }
 }
 

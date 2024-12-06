@@ -91,7 +91,7 @@
       "ubicacion": "Aula 204",
       "isactive": true,
       "id": "26b7",
-      "cupos": 1,
+      "cupos": 0,
       "descripcion": "Introducción a Python, ideal para principiantes que desean aprender a programar.",
       "tipo": "actividad"
     },
@@ -203,7 +203,7 @@
       "id": "0228",
       "cupos": 30,
       "descripcion": "Explora cómo las tecnologías emergentes están transformando la educación.",
-      "tipo":"seminario"
+      "tipo": "seminario"
     },
     {
       "nombre": "Innovaciones en Agricultura",
@@ -214,7 +214,7 @@
       "id": "697a",
       "cupos": 30,
       "descripcion": "Aprende sobre las herramientas tecnológicas que están revolucionando la agricultura.",
-      "tipo":"seminario"
+      "tipo": "seminario"
     },
     {
       "nombre": "Blockchain y sus Aplicaciones",
@@ -225,7 +225,7 @@
       "id": "7fe6",
       "cupos": 30,
       "descripcion": "Conoce cómo la tecnología blockchain está transformando industrias globales.",
-      "tipo":"seminario"
+      "tipo": "seminario"
     },
     {
       "nombre": "Inteligencia Artificial en Salud",
@@ -236,11 +236,10 @@
       "id": "2382",
       "cupos": 30,
       "descripcion": "Explora el impacto de la inteligencia artificial en diagnósticos médicos y tratamientos.",
-      "tipo":"seminario"
+      "tipo": "seminario"
     }
   ],
   "inscripciones": [
-  
     {
       "id": "199e19182972-7",
       "idTaller": "199e",
@@ -272,6 +271,17 @@
       "rut": "19182972-7",
       "email": "crise.gonzalez@duocuc.cl",
       "asistido": true,
+      "comentario": ""
+    },
+    {
+      "id": "26b719182972-7",
+      "idTaller": "26b7",
+      "nombre": "Taller de Python",
+      "fecha": "2023-10-06",
+      "tipo": "actividad",
+      "rut": "19182972-7",
+      "email": "crise.gonzalez@duocuc.cl",
+      "asistido": false,
       "comentario": ""
     }
   ]

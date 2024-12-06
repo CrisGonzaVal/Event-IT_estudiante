@@ -1,6 +1,6 @@
-export interface seminarios
+export interface talleres
 {
-    nombreseminario: string;
+    nombre: string;
     fecha:string;
     hora:string;
     ubicacion:string;
@@ -8,4 +8,5 @@ export interface seminarios
     id?:string;
     cupos:number;
     descripcion:string;
+    tipo:string;
 }

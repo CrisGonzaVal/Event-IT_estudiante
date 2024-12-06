@@ -5,36 +5,38 @@
     defaultHref="/tabs/home">
     </ion-back-button>
   </ion-buttons>
-    <ion-title>Actividades</ion-title>
+    <ion-title>Talleres Disponibles</ion-title>
     <ion-icon name="newspaper-outline" color="light" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   
-    <ion-card *ngFor="let a of actividad">
+    <ion-card *ngFor="let t of talleres">
       <ion-card-content>
         
       <ion-label color="primary">
 
-        <h2><strong>{{a.nombretaller}}</strong></h2>
-        <h4>{{a.descripcion}}</h4><br>
-        <p><strong>Fecha:</strong> {{a.fecha}}</p>
-        <p><strong>Hora:</strong> {{a.hora}}</p>
-        <p><strong>Ubicación:</strong> {{a.ubicacion}}</p>
-        <p><strong>Cupos:</strong> {{a.cupos}}</p><br>
+        <h2><strong>{{t.nombre}}</strong></h2>
+        <h4>{{t.descripcion}}</h4><br>
+        <p><strong>Fecha:</strong> {{t.fecha}}</p>
+        <p><strong>Hora:</strong> {{t.hora}}</p>
+        <p><strong>Ubicación:</strong> {{t.ubicacion}}</p>
+        <p><strong>Cupos:</strong> {{t.cupos}}</p>
+        <p><strong>Tipo de Taller:</strong> {{t.tipo}}</p><br>
+        
 
         <ion-button size="default"  
-        (click)="confirmarRegistro(a)"
-        [disabled]="a.cupos <= 0 || habilitarVerQr(a)" 
-        *ngIf="!habilitarVerQr(a); else verQrTemplate">
+        (click)="confirmarRegistro(t)"
+        [disabled]="t.cupos <= 0 || habilitarVerQr(t)" 
+        *ngIf="!habilitarVerQr(t); else verQrTemplate">
           <ion-icon name="clipboard-outline" slot="end"></ion-icon>
           Quiero Asistir
         </ion-button>
         
       <ng-template #verQrTemplate> 
         <ion-button  color="success" 
-        (click)="verDetalle(a)">
+        (click)="verDetalle(t)">
         <ion-icon name="qr-code-outline" slot="end"></ion-icon>
         Ver QR
         </ion-button>
@@ -44,7 +46,5 @@
      </ion-card-content>
 
     </ion-card>
-
-  
 
 </ion-content>
