@@ -17,8 +17,15 @@
     </ion-card-header>
     <ion-card-content>
       <p><strong>Fecha:</strong> {{ taller.fecha }}</p>
-      <p><strong>Comentario:</strong> {{ taller.comentario || 'Sin comentario' }}</p>
-      <ion-button expand="block" color="primary" (click)="agregarComentario(taller)">Agregar Comentario</ion-button>
+      <p><strong>Comentario:</strong></p>
+
+      <!-- Textarea para escribir comentario -->
+      <ion-textarea
+        [(ngModel)]="taller.comentario"
+        placeholder="Escribe tu comentario del taller aquí..."
+        (keydown)="onEnter($event, taller)">
+      </ion-textarea>
     </ion-card-content>
   </ion-card>
 </ion-content>
+
