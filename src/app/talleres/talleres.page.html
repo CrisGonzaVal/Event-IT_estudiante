@@ -13,12 +13,14 @@
 <ion-content>
   
     <ion-card *ngFor="let t of talleres">
+      <ion-card-header>
+        <ion-card-title>{{ t.nombre }}</ion-card-title>
+      </ion-card-header>
       <ion-card-content>
         
       <ion-label color="primary">
 
-        <h2><strong>{{t.nombre}}</strong></h2>
-        <h4>{{t.descripcion}}</h4><br>
+        <h2>{{t.descripcion}}</h2><br>
         <p><strong>Fecha:</strong> {{t.fecha}}</p>
         <p><strong>Hora:</strong> {{t.hora}}</p>
         <p><strong>Ubicación:</strong> {{t.ubicacion}}</p>
