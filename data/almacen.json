@@ -91,7 +91,7 @@
       "ubicacion": "Aula 204",
       "isactive": true,
       "id": "26b7",
-      "cupos": 0,
+      "cupos": 1,
       "descripcion": "Introducción a Python, ideal para principiantes que desean aprender a programar.",
       "tipo": "actividad"
     },
@@ -271,17 +271,6 @@
       "rut": "19182972-7",
       "email": "crise.gonzalez@duocuc.cl",
       "asistido": true,
-      "comentario": ""
-    },
-    {
-      "id": "26b719182972-7",
-      "idTaller": "26b7",
-      "nombre": "Taller de Python",
-      "fecha": "2023-10-06",
-      "tipo": "actividad",
-      "rut": "19182972-7",
-      "email": "crise.gonzalez@duocuc.cl",
-      "asistido": false,
       "comentario": ""
     },
     {

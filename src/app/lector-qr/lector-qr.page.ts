@@ -4,6 +4,7 @@ import { ApicrudSesionService } from '../services/apicrud-sesion.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -22,8 +23,12 @@ export class LectorQRPage implements OnInit {
   constructor(private route: ActivatedRoute,
     private apicrudSesion: ApicrudSesionService,
     private alertController: AlertController,
-    private router: Router) { }
+    private router: Router,
+    private loadingController: LoadingController ) { }
 
+
+
+    
   ngOnInit() {
     //capturar los datos de generarQrData
     this.route.queryParams.subscribe(params => {
@@ -60,27 +65,68 @@ export class LectorQRPage implements OnInit {
           role: 'cancel',
         },
         {
-          text: 'Sí, Quiero Cancelar mi Incripción',
-          handler: () => {
-            // Lógica para eliminar la inscripción
-            this.apicrudSesion.deleteInscripcion(this.qrData.id).subscribe(() => {
-              // Obtener datos del taller antes de actualizar
-              let updateCupoObservable;
-
-                updateCupoObservable = this.apicrudSesion.getTaller(this.qrData.idTaller).pipe(
+          text: 'Sí, Quiero Cancelar mi Inscripción',
+          handler: async () => {
+            // Mostrar indicador de carga
+            const loading = await this.loadingController.create({
+              message: 'Cancelando inscripción...',
+              spinner: 'circles', // Cambiar estilo si lo deseas
+            });
+            await loading.present();
+  
+            // Eliminar la inscripción
+            this.apicrudSesion.deleteInscripcion(this.qrData.id).subscribe(
+              async () => {
+                // Obtener datos del taller antes de actualizar
+                const updateCupoObservable = this.apicrudSesion.getTaller(this.qrData.idTaller).pipe(
                   // Actualizar el cupo sumando 1
                   tap((taller: any) => {
                     this.apicrudSesion.updateTaller(this.qrData.idTaller, { cupos: taller.cupos + 1 }).subscribe();
                   })
                 );
   
-              
-              if (updateCupoObservable) {
-                updateCupoObservable.subscribe(() => {
-                  this.router.navigate(['/tabs/talleres']);
+                // Ejecutar la actualización del cupo
+                updateCupoObservable.subscribe(
+                  async () => {
+                    // Ocultar indicador de carga
+                    await loading.dismiss();
+  
+                    // Navegar de regreso a la lista de talleres
+                    const successAlert = await this.alertController.create({
+                      header: 'Inscripción Cancelada',
+                      message: 'Tu inscripción ha sido cancelada correctamente.',
+                      buttons: ['OK'],
+                    });
+                    await successAlert.present();
+                    this.router.navigate(['/tabs/talleres']);
+                  },
+                  async (error) => {
+                    // Ocultar indicador de carga en caso de error
+                    await loading.dismiss();
+  
+                    // Mostrar mensaje de error
+                    const errorAlert = await this.alertController.create({
+                      header: 'Error',
+                      message: 'Hubo un problema al cancelar tu inscripción. Inténtalo nuevamente.',
+                      buttons: ['OK'],
+                    });
+                    await errorAlert.present();
+                  }
+                );
+              },
+              async (error) => {
+                // Ocultar indicador de carga en caso de error
+                await loading.dismiss();
+  
+                // Mostrar mensaje de error
+                const errorAlert = await this.alertController.create({
+                  header: 'Error',
+                  message: 'No se pudo eliminar tu inscripción. Inténtalo nuevamente.',
+                  buttons: ['OK'],
                 });
+                await errorAlert.present();
               }
-            });
+            );
           },
         },
       ],
@@ -88,6 +134,7 @@ export class LectorQRPage implements OnInit {
   
     await alert.present();
   }
+  
 
 }
 
