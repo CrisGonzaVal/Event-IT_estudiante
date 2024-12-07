@@ -112,7 +112,7 @@
   }
 
 /* Ajustar el estilo del ion-input */
-ion-input {
+  ion-input {
   font-size: 15px; /* Ajusta el tamaño de la fuente */
   --padding-start: 0px; /* Elimina el padding adicional */
   --padding-end: 0px;
@@ -123,14 +123,7 @@ ion-content {
   overflow-y:hidden;  /* Deshabilita el scroll vertical */
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Desactiva los cambios basados en el esquema de color */
-  :root {
-    --ion-background-color: #edf7fa;
-    --ion-text-color: #000000;
-  }
 
-} 
 
   
 
