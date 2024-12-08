@@ -30,7 +30,7 @@
         <p><strong>Tipo de Taller:</strong> {{t.tipo}}</p><br>
         
 
-        <ion-button size="default"  
+        <ion-button color="primary" size="default"  
         (click)="confirmarRegistro(t)"
         [disabled]="t.cupos <= 0 || habilitarVerQr(t)" 
         *ngIf="!habilitarVerQr(t); else verQrTemplate">
@@ -39,7 +39,7 @@
         </ion-button>
         
       <ng-template #verQrTemplate> 
-        <ion-button  color="success" 
+        <ion-button  color="tertiary" 
         (click)="verDetalle(t)">
         <ion-icon name="qr-code-outline" slot="end"></ion-icon>
         Ver QR
