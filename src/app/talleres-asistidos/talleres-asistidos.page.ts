@@ -60,7 +60,6 @@ export class TalleresAsistidosPage implements OnInit {
         async () => {
           // Ocultar indicador de carga
           await loading.dismiss();
-          console.log(`Comentario guardado para el taller ${taller.nombre}: ${taller.comentario}`);
         },
         async (error) => {
           // Ocultar indicador de carga en caso de error
