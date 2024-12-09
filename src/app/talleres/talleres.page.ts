@@ -14,8 +14,14 @@ import { LoadingController } from '@ionic/angular';
 export class TalleresPage implements OnInit {
 
   talleres: talleres[]=[];
+  talleresFiltrados: talleres[] = []; // Talleres filtrados
   usuario:any;
   inscripciones: any[]=[];
+
+  // Filtros
+  filtroTipo: string = 'todos'; // Puede ser: 'todos', 'evento', 'seminario', 'actividad'
+  filtroFecha: string = 'recientes'; // Puede ser: 'recientes', 'antiguos'
+  filtroInscripcion: string = 'todos'; // Puede ser: 'todos', 'inscrito', 'no_inscrito'
 
   
 
@@ -40,6 +46,7 @@ export class TalleresPage implements OnInit {
       
       this.apicrudSesion.getTalleres().subscribe((data) => {
         this.talleres = data;
+        this.talleresFiltrados = [...this.talleres]; // Inicialmente, todos los talleres
       });
     
       this.apicrudSesion.getInscripciones().subscribe((data) => {
@@ -47,6 +54,31 @@ export class TalleresPage implements OnInit {
       });
     }
 
+
+    aplicarFiltros() {
+      // Filtrar por tipo
+      let filtrados = this.filtroTipo === 'todos'
+        ? [...this.talleres]
+        : this.talleres.filter(taller => taller.tipo === this.filtroTipo);
+  
+      // Filtrar por inscripción
+      if (this.filtroInscripcion !== 'todos') {
+        filtrados = filtrados.filter(taller => {
+          const estaInscrito = this.inscripciones.some(inscripcion => inscripcion.idTaller === taller.id);
+          return this.filtroInscripcion === 'inscrito' ? estaInscrito : !estaInscrito;
+        });
+      }
+  
+      // Ordenar por fecha
+      filtrados.sort((a, b) => {
+        const fechaA = new Date(a.fecha).getTime();
+        const fechaB = new Date(b.fecha).getTime();
+        return this.filtroFecha === 'recientes' ? fechaB - fechaA : fechaA - fechaB;
+      });
+  
+      this.talleresFiltrados = filtrados;
+    }
+  
 
 
 

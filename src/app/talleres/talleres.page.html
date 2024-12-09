@@ -11,9 +11,63 @@
 </ion-header>
 
 <ion-content>
+
+  <!-- Barra de Filtros -->
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <!-- Filtro por Tipo -->
+        <ion-col size="12" size-md="4">
+          <ion-segment [(ngModel)]="filtroTipo" (ionChange)="aplicarFiltros()" [scrollable]="true" mode="ios">
+            <ion-segment-button value="todos">
+              <ion-label>Todos</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="evento">
+              <ion-label>Eventos</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="seminario">
+              <ion-label>Seminarios</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="actividad">
+              <ion-label>Actividades</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>   
+  
+      
+  <ion-card>
+    <ion-grid [fixed]="true">
+      <ion-row>
+        <!-- Filtro por Fecha -->
+        <ion-col size="12" size-md="4">
+          <ion-item>
+            <ion-select label="Fecha " label-placement="floating" interface="action-sheet" [(ngModel)]="filtroFecha" (ionChange)="aplicarFiltros()">
+              <ion-select-option value="recientes">Más recientes</ion-select-option>
+              <ion-select-option value="antiguos">Más antiguos</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+        <!-- Filtro por Inscripción -->
+        <ion-col size="12" size-md="4">
+          <ion-item>
+            <ion-select label="Inscripción " interface="action-sheet" label-placement="floating" [(ngModel)]="filtroInscripcion" (ionChange)="aplicarFiltros()">
+              <ion-select-option value="todos">Todos</ion-select-option>
+              <ion-select-option value="inscrito">Inscrito</ion-select-option>
+              <ion-select-option value="no_inscrito">No inscrito</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+<!--lista de los talleres-->
   <ion-grid>
     <ion-row>
-      <ion-col size="12" *ngFor="let t of talleres">
+      <ion-col size="12" *ngFor="let t of talleresFiltrados">
       <ion-card>
       <ion-card-header>
         <ion-card-title>{{ t.nombre }}</ion-card-title>

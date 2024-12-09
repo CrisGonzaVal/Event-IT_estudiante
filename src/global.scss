@@ -89,8 +89,8 @@ ion-toolbar{
     padding: 10px;
    // margin: 20px 0;
     border: 1px #004643; /* Borde del contenedor */
-
-    margin: 20px 2%;
+    --box-shadow: none; /* Elimina la sombra por defecto */
+    margin: 1px 3%;
   }
 
   ion-card-title {
