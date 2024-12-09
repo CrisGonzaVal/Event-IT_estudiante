@@ -93,7 +93,8 @@ export class homePage {
   async showToast(msg: any){
     const toast= await this.toast.create({
       message:msg,
-      duration: 4000
+      duration: 4000,
+      mode:'ios'
     })
     toast.present();
   }

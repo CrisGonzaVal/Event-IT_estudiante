@@ -35,7 +35,8 @@ export class AutorizadoGuard  {
     async showToast(msg: any){
       const toast = await this.toast.create({
         message:msg,
-        duration: 3000
+        duration: 3000,
+        mode:'ios'
       });
       toast.present();
     }

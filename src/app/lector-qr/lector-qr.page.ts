@@ -59,6 +59,7 @@ export class LectorQRPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Cancelar Inscripción',
       message: '¿Estás seguro de que deseas cancelar tu inscripción?',
+      mode:'ios',
       buttons: [
         {
           text: 'No',
@@ -71,6 +72,7 @@ export class LectorQRPage implements OnInit {
             const loading = await this.loadingController.create({
               message: 'Cancelando inscripción...',
               spinner: 'circles', // Cambiar estilo si lo deseas
+              mode:'ios'
             });
             await loading.present();
   
@@ -96,6 +98,7 @@ export class LectorQRPage implements OnInit {
                       header: 'Inscripción Cancelada',
                       message: 'Tu inscripción ha sido cancelada correctamente.',
                       buttons: ['OK'],
+                      mode:'ios'
                     });
                     await successAlert.present();
                     this.router.navigate(['/tabs/talleres']);
@@ -109,6 +112,7 @@ export class LectorQRPage implements OnInit {
                       header: 'Error',
                       message: 'Hubo un problema al cancelar tu inscripción. Inténtalo nuevamente.',
                       buttons: ['OK'],
+                      mode:'ios'
                     });
                     await errorAlert.present();
                   }
@@ -123,6 +127,7 @@ export class LectorQRPage implements OnInit {
                   header: 'Error',
                   message: 'No se pudo eliminar tu inscripción. Inténtalo nuevamente.',
                   buttons: ['OK'],
+                  mode:'ios'
                 });
                 await errorAlert.present();
               }

@@ -62,7 +62,8 @@ export class EditarUsuarioPage implements OnInit {
   async showToast(msg: any){
     const toast= await this.toast.create({
       message:msg,
-      duration: 2000
+      duration: 2000,
+      mode:'ios'
     })
     toast.present();
   }

@@ -86,7 +86,6 @@ ion-toolbar{
   }
 
   ion-card {
-    
     border-radius: 12px;
     padding: 10px;
    // margin: 20px 0;
@@ -114,6 +113,8 @@ ion-toolbar{
     --color: var(--ion-color-dark);
   }
 
+  
+
   ion-label {
     font-size: 14px;  /* Ajusta el tamaño de las etiquetas de los formularios */
     color: var(--ion-text-color);
@@ -122,6 +123,7 @@ ion-toolbar{
   ion-item{
     font-size: 14px;  /* Ajusta el tamaño de las etiquetas de los formularios */
   }
+
 
   ion-textarea {
     font-size: 1rem;

@@ -52,6 +52,7 @@ export class TalleresAsistidosPage implements OnInit {
       const loading = await this.loadingController.create({
         message: 'Guardando comentario...',
         spinner: 'circles',
+        mode:"ios"
       });
       await loading.present();
   
@@ -71,6 +72,7 @@ export class TalleresAsistidosPage implements OnInit {
             header: 'Error',
             message: 'No se pudo guardar el comentario. Inténtalo nuevamente.',
             buttons: ['OK'],
+            mode:"ios"
           });
           await alert.present();
         }

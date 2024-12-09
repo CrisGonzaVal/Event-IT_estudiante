@@ -61,6 +61,7 @@ export class loginPage implements OnInit {
     const loading = await this.loadingController.create({
       message: 'Validando Usuario...',
       spinner: 'circles', // Cambiar el estilo del spinner si lo deseas
+      mode:'ios'
     });
     await loading.present();
 
@@ -133,7 +134,8 @@ export class loginPage implements OnInit {
   async showToast(msg: any){
     const toast= await this.toast.create({
       message:msg,
-      duration: 2000
+      duration: 2000,
+      mode:'ios'
     })
     toast.present();
   }
@@ -143,7 +145,8 @@ export class loginPage implements OnInit {
     const alerta = await this.alertcontroller.create({ 
       header : 'Usuario inactivo',
       message : 'Contactar a admin@admin.cl',
-      buttons : ['OK']
+      buttons : ['OK'],
+      mode:'ios'
     })
     alerta.present();
   }
@@ -153,7 +156,8 @@ async ErrorUsuario(){
   const alerta = await this.alertcontroller.create({ 
     header : 'Error..',
     message : 'Revise sus credenciales',
-    buttons : ['OK']
+    buttons : ['OK'],
+    mode:'ios'
   })
   alerta.present();
 }
@@ -162,7 +166,8 @@ async UsuarioNoExiste(){
   const alerta = await this.alertcontroller.create({ 
     header : 'No existe...',
     message : 'Debe registrarse..',
-    buttons : ['OK']
+    buttons : ['OK'],
+    mode:'ios'
   })
   alerta.present();
 }

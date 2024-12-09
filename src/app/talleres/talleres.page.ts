@@ -87,6 +87,7 @@ export class TalleresPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Confirmación de Inscripción',
       message: `¿Deseas registrarte al taller "${taller.nombre} "?`,
+      mode:'ios',
       buttons: [
         {
           text: 'Cancelar',
@@ -131,6 +132,7 @@ export class TalleresPage implements OnInit {
     const loading = await this.loadingController.create({
       message: 'Procesando inscripción...',
       spinner: 'circles', // Cambiar el estilo si lo deseas
+      mode:"ios"
     });
     await loading.present();
   
@@ -154,6 +156,7 @@ export class TalleresPage implements OnInit {
           header: '¡Éxito!',
           message: `Te has inscrito correctamente al taller "${taller.nombre}".`,
           buttons: ['OK'],
+          mode:"ios"
         });
         await alert.present();
       },
@@ -166,6 +169,7 @@ export class TalleresPage implements OnInit {
           header: 'Error',
           message: 'Hubo un problema al inscribirte. Inténtalo de nuevo.',
           buttons: ['OK'],
+          mode:"ios"
         });
         await alert.present();
       }
