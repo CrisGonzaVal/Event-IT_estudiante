@@ -1,12 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-buttons slot="start">
     <ion-back-button 
     defaultHref="/tabs/home">
     </ion-back-button>
   </ion-buttons>
     <ion-title>Talleres Disponibles</ion-title>
-    <ion-icon name="newspaper-outline" color="light" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
+    <ion-icon name="newspaper-outline" color="primary" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -14,10 +14,10 @@
 
   <!-- Barra de Filtros -->
   <ion-toolbar>
-    <ion-grid>
+    <ion-grid [fixed]="false">
       <ion-row>
         <!-- Filtro por Tipo -->
-        <ion-col size="12" size-md="4">
+        <ion-col size="12" size-md="4" size-md="8" size-lg="6">
           <ion-segment [(ngModel)]="filtroTipo" (ionChange)="aplicarFiltros()" [scrollable]="true" mode="ios">
             <ion-segment-button value="todos">
               <ion-label>Todos</ion-label>
@@ -38,22 +38,22 @@
   </ion-toolbar>   
   
       
-  <ion-card>
-    <ion-grid [fixed]="true">
-      <ion-row>
+<ion-toolbar>
+    <ion-grid>
+      <ion-row class="filtros-row">
         <!-- Filtro por Fecha -->
-        <ion-col size="12" size-md="4">
-          <ion-item>
-            <ion-select label="Fecha " label-placement="floating" interface="action-sheet" [(ngModel)]="filtroFecha" (ionChange)="aplicarFiltros()">
+        <ion-col size="6" size-md="3">
+          <ion-item lines="none" class="filtro-item">
+            <ion-select label="Fecha" label-placement="floating" interface="action-sheet" [(ngModel)]="filtroFecha" (ionChange)="aplicarFiltros()" mode="ios">
               <ion-select-option value="recientes">Más recientes</ion-select-option>
               <ion-select-option value="antiguos">Más antiguos</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-col>
         <!-- Filtro por Inscripción -->
-        <ion-col size="12" size-md="4">
+        <ion-col size="6" size-md="3">
           <ion-item>
-            <ion-select label="Inscripción " interface="action-sheet" label-placement="floating" [(ngModel)]="filtroInscripcion" (ionChange)="aplicarFiltros()">
+            <ion-select label="Inscripción" interface="action-sheet" label-placement="floating" [(ngModel)]="filtroInscripcion" (ionChange)="aplicarFiltros()" mode="ios">
               <ion-select-option value="todos">Todos</ion-select-option>
               <ion-select-option value="inscrito">Inscrito</ion-select-option>
               <ion-select-option value="no_inscrito">No inscrito</ion-select-option>
@@ -62,7 +62,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-card>
+  </ion-toolbar>
 
 <!--lista de los talleres-->
   <ion-grid>

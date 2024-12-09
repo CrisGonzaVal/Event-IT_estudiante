@@ -1,0 +1,33 @@
+.filtros-row {
+    align-items: center; /* Alinea los elementos verticalmente */
+    justify-content: space-between; /* Separa los elementos horizontalmente */
+  }
+  
+  .filtro-item {
+    --min-height: 10px; /* Reduce la altura del item */
+    font-size: 0.9rem; /* Texto más pequeño */
+  }
+  
+  ion-select {
+    --padding-start: 8px;
+    --padding-end: 8px;
+  }
+  ion-toolbar {
+    width: 100%; /* Asegura que el toolbar siempre ocupe el ancho completo */
+  }
+
+  ion-grid {
+    padding: 0 8px; /* Reduce el padding interno del grid */
+  }
+
+  @media (orientation: landscape) {
+    ion-toolbar {
+      padding: 0 16px; /* Ajusta el padding en modo horizontal */
+      
+    }
+
+    ion-segment {
+        --max-width: 100%;
+      }
+}
+

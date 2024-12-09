@@ -37,10 +37,6 @@
  // @import "@ionic/angular/css/palettes/dark.system.css";
 
 
-
- 
-
-
  :root {
      //Colores personalizados 1
     --ion-color-primary: #004643;
@@ -67,6 +63,11 @@
   font-family: Verdana, sans-serif;
 }
 
+ion-title{
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 ion-toolbar{
   --background: var(--ion-color-light);
   --box-shadow: none; /* Elimina la sombra por defecto */
@@ -85,6 +86,7 @@ ion-toolbar{
   }
 
   ion-card {
+    
     border-radius: 12px;
     padding: 10px;
    // margin: 20px 0;
