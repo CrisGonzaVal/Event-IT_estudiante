@@ -1,14 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar  mode="ios">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+      <ion-back-button defaultHref="/tabs/home" text=""></ion-back-button>
     </ion-buttons>
     <ion-title >Editar Perfil</ion-title>
     <ion-icon name="create-outline" color="primary" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" mode="ios">
   <ion-grid>
     <ion-row class="align-center">
       <ion-col size="auto">
@@ -40,6 +40,12 @@
           <ion-input type="text" disabled [(ngModel)]="usuario.rut"></ion-input>
         </ion-item>
 
+         <!-- Campo Email -->
+         <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="usuario.email"></ion-input>
+        </ion-item>
+
         <!-- Campo Carrera -->
         <ion-item>
           <ion-label position="floating">Carrera</ion-label>
@@ -48,12 +54,6 @@
             <ion-select-option value="Tec. Analista Programador">Tec. Analista Programador</ion-select-option>
             <ion-select-option value="Ing. redes">Ing. en redes</ion-select-option>
           </ion-select>  
-        </ion-item>
-
-        <!-- Campo Email -->
-        <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" [(ngModel)]="usuario.email"></ion-input>
         </ion-item>
 
         <!-- Campo Tipo de Jornada -->
@@ -84,12 +84,10 @@
           <ion-toggle [(ngModel)]="usuario.isactive" [disabled]="true"></ion-toggle>
         </ion-item>
       </ion-list>
+      <!-- Botón para Guardar Cambios -->
+         <ion-button expand="block" color="primary" (click)="actualizarUsuario()">
+         <ion-icon slot="start" name="save-outline"></ion-icon> Guardar Cambios
+      </ion-button>
     </ion-card-content>
   </ion-card>
-  <div class="guardar-btn">
-  <!-- Botón para Guardar Cambios -->
-  <ion-button expand="block" color="primary" (click)="actualizarUsuario()">
-    <ion-icon slot="start" name="save-outline"></ion-icon> Guardar Cambios
-  </ion-button>
-</div>
 </ion-content>

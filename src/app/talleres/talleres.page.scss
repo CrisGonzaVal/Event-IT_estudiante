@@ -6,6 +6,8 @@
   .filtro-item {
     --min-height: 10px; /* Reduce la altura del item */
     font-size: 0.9rem; /* Texto más pequeño */
+    border-radius: 12px;
+
   }
   
   ion-select {
@@ -28,6 +30,7 @@
 
     ion-segment {
         --max-width: 100%;
+
       }
 }
 

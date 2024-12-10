@@ -1,8 +1,8 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar mode="ios">
     <ion-buttons slot="start">
     <ion-back-button 
-    defaultHref="/tabs/home">
+    defaultHref="/tabs/home" text="">
     </ion-back-button>
   </ion-buttons>
     <ion-title>Talleres Disponibles</ion-title>
@@ -13,7 +13,7 @@
 <ion-content>
 
   <!-- Barra de Filtros -->
-  <ion-toolbar>
+  
     <ion-grid [fixed]="false">
       <ion-row>
         <!-- Filtro por Tipo -->
@@ -35,10 +35,10 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-toolbar>   
+     
   
       
-<ion-toolbar>
+  
     <ion-grid>
       <ion-row class="filtros-row">
         <!-- Filtro por Fecha -->
@@ -52,7 +52,7 @@
         </ion-col>
         <!-- Filtro por Inscripción -->
         <ion-col size="6" size-md="3">
-          <ion-item>
+          <ion-item lines="none" class="filtro-item">
             <ion-select label="Inscripción" interface="action-sheet" label-placement="floating" [(ngModel)]="filtroInscripcion" (ionChange)="aplicarFiltros()" mode="ios">
               <ion-select-option value="todos">Todos</ion-select-option>
               <ion-select-option value="inscrito">Inscrito</ion-select-option>
@@ -62,13 +62,13 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-toolbar>
+  
 
 <!--lista de los talleres-->
   <ion-grid>
     <ion-row>
       <ion-col size="12" *ngFor="let t of talleresFiltrados">
-      <ion-card>
+      <ion-card mode="ios">
       <ion-card-header>
         <ion-card-title>{{ t.nombre }}</ion-card-title>
       </ion-card-header>
@@ -80,8 +80,8 @@
         <p><strong>Fecha:</strong> {{t.fecha}}</p>
         <p><strong>Hora:</strong> {{t.hora}}</p>
         <p><strong>Ubicación:</strong> {{t.ubicacion}}</p>
-        <p><strong>Cupos:</strong> {{t.cupos}}</p>
         <p><strong>Tipo de Taller:</strong> {{t.tipo}}</p><br>
+        <h3><strong>Cupos:</strong> {{t.cupos}}</h3><br>
         
 
         <ion-button color="primary" size="default"  

@@ -65,18 +65,18 @@
 
 ion-title{
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  
 }
 
-ion-toolbar{
-  --background: var(--ion-color-light);
-  --box-shadow: none; /* Elimina la sombra por defecto */
-}
   
   ion-tab-bar {
-   --background: var(--ion-color-light);
+  
   --color: var(--ion-color-dark);
   --color-selected: var(--ion-color-primary);
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Bordes para resaltar */
+    border-radius: 16px; /* Bordes redondeados */
+    margin: 10px 15px 10px; /* Separación lateral y de la parte inferior */
 
   }
   
@@ -145,7 +145,7 @@ ion-content {
 ion-footer{
   margin: 0 0 0;
   border: 1px solid rgba(0, 0, 0, 0.2); /* Borde del contenedor */
-  border-radius: 15px; /* Bordes redondeados */
+  border-radius: 16px; /* Bordes redondeados */
   overflow: hidden; /* Asegura que los bordes redondeados funcionen correctamente */
 
 }
