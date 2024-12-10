@@ -27,50 +27,47 @@
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item lines="none">
+        <ion-item >
           <ion-label>
             <h3>Nombre:</h3>
             <p>{{usuario.username}}</p>
           </ion-label>
         </ion-item>
-        <ion-item lines="none">
+        <ion-item>
           <ion-label>
             <h3>RUT:</h3>
             <p>{{usuario.rut}}</p>
           </ion-label>
         </ion-item>
-        <ion-item lines="none">
+        <ion-item >
           <ion-label>
             <h3>Email:</h3>
             <p>{{usuario.email}}</p>
           </ion-label>
         </ion-item>
-        <ion-item lines="none">
+        <ion-item >
           <ion-label>
             <h3>Carrera:</h3>
             <p>{{usuario.carrera}}</p>
           </ion-label>
         </ion-item>
-        <ion-item lines="none">
+        <ion-item >
           <ion-label>
             <h3>Tipo de Jornada:</h3>
             <p>{{usuario.jornada}}</p>
           </ion-label>
         </ion-item>
-        <ion-item lines="none">
+        <ion-item >
           <ion-label>
             <h3>Sección:</h3>
             <p>{{usuario.seccion}}</p>
           </ion-label>
         </ion-item>
       </ion-list>
-    </ion-card-content>
-
-    <ion-card-content>
-      <ion-button expand="block" color="tertiary" (click)="modificarUsuario()">
+      <ion-button  color="tertiary" (click)="modificarUsuario()">
         <ion-icon slot="start" name="create-outline"></ion-icon> Editar Perfil
       </ion-button>
-      <ion-button expand="block" color="danger" (click)="eliminarUsuario()">
+      <ion-button color="danger" (click)="eliminarUsuario()">
         <ion-icon slot="start" name="trash-outline"></ion-icon> Eliminar Cuenta
       </ion-button>
     </ion-card-content>

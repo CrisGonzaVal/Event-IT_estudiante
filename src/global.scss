@@ -34,7 +34,7 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
- // @import "@ionic/angular/css/palettes/dark.system.css";
+ @import "@ionic/angular/css/palettes/dark.system.css";
 
 
  :root {
@@ -49,6 +49,22 @@
    // texto
      --ion-text-color: var(--ion-color-primary);
  }
+
+ @media (prefers-color-scheme: dark) {
+  :root {
+    // Colores para modo oscuro
+    --ion-color-primary: #abd1c6; /* Color claro para texto o elementos principales */
+    --ion-color-secondary: #6b9080; /* Color secundario más suave */
+    --ion-color-tertiary: #ccffbd; /* Acento llamativo */
+    --ion-color-danger: #ff7f7f;
+    --ion-color-light: #1e1e1e; /* Fondo oscuro */
+    --ion-color-dark: #0b3d91; /* Tonos más oscuros para contraste */
+    --ion-text-color: #ffffff; /* Texto claro */
+  }
+}
+
+
+
 
  .logo{
   width: 130px; /* Define el ancho deseado */
@@ -65,18 +81,20 @@
 
 ion-title{
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
-  
+
   ion-tab-bar {
-  --color: var(--ion-color-dark);
-  --color-selected: var(--ion-color-primary);
     border: 1px solid rgba(0, 0, 0, 0.2); /* Bordes para resaltar */
     border-radius: 16px; /* Bordes redondeados */
-    margin: 10px 15px 10px; /* Separación lateral y de la parte inferior */
-
+    margin: 10px 15px 15px; /* Separación lateral y de la parte inferior */
+    @media (prefers-color-scheme: dark) {
+      border: 1px solid rgba(255, 255, 255, 0.2); /* Bordes claros */
+    }
   }
+
+
   
   ion-tab-button {
     --color: var(--ion-color-primary);
