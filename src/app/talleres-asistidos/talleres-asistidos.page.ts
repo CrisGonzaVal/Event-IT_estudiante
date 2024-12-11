@@ -20,17 +20,27 @@ export class TalleresAsistidosPage implements OnInit {
               private loadingController: LoadingController) {}
 
   ngOnInit() {
-    this.usuario = this.auth.getSesionUser();
-    this.cargarTalleresAsistidos();
+    this.cargarDatos
   }
 
   ionViewWillEnter(){
+    this.cargarDatos
+  }
+
+  doRefresh(event: any) {
+    // Llama a cargarDatos
+    this.cargarDatos();
+
+    // Asegúrate de completar el refresco tras cargar los datos
+    setTimeout(() => {
+      event.target.complete();
+    }, 1000); // Tiempo estimado para completar el refresco (ajustable)
+  }
+
+  cargarDatos(){
     this.usuario = this.auth.getSesionUser();
     this.cargarTalleresAsistidos();
   }
-
-
-
 
   cargarTalleresAsistidos() {
     this.apicrudSesion.getTalleresAsistidos(this.usuario.rut).subscribe((data) => {

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
     <ion-back-button 
-    defaultHref="/tabs/home">
+    defaultHref="/tabs/home" mode="ios" text="">
     </ion-back-button>
   </ion-buttons>
     <ion-title>Talleres Disponibles</ion-title>
@@ -11,6 +11,14 @@
 </ion-header>
 
 <ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-outline"
+      refreshingSpinner="circles"
+      refreshingText="Actualizando...">
+    </ion-refresher-content>
+  </ion-refresher>
 
   <!-- Barra de Filtros -->
   
