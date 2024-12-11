@@ -39,12 +39,12 @@
 
  :root {
      //Colores personalizados 1
-    --ion-color-primary: #004643;
+    --ion-color-primary: #3b7a82; 
     --ion-color-secondary: #ABD1C6;
-    --ion-color-tertiary: #F9BC60;
-    --ion-color-danger: #E16162;
+    --ion-color-tertiary:#FF6F61;
+    --ion-color-danger: #FF6F61;
     --ion-color-light: #edf7fa;
-    --ion-color-dark: #004643;
+    --ion-color-dark: #01506e;
 
    // texto
      --ion-text-color: var(--ion-color-primary);
@@ -52,14 +52,15 @@
 
  @media (prefers-color-scheme: dark) {
   :root {
-    // Colores para modo oscuro
-    --ion-color-primary: #abd1c6; /* Color claro para texto o elementos principales */
-    --ion-color-secondary: #6b9080; /* Color secundario más suave */
-    --ion-color-tertiary: #ccffbd; /* Acento llamativo */
-    --ion-color-danger: #ff7676;
-    --ion-color-light: #1e1e1e; /* Fondo oscuro */
-    --ion-color-dark: #ffffff;; /* Tonos más oscuros para contraste */
-    --ion-text-color: #ffffff; /* Texto claro */
+    
+    --ion-color-primary: #abd1c6;
+    --ion-color-secondary: #6b9080; 
+    --ion-color-tertiary: #ccffbd; 
+    --ion-color-danger: #FF6F61;
+    --ion-color-light: #292929; 
+    --ion-color-dark: #ffffff; 
+    // texto
+    --ion-text-color: var(--ion-color-primary);
   }
 }
 
@@ -81,6 +82,8 @@
 ion-title{
   text-align: center;
   font-size: 1.2rem;
+  --color: var(--ion-color-dark);
+  font-weight: bold;
 }
 
   ion-tab-bar {
@@ -100,7 +103,7 @@ ion-title{
   ion-card {
     border-radius: 12px;
     padding: 10px;
-   // margin: 20px 0;
+    margin: 20px 0;
     border: 1px #004643; /* Borde del contenedor */
     --box-shadow: none; /* Elimina la sombra por defecto */
     margin: 1px 3%;
@@ -110,14 +113,14 @@ ion-title{
   }
 
   ion-card-title {
-    --color: var(--ion-color-primary);
+    --color: var(--ion-color-dark);
     font-size: 1.2rem;
     font-weight: bold;
   }
 
   ion-button {
     --color: var(--ion-color-dark);
-    --background-hover: var(--ion-color-secondary);
+    --background-hover: var(--ion-color-primary);
     border-radius: 12px;  /* Redondear los bordes */
     display: block;     /* Asegura que el botón ocupe todo el ancho */
    margin: 10px 0;
@@ -135,8 +138,9 @@ ion-title{
   
 
   ion-label {
+
     font-size: 14px;  /* Ajusta el tamaño de las etiquetas de los formularios */
-    color: var(--ion-text-color);
+    
   }
 
   ion-item{
@@ -162,7 +166,7 @@ ion-content {
 }
 
 ion-footer{
-  margin: 0 0 2px;
+  margin: 0 0 0;
   --color: var(--ion-color-primary);
   border-radius: 16px; /* Bordes redondeados */
   overflow: hidden; /* Asegura que los bordes redondeados funcionen correctamente */

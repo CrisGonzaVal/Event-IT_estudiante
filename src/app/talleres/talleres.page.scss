@@ -18,10 +18,7 @@
     --padding-start: 8px;
     --padding-end: 8px;
   }
-  ion-toolbar {
-    width: 100%; /* Asegura que el toolbar siempre ocupe el ancho completo */
-  }
-
+ 
   ion-grid {
     padding: 0 8px; /* Reduce el padding interno del grid */
   }
@@ -32,9 +29,5 @@
       
     }
 
-    ion-segment {
-        --max-width: 100%;
-
-      }
 }
 
