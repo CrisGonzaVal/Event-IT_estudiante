@@ -20,11 +20,11 @@ export class TalleresAsistidosPage implements OnInit {
               private loadingController: LoadingController) {}
 
   ngOnInit() {
-    this.cargarDatos
+    this.cargarDatos();
   }
 
   ionViewWillEnter(){
-    this.cargarDatos
+    this.cargarDatos();
   }
 
   doRefresh(event: any) {
