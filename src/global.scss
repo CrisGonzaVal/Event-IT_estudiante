@@ -55,10 +55,10 @@
     
     --ion-color-primary: #abd1c6;
     --ion-color-secondary: #6b9080; 
-    --ion-color-tertiary: #ccffbd; 
+    --ion-color-tertiary: #FF6F61; 
     --ion-color-danger: #FF6F61;
     --ion-color-light: #292929; 
-    --ion-color-dark: #ffffff; 
+    --ion-color-dark: #edf7fa; 
     // texto
     --ion-text-color: var(--ion-color-primary);
   }
@@ -135,7 +135,9 @@ ion-title{
     --color: var(--ion-color-dark);
   }
 
-  
+  ion-icon{
+    --color: var(--ion-color-dark)!important;
+  }
 
   ion-label {
 
