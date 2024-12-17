@@ -37,9 +37,18 @@
  @import "@ionic/angular/css/palettes/dark.system.css";
 
 
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+ //@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+ //@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+
+
+
  :root {
      //Colores personalizados 1
-    --ion-color-primary: #3b7a82; 
+    --ion-color-primary: #427e86; 
     --ion-color-secondary: #ABD1C6;
     --ion-color-tertiary:#FF6F61;
     --ion-color-danger: #FF6F61;
@@ -75,7 +84,10 @@
 }
 
 *{
-  font-family: Verdana, sans-serif;
+  font-family:
+   /*'Nunito'*/
+  /*'Inter'*/
+  'Poppins';
 }
 
 
@@ -142,8 +154,9 @@ ion-title{
   ion-label {
 
     font-size: 14px;  /* Ajusta el tamaño de las etiquetas de los formularios */
-    
   }
+
+ 
 
   ion-item{
     font-size: 14px;  /* Ajusta el tamaño de las etiquetas de los formularios */
