@@ -8,13 +8,16 @@ import { RegistrarPageRoutingModule } from './registrar-routing.module';
 
 import { RegistrarPage } from './registrar.page';
 
+import { CoreModule } from '../core/core.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule, //para usar groupform
     IonicModule,
-    RegistrarPageRoutingModule
+    RegistrarPageRoutingModule,
+    CoreModule //importar footer
   ],
   declarations: [RegistrarPage]
 })
