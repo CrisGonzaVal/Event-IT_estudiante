@@ -8,12 +8,15 @@ import { TalleresAsistidosPageRoutingModule } from './talleres-asistidos-routing
 
 import { TalleresAsistidosPage } from './talleres-asistidos.page';
 
+import { CoreModule } from '../core/core.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TalleresAsistidosPageRoutingModule
+    TalleresAsistidosPageRoutingModule,
+    CoreModule //importar header y footer
   ],
   declarations: [TalleresAsistidosPage]
 })

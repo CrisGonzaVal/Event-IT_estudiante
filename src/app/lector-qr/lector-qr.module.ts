@@ -9,13 +9,16 @@ import { LectorQRPageRoutingModule } from './lector-qr-routing.module';
 import { LectorQRPage } from './lector-qr.page';
 import { QRCodeModule } from 'angularx-qrcode';
 
+import { CoreModule } from '../core/core.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     QRCodeModule,
     IonicModule,
-    LectorQRPageRoutingModule
+    LectorQRPageRoutingModule,
+    CoreModule //importar header y footer
   ],
   declarations: [LectorQRPage]
 })

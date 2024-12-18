@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+
+      <ion-back-button 
+         [defaultHref]="defaultHref" 
+         mode="ios" 
+         text="Atrás"
+         color="dark">
+      </ion-back-button>
+
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
+
+
+    <ion-icon 
+        [name]="icon" 
+        slot="end" size="large" 
+        style="margin-right: 5%;">
+    </ion-icon>
+
+  </ion-toolbar>
+
+</ion-header>

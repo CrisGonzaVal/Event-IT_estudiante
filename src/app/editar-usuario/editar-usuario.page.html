@@ -1,12 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar >
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/home" mode="ios" text="Atrás"></ion-back-button>
-    </ion-buttons>
-    <ion-title >Editar Perfil</ion-title>
-    <ion-icon name="create-outline" color="primary" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
-  </ion-toolbar>
-</ion-header>
+
+<!--header reutilizable-->
+<app-header 
+[title]="'Editar Perfil'" 
+[icon]="'create-outline'"
+[defaultHref]="'/tabs/home'">
+</app-header>
+
+
 
 <ion-content class="ion-padding" mode="ios">
   <ion-grid>

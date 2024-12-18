@@ -1,14 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-    <ion-back-button 
-    defaultHref="/tabs/home" mode="ios" text="Atrás">
-    </ion-back-button>
-  </ion-buttons>
-    <ion-title>Eventos Asistidos</ion-title>
-    <ion-icon name="calendar-outline" color="primary" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
-  </ion-toolbar>
-</ion-header>
+<!--header reutilizable-->
+<app-header 
+[title]="'Eventos Asistidos'" 
+[icon]="'calendar-outline'"
+[defaultHref]="'/tabs/home'">
+</app-header>
+
 
 <ion-content>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">

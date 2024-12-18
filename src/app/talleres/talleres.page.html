@@ -1,14 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-    <ion-back-button 
-    defaultHref="/tabs/home" mode="ios" text="Atrás">
-    </ion-back-button>
-  </ion-buttons>
-    <ion-title>Talleres Disponibles</ion-title>
-    <ion-icon name="newspaper-outline" color="primary" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
-  </ion-toolbar>
-</ion-header>
+<!--header reutilizable-->
+<app-header 
+[title]="'Talleres Disponibles'" 
+[icon]="'newspaper-outline'"
+[defaultHref]="'/tabs/home'">
+</app-header>
 
 <ion-content>
 

@@ -1,12 +1,10 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/" mode="ios" text="Atrás"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Registro de Usuario</ion-title>
-    <ion-icon name="person-add-outline" slot="end" size="large" style="margin-right: 5%;" ></ion-icon>
-  </ion-toolbar>
-</ion-header>
+<!--header reutilizable-->
+<app-header 
+[title]="'Registro de Usuario'" 
+[icon]="'person-add-outline'"
+[defaultHref]="'/'">
+</app-header>
+
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
@@ -128,4 +126,5 @@
   </ion-card>
 </ion-content>
 
-<app-footer></app-footer> <!-- Footer reutilizable -->
+<app-footer>
+</app-footer> <!-- Footer reutilizable -->

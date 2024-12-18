@@ -8,12 +8,15 @@ import { TalleresPageRoutingModule } from './talleres-routing.module';
 
 import { TalleresPage } from './talleres.page';
 
+import { CoreModule } from '../core/core.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TalleresPageRoutingModule
+    TalleresPageRoutingModule,
+    CoreModule //importar header y footer
   ],
   declarations: [TalleresPage]
 })

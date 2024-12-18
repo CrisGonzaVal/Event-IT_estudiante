@@ -8,12 +8,15 @@ import { EditarUsuarioPageRoutingModule } from './editar-usuario-routing.module'
 
 import { EditarUsuarioPage } from './editar-usuario.page';
 
+import { CoreModule } from '../core/core.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditarUsuarioPageRoutingModule
+    EditarUsuarioPageRoutingModule,
+    CoreModule //importar footer y header
   ],
   declarations: [EditarUsuarioPage]
 })

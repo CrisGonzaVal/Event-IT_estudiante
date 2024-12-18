@@ -1,12 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/talleres" mode="ios" text="Atrás"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Detalle de inscripción</ion-title>
-    <ion-icon name="qr-code-outline" color="primary" slot="end" size="large" style="margin-right: 5%;"></ion-icon>
-  </ion-toolbar>
-</ion-header>
+<!--header reutilizable-->
+<app-header 
+[title]="'Detalle de inscripción'" 
+[icon]="'qr-code-outline'"
+[defaultHref]="'/tabs/talleres'">
+</app-header>
+
+
 
 <ion-content mode="ios">
   <ion-card>
